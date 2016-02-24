@@ -89,6 +89,22 @@ p.nominalBounds = new cjs.Rectangle(0,0,62.7,91.1);
 p.nominalBounds = new cjs.Rectangle(-59.3,-75.8,118.7,151.8);
 
 
+(lib.participant_label = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Calque 1
+	this.label = new cjs.Text("participant B", "bold 12px 'Gotham Bold'");
+	this.label.name = "label";
+	this.label.lineHeight = 13;
+	this.label.lineWidth = 98;
+	this.label.setTransform(17.1,0,1,1.213,0,66.7,32.2);
+
+	this.timeline.addTween(cjs.Tween.get(this.label).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,103.4,61.7);
+
+
 (lib.floor = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -1084,21 +1100,76 @@ p.nominalBounds = new cjs.Rectangle(0,0,76.7,83.8);
 			this.gotoAndPlay('init');
 		}
 	}
+	this.frame_46 = function() {
+		/*
+		 Process
+		 -------
+		 Find if canvas in HTML shell page has the following data-attributes:
+		 - `data-participants-label-a`
+		 - `data-participants-label-b`
+		 
+		 Use them as attributes in the animation if found.
+		 Use default attributes if not.
+		 
+		 Assumes there is only on canvas in the page.
+		 */
+		 
+		var labelA = 'participant A';
+		var labelB = 'participant B';
+		
+		if (document) {
+			var canvas = document.getElementsByTagName('canvas')[0];
+			console.log(canvas.dataset);
+			if (canvas) {
+				labelA = canvas.dataset.participantsLabelA || labelA;
+				labelB = canvas.dataset.participantsLabelB || labelB;
+			}
+		}
+		
+		this.participantA.label.text = labelA;
+		this.participantB.label.text = labelB;
+	}
 	this.frame_74 = function() {
+		/*
+		 Process
+		 -------
+		 Find if canvas in HTML shell page has the following data-attributes:
+		 - `data-estimation-min`
+		 - `data-estimation-max`
+		 - `data-estimation-currency`
+		 
+		 Use them as attributes in the animation if found.
+		 Use default attributes if not.
+		 
+		 Assumes there is only on canvas in the page.
+		 */
+		 
+		var min = 5;
+		var max = 10;
+		var currency = '€';
+		if (document) {
+			var canvas = document.getElementsByTagName('canvas')[0];
+			if (canvas) {
+				min = canvas.dataset.estimationMin || min;
+				max = canvas.dataset.estimationMax || max;
+				currency = canvas.dataset.estimationCurrency || currency;
+			}
+		}
+		
 		function getRandomInt(min, max) {
 			return Math.floor(Math.random() * (max - min)) + min;
 		}
 		
-		var amount = getRandomInt(5, 10);
+		var amount = getRandomInt(min, max);
 		
-		this.bubbleLeft.estimation.text = amount.toFixed() + "€";
+		this.bubbleLeft.estimation.text = amount.toString() + currency;
 	}
 	this.frame_393 = function() {
 		this.gotoAndPlay('estimation');
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(74).call(this.frame_74).wait(319).call(this.frame_393).wait(35));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(46).call(this.frame_46).wait(28).call(this.frame_74).wait(319).call(this.frame_393).wait(35));
 
 	// portal (front)
 	this.instance = new lib.portal("synched",0);
@@ -1113,6 +1184,22 @@ p.nominalBounds = new cjs.Rectangle(0,0,76.7,83.8);
 	this.bubbleLeft._off = true;
 
 	this.timeline.addTween(cjs.Tween.get(this.bubbleLeft).wait(74).to({_off:false},0).to({regY:38.4,scaleX:1.17,scaleY:1.24,x:117,y:120.4},5,cjs.Ease.get(1)).wait(96).to({regY:38.2,scaleX:0.1,scaleY:0.1,x:136.4,y:172.3},4,cjs.Ease.get(1)).to({_off:true},1).wait(248));
+
+	// participants labels B
+	this.participantB = new lib.participant_label();
+	this.participantB.setTransform(501.8,339.3,1,1,0,0,0,51.7,30.9);
+	this.participantB.alpha = 0;
+	this.participantB._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.participantB).wait(46).to({_off:false},0).wait(4).to({alpha:1},4,cjs.Ease.get(1)).wait(374));
+
+	// participants labels A
+	this.participantA = new lib.participant_label();
+	this.participantA.setTransform(173.7,290.8,1,1,0,0,0,51.7,30.9);
+	this.participantA.alpha = 0;
+	this.participantA._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.participantA).wait(46).to({_off:false},0).wait(2).to({alpha:1},4,cjs.Ease.get(1)).wait(376));
 
 	// mask copy (mask)
 	var mask = new cjs.Shape();

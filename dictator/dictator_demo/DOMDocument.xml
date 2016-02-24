@@ -7,14 +7,15 @@
           <Include href="dollarsGreen.xml" itemIcon="1" loadImmediate="false" itemID="56cc893e-0000007d" lastModified="1456245054"/>
           <Include href="dollarsGrey.xml" itemIcon="1" loadImmediate="false" itemID="56cc9234-00000172" lastModified="1456247414"/>
           <Include href="floor.xml" itemIcon="1" loadImmediate="false" itemID="56c33808-000001c0" lastModified="1455636937"/>
+          <Include href="participant_label.xml" loadImmediate="false" itemID="56cdd81e-0000034e" lastModified="1456330823"/>
           <Include href="portal.xml" itemIcon="1" loadImmediate="false" itemID="56c33a18-00000202" lastModified="1455634968"/>
           <Include href="portal_ray.xml" itemIcon="1" loadImmediate="false" itemID="56cc9518-00000232" lastModified="1456248088"/>
           <Include href="startScreen.xml" loadImmediate="false" itemID="56cc8937-0000007c" lastModified="1456245551"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="393">
+          <DOMTimeline name="Séquence 1" currentFrame="46">
                <layers>
-                    <DOMLayer name="a" color="#808080" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="scripts" color="#808080" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <Framescript language="JavaScript">
@@ -27,18 +28,76 @@ function startScreenClickHandler(e) {
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="1" duration="73" keyMode="9728">
+                              <DOMFrame index="1" duration="45" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="46" duration="28" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[/*
+ Process
+ -------
+ Find if canvas in HTML shell page has the following data-attributes:
+ - `data-participants-label-a`
+ - `data-participants-label-b`
+ 
+ Use them as attributes in the animation if found.
+ Use default attributes if not.
+ 
+ Assumes there is only on canvas in the page.
+ */
+ 
+var labelA = 'participant A';
+var labelB = 'participant B';
+
+if (document) {
+	var canvas = document.getElementsByTagName('canvas')[0];
+	console.log(canvas.dataset);
+	if (canvas) {
+		labelA = canvas.dataset.participantsLabelA || labelA;
+		labelB = canvas.dataset.participantsLabelB || labelB;
+	}
+}
+
+this.participantA.label.text = labelA;
+this.participantB.label.text = labelB;]]></script>
+                                   </Framescript>
                                    <elements/>
                               </DOMFrame>
                               <DOMFrame index="74" duration="319" keyMode="9728">
                                    <Framescript language="JavaScript">
-                                        <script><![CDATA[function getRandomInt(min, max) {
+                                        <script><![CDATA[/*
+ Process
+ -------
+ Find if canvas in HTML shell page has the following data-attributes:
+ - `data-estimation-min`
+ - `data-estimation-max`
+ - `data-estimation-currency`
+ 
+ Use them as attributes in the animation if found.
+ Use default attributes if not.
+ 
+ Assumes there is only on canvas in the page.
+ */
+ 
+var min = 5;
+var max = 10;
+var currency = '€';
+if (document) {
+	var canvas = document.getElementsByTagName('canvas')[0];
+	if (canvas) {
+		min = canvas.dataset.estimationMin || min;
+		max = canvas.dataset.estimationMax || max;
+		currency = canvas.dataset.estimationCurrency || currency;
+	}
+}
+
+function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min)) + min;
 }
 
-var amount = getRandomInt(5, 10);
+var amount = getRandomInt(min, max);
 
-this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
+this.bubbleLeft.estimation.text = amount.toString() + currency;]]></script>
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
@@ -119,7 +178,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                               <DOMFrame index="79" duration="96" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="bubble_left" name="bubbleLeft" selected="true" centerPoint3DX="116.9" centerPoint3DY="124.6">
+                                        <DOMSymbolInstance libraryItemName="bubble_left" name="bubbleLeft" centerPoint3DX="116.9" centerPoint3DY="124.6">
                                              <matrix>
                                                   <Matrix b="0.608871459960938" d="1.23568725585938" tx="78.55" ty="49.5"/>
                                              </matrix>
@@ -155,8 +214,106 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
+                    <DOMLayer name="participants labels B" color="#009999" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="46" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="46" duration="4" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="participant_label" name="participantB">
+                                             <matrix>
+                                                  <Matrix tx="450.1" ty="308.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="51.7" y="30.85"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="50" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="participant_label" name="participantB" centerPoint3DX="501.8" centerPoint3DY="339.2">
+                                             <matrix>
+                                                  <Matrix tx="450.1" ty="308.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="51.7" y="30.85"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="54" duration="374" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="participant_label" name="participantB" centerPoint3DX="501.8" centerPoint3DY="339.2">
+                                             <matrix>
+                                                  <Matrix tx="450.1" ty="308.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="51.7" y="30.85"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="participants labels A" color="#FF4FFF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="46" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="46" duration="2" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="participant_label" name="participantA">
+                                             <matrix>
+                                                  <Matrix tx="121.95" ty="259.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="51.7" y="30.85"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="48" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="participant_label" name="participantA" centerPoint3DX="173.65" centerPoint3DY="290.7">
+                                             <matrix>
+                                                  <Matrix tx="121.95" ty="259.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="51.7" y="30.85"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="52" duration="376" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="participant_label" name="participantA" centerPoint3DX="173.65" centerPoint3DY="290.7">
+                                             <matrix>
+                                                  <Matrix tx="121.95" ty="259.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="51.7" y="30.85"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
                     <DOMLayer name="dollars_grey" color="#FF4FFF" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="mask copy" color="#FF4FFF" parentLayerIndex="4" locked="true" autoNamed="false" layerType="mask">
+                    <DOMLayer name="mask copy" color="#FF4FFF" parentLayerIndex="6" locked="true" autoNamed="false" layerType="mask">
                          <frames>
                               <DOMFrame index="0" duration="394" keyMode="9728">
                                    <elements>
@@ -174,7 +331,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 11" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 11" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="43" keyMode="9728">
                                    <elements/>
@@ -358,7 +515,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 12" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 12" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="42" keyMode="9728">
                                    <elements/>
@@ -548,7 +705,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 13" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 13" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -738,7 +895,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 14" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 14" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -928,7 +1085,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 15" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 15" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -1118,7 +1275,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 16" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 16" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -1188,7 +1345,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 17" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 17" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -1258,7 +1415,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 18" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 18" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="36" keyMode="9728">
                                    <elements/>
@@ -1328,7 +1485,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 19" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 19" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
@@ -1398,7 +1555,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 20" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 20" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements/>
@@ -1468,7 +1625,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 21" color="#FF800A" parentLayerIndex="5" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 21" color="#FF800A" parentLayerIndex="7" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="33" keyMode="9728">
                                    <elements/>
@@ -1603,7 +1760,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars_green" color="#FF4FFF" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="mask" color="#FF4FFF" parentLayerIndex="18" locked="true" autoNamed="false" layerType="mask">
+                    <DOMLayer name="mask" color="#FF4FFF" parentLayerIndex="20" locked="true" autoNamed="false" layerType="mask">
                          <frames>
                               <DOMFrame index="0" duration="180" keyMode="9728">
                                    <elements>
@@ -1635,7 +1792,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 10" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 10" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="43" keyMode="9728">
                                    <elements/>
@@ -1810,7 +1967,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 9" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 9" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="42" keyMode="9728">
                                    <elements/>
@@ -1997,7 +2154,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 8" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 8" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -2184,7 +2341,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 7" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 7" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -2371,7 +2528,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 6" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 6" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -2558,7 +2715,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 5" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 5" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -2628,7 +2785,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 4" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 4" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -2698,7 +2855,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 3" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 3" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="36" keyMode="9728">
                                    <elements/>
@@ -2768,7 +2925,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 2" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 2" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
@@ -2838,7 +2995,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements/>
@@ -2908,7 +3065,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green" color="#FF800A" parentLayerIndex="19" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green" color="#FF800A" parentLayerIndex="21" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="33" keyMode="9728">
                                    <elements/>
@@ -3019,7 +3176,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                               <DOMFrame index="36" duration="144" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="character" selected="true" symbolType="graphic" centerPoint3DX="421.75" centerPoint3DY="292" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="421.75" centerPoint3DY="292" loop="loop">
                                              <matrix>
                                                   <Matrix tx="416.6" ty="264.6"/>
                                              </matrix>
@@ -3062,7 +3219,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                               <DOMFrame index="35" duration="145" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="character" selected="true" symbolType="graphic" centerPoint3DX="143.3" centerPoint3DY="211.95" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="143.3" centerPoint3DY="211.95" loop="loop">
                                              <matrix>
                                                   <Matrix tx="138.15" ty="184.55"/>
                                              </matrix>
@@ -3105,7 +3262,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                               <DOMFrame index="31" duration="149" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="186.1" centerPoint3DY="210.45" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="186.1" centerPoint3DY="210.45" loop="loop">
                                              <matrix>
                                                   <Matrix tx="155.25" ty="192.7"/>
                                              </matrix>
@@ -3199,7 +3356,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                               <DOMFrame index="24" duration="156" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="portal" selected="true" symbolType="graphic" centerPoint3DX="290.85" centerPoint3DY="233.45" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="portal" symbolType="graphic" centerPoint3DX="290.85" centerPoint3DY="233.45" loop="loop">
                                              <matrix>
                                                   <Matrix tx="290.85" ty="233.45"/>
                                              </matrix>
@@ -3242,7 +3399,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                               </DOMFrame>
                               <DOMFrame index="14" duration="166" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="conveyor" selected="true" symbolType="graphic" centerPoint3DX="295.25" centerPoint3DY="281.85" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="conveyor" symbolType="graphic" centerPoint3DX="295.25" centerPoint3DY="281.85" loop="loop">
                                              <matrix>
                                                   <Matrix tx="295.25" ty="281.85"/>
                                              </matrix>
@@ -3270,7 +3427,7 @@ this.bubbleLeft.estimation.text = amount.toFixed() + "€";]]></script>
                          <frames>
                               <DOMFrame index="0" duration="180" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="floor" selected="true" symbolType="graphic" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="floor" symbolType="graphic" loop="loop">
                                              <matrix>
                                                   <Matrix tx="275" ty="200"/>
                                              </matrix>
