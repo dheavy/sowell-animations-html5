@@ -1,0 +1,993 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 210" majorVersion="15" minorVersion="1" buildNumber="210" guidesVisible="false" timelineLabelWidth="240" viewAngle3D="59.1837342884091" previewFrame="46" templateFilename="/Users/davy.braun/Library/Application Support/Adobe/Animate CC 2015/fr_FR/Configuration/Templates/HTML5 Canvas/sowell_animations/sowell_animations.xfl" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
+     <brushdefinitions>
+          <Include href="PaintBrushDefinitions.xml"/>
+     </brushdefinitions>
+     <media/>
+     <symbols>
+          <Include href="arrowBlue.xml" itemIcon="1" loadImmediate="false" itemID="56cf13f6-000005ba" lastModified="1456411638"/>
+          <Include href="arrowGreen.xml" itemIcon="1" loadImmediate="false" itemID="56cf140f-000005c2" lastModified="1456411663"/>
+          <Include href="arrowOrange.xml" itemIcon="1" loadImmediate="false" itemID="56cf1409-000005be" lastModified="1456411657"/>
+          <Include href="arrowRed.xml" itemIcon="1" loadImmediate="false" itemID="56cf13ee-000005b5" lastModified="1456411630"/>
+          <Include href="bubbleBlue.xml" loadImmediate="false" itemID="56cf154e-000005e9" lastModified="1456411986"/>
+          <Include href="bubbleGreen.xml" loadImmediate="false" itemID="56cf14da-000005cb" lastModified="1456411866"/>
+          <Include href="bubbleOrange.xml" loadImmediate="false" itemID="56cf14e5-000005cf" lastModified="1456411925"/>
+          <Include href="bubbleRed.xml" loadImmediate="false" itemID="56cf1576-00000604" lastModified="1456412051"/>
+          <Include href="character.xml" itemIcon="1" loadImmediate="false" itemID="56c33d7f-00000262" lastModified="1455635899"/>
+          <Include href="chariot.xml" itemIcon="1" loadImmediate="false" itemID="56c33b2a-00000220" lastModified="1455635242"/>
+          <Include href="conveyor.xml" itemIcon="1" loadImmediate="false" itemID="56c33b06-00000219" lastModified="1456409111"/>
+          <Include href="dollarBlue.xml" itemIcon="1" loadImmediate="false" itemID="56cf0e30-0000053c" lastModified="1456410274"/>
+          <Include href="dollarGreen.xml" itemIcon="1" loadImmediate="false" itemID="56cf0e35-0000053d" lastModified="1456410165"/>
+          <Include href="dollarGrey.xml" itemIcon="1" loadImmediate="false" itemID="56cf0e3a-0000053e" lastModified="1456410170"/>
+          <Include href="dollarOrange.xml" itemIcon="1" loadImmediate="false" itemID="56cf0f1a-00000547" lastModified="1456410720"/>
+          <Include href="dollarRed.xml" itemIcon="1" loadImmediate="false" itemID="56cf0f01-00000543" lastModified="1456410369"/>
+          <Include href="dollarsGreyInChariot.xml" itemIcon="1" loadImmediate="false" itemID="56cf1cdf-00000627" lastModified="1456413919"/>
+          <Include href="factory.xml" loadImmediate="false" itemID="56cf10f8-0000059c" lastModified="1456410872"/>
+          <Include href="floor.xml" itemIcon="1" loadImmediate="false" itemID="56c33808-000001c0" lastModified="1455636937"/>
+          <Include href="participantLabel.xml" loadImmediate="false" itemID="56cf13db-000005af" lastModified="1456411611"/>
+          <Include href="startScreen.xml" loadImmediate="false" itemID="56cc8937-0000007c" lastModified="1456245551"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Séquence 1">
+               <layers>
+                    <DOMLayer name="bubble 4" color="#4F80FF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleRed">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="514" ty="261.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="bubble 3" color="#4F80FF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleBlue">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="435" ty="210.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="bubble 2" color="#4F80FF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleOrange">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="350.6" ty="155.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="bubble 1" color="#4F80FF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleGreen">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="143.85" ty="36.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="arrow 4" color="#FF4F4F" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="arrowRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="115.25" ty="362.2"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="210.55" y="48.2"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="arrow 3" color="#FF4F4F" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="arrowBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="129.8" ty="355.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="164.25" y="28.3"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="arrow 2" color="#FF4F4F" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="arrowOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="143.85" ty="313.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="116.25" y="28.3"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="arrow 1" color="#FF4F4F" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="arrowGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="53.4" ty="177.25"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="56.55" y="77.1"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="chariot money" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" selected="true" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="112.55" ty="340.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="chariot" color="#669900" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix a="0.816848754882812" d="0.816848754882812" tx="87.75" ty="327.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="30.85" y="17.75"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="dollars 4" color="#009999" autoNamed="false" open="false" layerType="folder"/>
+                    <DOMLayer name="d1-10 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="377.05"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-9 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="379"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-8 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="380.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-7 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="382.9"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-6 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="384.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-5 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="386.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-4 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="388.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-3 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="390.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-2 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="392.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-1 copy 3" color="#808080" parentLayerIndex="10" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="394.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="dollars 3" color="#009999" autoNamed="false" open="false" layerType="folder"/>
+                    <DOMLayer name="d1-10 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="329.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-9 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="331.55"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-8 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="333.5"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-7 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="335.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-6 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="337.4"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-5 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="339.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-4 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="341.3"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-3 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="343.25"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-2 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="345.2"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-1 copy 2" color="#808080" parentLayerIndex="21" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="347.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="dollars 2" color="#009999" autoNamed="false" open="false" layerType="folder"/>
+                    <DOMLayer name="d1-10 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="281.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-9 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="283.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-8 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="285.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-7 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="287.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-6 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="289.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-5 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="291.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-4 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="293.55"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-3 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="295.5"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-2 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="297.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-1 copy" color="#808080" parentLayerIndex="32" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="299.4"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="dollars 1" color="#009999" autoNamed="false" open="false" layerType="folder"/>
+                    <DOMLayer name="d1-10" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="148.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-9" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="150.1"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-8" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="152.05"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-7" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="154"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-6" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="155.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-5" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="157.9"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-4" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="159.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-3" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="161.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-2" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="163.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="d1-1" color="#808080" parentLayerIndex="43" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="165.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="char 4" color="#FF4FFF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="560.45" ty="340.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="char 3" color="#FF4FFF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="483.15" ty="292.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="char 2" color="#FF4FFF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="404.6" ty="243.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="char 1" color="#FF4FFF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="195.95" ty="112.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="factory front" color="#4F80FF" locked="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="factory">
+                                             <matrix>
+                                                  <Matrix tx="296.5" ty="215.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="-34.8" y="34.6"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="conveyor belt" color="#9933CC" locked="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="conveyor" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix a="-1" tx="266.95" ty="291.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="factory back" color="#4F80FF" locked="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="factory">
+                                             <matrix>
+                                                  <Matrix tx="296.5" ty="215.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="-34.8" y="34.6"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="yellow floor" color="#FF800A" locked="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMShape>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor color="#FFFF00" alpha="0.2"/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <edges>
+                                                  <Edge fillStyle1="1" edges="!3087 2668|10091.5 -429!10091.5 -429|12334 -429!12334 -429|12334 8284!12334 8284|3087 2668"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="floor" color="#4F80FF" locked="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="floor" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="275" ty="200"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <persistentData>
+          <PD n="Arrêter la lecture à partir de cette image" t="i" v="2"/>
+          <PD n="Evénement MouseClick" t="i" v="2"/>
+          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+          <PD n="Lire un clip" t="i" v="2"/>
+     </persistentData>
+     <PrinterSettings platform="macintosh"/>
+     <publishHistory/>
+</DOMDocument>
