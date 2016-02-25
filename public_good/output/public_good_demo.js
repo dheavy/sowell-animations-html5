@@ -1382,6 +1382,7 @@ p.nominalBounds = new cjs.Rectangle(-17.5,-8.6,35,17.3);
 		this.bubble2.label.text = getRandomInt(min, max).toString() + currency;
 		this.bubble3.label.text = getRandomInt(min, max).toString() + currency;
 		this.bubble4.label.text = getRandomInt(min, max).toString() + currency;
+		this.bubbleMultiplier.label.text = '×' + multiplier;
 	}
 	this.frame_414 = function() {
 		this.gotoAndPlay('start');
@@ -1396,7 +1397,7 @@ p.nominalBounds = new cjs.Rectangle(-17.5,-8.6,35,17.3);
 	this.bubbleMultiplier.alpha = 0;
 	this.bubbleMultiplier._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.bubbleMultiplier).wait(229).to({_off:false},0).to({scaleX:0.88,scaleY:1,skewY:32.6,y:113.4,alpha:1},4,cjs.Ease.get(1)).to({scaleX:0.88,y:101.7},13).to({scaleX:0.88,skewY:32.7,y:99,alpha:0},3).to({_off:true},1).wait(165));
+	this.timeline.addTween(cjs.Tween.get(this.bubbleMultiplier).wait(35).to({_off:false},0).wait(194).to({scaleX:0.88,scaleY:1,skewY:32.6,y:113.4,alpha:1},4,cjs.Ease.get(1)).to({scaleX:0.88,y:101.7},28).to({scaleX:0.88,skewY:32.7,y:99,alpha:0},3).to({_off:true},1).wait(150));
 
 	// gain 4
 	this.instance = new lib.gain("synched",0);
