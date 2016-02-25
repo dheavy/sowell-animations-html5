@@ -1343,12 +1343,52 @@ p.nominalBounds = new cjs.Rectangle(-17.5,-8.6,35,17.3);
 	this.initialize(mode,startPosition,loop,{init:0,start:35});
 
 	// timeline functions:
+	this.frame_35 = function() {
+		/*
+		 Process
+		 -------
+		 Find if canvas in HTML shell page has the following data-attributes:
+		 - `data-estimation-min`
+		 - `data-estimation-max`
+		 - `data-estimation-currency`
+		 - `data-multipler`
+		 
+		 Use them as attributes in the animation if found.
+		 Use default attributes if not.
+		 
+		 Assumes there is only on canvas in the page.
+		 */
+		 
+		var min = 5;
+		var max = 10;
+		var currency = '€';
+		var multiplier = 1.6;
+		
+		if (document) {
+			var canvas = document.getElementsByTagName('canvas')[0];
+			if (canvas) {
+				min = canvas.dataset.estimationMin || min;
+				max = canvas.dataset.estimationMax || max;
+				currency = canvas.dataset.estimationCurrency || currency;
+				multiplier = canvas.dataset.multiplier|| multiplier;
+			}
+		}
+		
+		function getRandomInt(min, max) {
+			return Math.floor(Math.random() * (max - min)) + min;
+		}
+		
+		this.bubble1.label.text = getRandomInt(min, max).toString() + currency;
+		this.bubble2.label.text = getRandomInt(min, max).toString() + currency;
+		this.bubble3.label.text = getRandomInt(min, max).toString() + currency;
+		this.bubble4.label.text = getRandomInt(min, max).toString() + currency;
+	}
 	this.frame_414 = function() {
 		this.gotoAndPlay('start');
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(414).call(this.frame_414).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).wait(35).call(this.frame_35).wait(379).call(this.frame_414).wait(1));
 
 	// bubble multiplier
 	this.bubbleMultiplier = new lib.multiplier();
