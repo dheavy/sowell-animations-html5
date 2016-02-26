@@ -1,7 +1,6 @@
-Public Good demo
-================
-This is a non-interactive demo for the Public Good game.
-Loops an animation where a participants 1 to 4 place a random amount of money and received the split result after money is multiplied.
+Public Good simulation
+======================
+This is an interactive version of the Public Good game, where you can set the participation amount for each player before starting the animation.
 
 ## Optional setup
 You may set the following `data-attributes` to the canvas to change content.
