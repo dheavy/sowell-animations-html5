@@ -57,18 +57,22 @@
  Module pattern opening an API accessible via window.publicGood namespace to interact
  withe current animation from outside of it.
  
- `currency`, `multiplier` variables can be set via data-attributes, respectively
- `data-currency` and `data-multiplier`. They revert to defaults if not set.
+ `min`, `max`, `currency` and `multiplier` variables can be set via data-attributes, respectively
+ `data-min`, `'data-max`, `data-currency` and `data-multiplier`. They revert to defaults if not set.
  */
 
 this.stop()
 
+var min = 0;
+var max = 0;
 var currency = '€';
 var multiplier = 1.6;
 
 if (document) {
 	var canvas = document.getElementsByTagName('canvas')[0];
 	if (canvas) {
+		min = canvas.dataset.min || min;
+		max = canvas.dataset.max || max;
 		currency = canvas.dataset.currency || currency;
 		multiplier = canvas.dataset.multiplier|| multiplier;
 	}
@@ -86,13 +90,17 @@ window.publicGood = (function() {
 	}
 	
 	function incrementAmount(player) {
-		playersAmount[player]++;
-		getPlayerBubble(player+1).label.text = playersAmount[player].toString() + currency;
+		if (playersAmount[player] < max) {
+			playersAmount[player]++;
+			getPlayerBubble(player+1).label.text = playersAmount[player].toString() + currency;
+		}
 	}
 	
 	function decrementAmount(player) {
-		playersAmount[player]--;
-		getPlayerBubble(player+1).label.text = playersAmount[player].toString() + currency;
+		if (playersAmount[player] > min) {
+			playersAmount[player]--;
+			getPlayerBubble(player+1).label.text = playersAmount[player].toString() + currency;
+		}
 	}
 
 	function incrementAmountPlayer1() {
