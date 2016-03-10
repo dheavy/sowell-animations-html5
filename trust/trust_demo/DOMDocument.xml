@@ -4,10 +4,11 @@
           <Include href="bubbleOrange.xml" loadImmediate="false" itemID="56cf14e5-000005cf" lastModified="1456415527"/>
           <Include href="character.xml" itemIcon="1" loadImmediate="false" itemID="56c33d7f-00000262" lastModified="1455635899"/>
           <Include href="chariot.xml" itemIcon="1" loadImmediate="false" itemID="56c33b2a-00000220" lastModified="1455635242"/>
-          <Include href="conveyor.xml" loadImmediate="false" itemID="56d06d00-00000362" lastModified="1456499968"/>
+          <Include href="conveyor.xml" loadImmediate="false" itemID="56d06d00-00000362" lastModified="1457605260"/>
           <Include href="dollarGreen.xml" itemIcon="1" loadImmediate="false" itemID="56cf0e35-0000053d" lastModified="1456410165"/>
           <Include href="dollarGrey.xml" itemIcon="1" loadImmediate="false" itemID="56cf0e3a-0000053e" lastModified="1456410170"/>
           <Include href="dollarOrange.xml" itemIcon="1" loadImmediate="false" itemID="56cf0f1a-00000547" lastModified="1456410720"/>
+          <Include href="dollarsGreyStack2.xml" itemIcon="1" loadImmediate="false" itemID="56e149d3-00000185" lastModified="1457605075"/>
           <Include href="factory.xml" loadImmediate="false" itemID="56cf10f8-0000059c" lastModified="1456410872"/>
           <Include href="floor.xml" itemIcon="1" loadImmediate="false" itemID="56c33808-000001c0" lastModified="1455636937"/>
           <Include href="multiplier.xml" loadImmediate="false" itemID="56cf2218-000006c2" lastModified="1456503557"/>
@@ -16,9 +17,9 @@
           <Include href="threeDollarsGrey.xml" itemIcon="1" loadImmediate="false" itemID="56d07828-0000044b" lastModified="1456502824"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="306">
+          <DOMTimeline name="Séquence 1" currentFrame="204">
                <layers>
-                    <DOMLayer name="scripts" color="#FF4FFF" autoNamed="false">
+                    <DOMLayer name="scripts" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <Framescript language="JavaScript">
@@ -31,7 +32,7 @@ function startScreenClickHandler(e) {
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="34" duration="275" keyMode="9728">
+                              <DOMFrame index="34" duration="115" keyMode="9728">
                                    <Framescript language="JavaScript">
                                         <script><![CDATA[/*
  Process
@@ -75,7 +76,39 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="309" keyMode="9728">
+                              <DOMFrame index="149" duration="55" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[var currency = '€';
+var amount1 = 10;
+
+if (document) {
+	var canvas = document.getElementsByTagName('canvas')[0];
+	if (canvas) {
+		amount1 = canvas.dataset.amount1 || amount1;
+		currency = canvas.dataset.currency || currency;
+	}
+}
+
+this.bubble1.label.text = (parseInt(this.bubble1.label.text) - 1).toString() + currency;]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="204" duration="205" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[var currency = '€';
+
+if (document) {
+	var canvas = document.getElementsByTagName('canvas')[0];
+	if (canvas) {
+		currency = canvas.dataset.currency || currency;
+	}
+}
+
+this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + currency;]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="409" keyMode="9728">
                                    <Framescript language="JavaScript">
                                         <script><![CDATA[this.gotoAndPlay('start');]]></script>
                                    </Framescript>
@@ -199,7 +232,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="9" duration="301" keyMode="9728">
+                              <DOMFrame index="9" duration="401" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="factory" centerPoint3DX="300" centerPoint3DY="240">
                                              <matrix>
@@ -285,7 +318,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="34" duration="276" keyMode="9728">
+                              <DOMFrame index="34" duration="115" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="participantLabel" name="charLabel1">
                                              <matrix>
@@ -296,6 +329,26 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
                                         <DOMSymbolInstance libraryItemName="participantLabel" name="charLabel2">
+                                             <matrix>
+                                                  <Matrix a="0.552734375" b="-0.833343505859375" c="0.833343505859375" d="0.552734375" tx="403.95" ty="136.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="51.7" y="30.85"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="149" duration="261" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="participantLabel" name="charLabel1" centerPoint3DX="191.3" centerPoint3DY="241.9">
+                                             <matrix>
+                                                  <Matrix a="0.552734375" b="-0.833343505859375" c="0.833343505859375" d="0.552734375" tx="107.5" ty="271"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="51.7" y="30.85"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMSymbolInstance libraryItemName="participantLabel" name="charLabel2" centerPoint3DX="487.75" centerPoint3DY="107.7">
                                              <matrix>
                                                   <Matrix a="0.552734375" b="-0.833343505859375" c="0.833343505859375" d="0.552734375" tx="403.95" ty="136.8"/>
                                              </matrix>
@@ -336,7 +389,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="84" duration="30" keyMode="9728">
+                              <DOMFrame index="84" duration="110" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="114.1" centerPoint3DY="229.35">
                                              <matrix>
@@ -348,7 +401,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="114" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="194" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="114.1" centerPoint3DY="229.35">
                                              <matrix>
@@ -360,9 +413,9 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="119" keyMode="9728">
+                              <DOMFrame index="199" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="131.1" centerPoint3DY="259.15">
+                                        <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" selected="true" centerPoint3DX="131.1" centerPoint3DY="259.15">
                                              <matrix>
                                                   <Matrix a="0.070404052734375" b="0.04400634765625" d="0.070404052734375" tx="128.4" ty="254.75"/>
                                              </matrix>
@@ -374,7 +427,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dollars grey" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="dollars grey" color="#4F80FF" autoNamed="false" visible="false">
                          <frames>
                               <DOMFrame index="0" duration="194" keyMode="9728">
                                    <elements/>
@@ -405,7 +458,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                               <DOMFrame index="264" duration="10" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="threeDollarsGrey" symbolType="graphic" centerPoint3DX="466.2" centerPoint3DY="195.8" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="threeDollarsGrey" selected="true" symbolType="graphic" centerPoint3DX="466.2" centerPoint3DY="195.8" loop="loop">
                                              <matrix>
                                                   <Matrix tx="466.2" ty="195.8"/>
                                              </matrix>
@@ -451,9 +504,9 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="309" keyMode="9728">
+                              <DOMFrame index="309" duration="101" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="threeDollarsGrey" selected="true" symbolType="graphic" centerPoint3DX="423.2" centerPoint3DY="163.8" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="threeDollarsGrey" symbolType="graphic" centerPoint3DX="423.2" centerPoint3DY="163.8" loop="loop">
                                              <matrix>
                                                   <Matrix tx="423.2" ty="163.8"/>
                                              </matrix>
@@ -468,8 +521,197 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
+                    <DOMLayer name="dollar grey single" color="#9933CC" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="274" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="274" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGrey" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="454.1" ty="186.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="284" duration="126" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGrey" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="167.35" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="410.6" ty="161.2"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="dollars grey stack of 2" color="#4F80FF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="274" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="274" duration="25" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyStack2" selected="true" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="466.15" ty="197.3"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="299" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyStack2" selected="true" symbolType="graphic" centerPoint3DX="466.15" centerPoint3DY="197.3" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="466.15" ty="197.3"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="309" duration="5" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyStack2" symbolType="graphic" centerPoint3DX="524.6" centerPoint3DY="234.15" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="524.6" ty="234.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="314" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyStack2" selected="true" symbolType="graphic" centerPoint3DX="524.6" centerPoint3DY="234.15" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="524.6" ty="234.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="324" duration="5" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyStack2" symbolType="graphic" centerPoint3DX="226.6" centerPoint3DY="372.15" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="226.6" ty="372.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="329" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyStack2" selected="true" symbolType="graphic" centerPoint3DX="226.6" centerPoint3DY="372.15" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="226.6" ty="372.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="339" duration="15" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyStack2" selected="true" symbolType="graphic" centerPoint3DX="164.4" centerPoint3DY="332.65" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="164.4" ty="332.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="354" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyStack2" selected="true" symbolType="graphic" centerPoint3DX="164.4" centerPoint3DY="332.65" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="164.4" ty="332.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="364" duration="46" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyStack2" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="302.8" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="118.2" ty="302.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="dollars grey copy" color="#4F80FF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="194" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="194" duration="35" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="threeDollarsGrey" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="287.2" ty="276.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="229" duration="35" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="threeDollarsGrey" symbolType="graphic" centerPoint3DX="287.2" centerPoint3DY="276.8" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="287.2" ty="276.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="264" duration="10" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="threeDollarsGrey" symbolType="graphic" centerPoint3DX="466.2" centerPoint3DY="195.8" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="466.2" ty="195.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
                     <DOMLayer name="dollars 2" color="#808080" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1 copy 10" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 10" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="46" keyMode="9728">
                                    <elements/>
@@ -486,7 +728,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="54" duration="256" keyMode="9728">
+                              <DOMFrame index="54" duration="356" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="169.6" loop="loop">
                                              <matrix>
@@ -500,7 +742,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 11" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 11" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="45" keyMode="9728">
                                    <elements/>
@@ -517,7 +759,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="53" duration="257" keyMode="9728">
+                              <DOMFrame index="53" duration="357" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="172.1" loop="loop">
                                              <matrix>
@@ -531,7 +773,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 12" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 12" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="44" keyMode="9728">
                                    <elements/>
@@ -548,7 +790,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="52" duration="258" keyMode="9728">
+                              <DOMFrame index="52" duration="358" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="174.6" loop="loop">
                                              <matrix>
@@ -562,7 +804,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 13" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 13" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="43" keyMode="9728">
                                    <elements/>
@@ -579,7 +821,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="51" duration="259" keyMode="9728">
+                              <DOMFrame index="51" duration="359" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="177.1" loop="loop">
                                              <matrix>
@@ -593,7 +835,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 14" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 14" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="42" keyMode="9728">
                                    <elements/>
@@ -610,7 +852,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="50" duration="260" keyMode="9728">
+                              <DOMFrame index="50" duration="360" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="179.6" loop="loop">
                                              <matrix>
@@ -624,7 +866,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 15" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 15" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -641,7 +883,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="49" duration="261" keyMode="9728">
+                              <DOMFrame index="49" duration="361" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="182.1" loop="loop">
                                              <matrix>
@@ -655,7 +897,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 16" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 16" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -672,7 +914,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="48" duration="262" keyMode="9728">
+                              <DOMFrame index="48" duration="362" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="184.6" loop="loop">
                                              <matrix>
@@ -686,7 +928,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 17" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 17" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -703,7 +945,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="47" duration="263" keyMode="9728">
+                              <DOMFrame index="47" duration="363" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="187.1" loop="loop">
                                              <matrix>
@@ -717,7 +959,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 18" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 18" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -734,7 +976,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="46" duration="264" keyMode="9728">
+                              <DOMFrame index="46" duration="364" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="189.6" loop="loop">
                                              <matrix>
@@ -748,7 +990,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 19" color="#669900" parentLayerIndex="9" autoNamed="false">
+                    <DOMLayer name="d1 copy 19" color="#669900" parentLayerIndex="12" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -765,7 +1007,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="45" duration="265" keyMode="9728">
+                              <DOMFrame index="45" duration="365" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="422.65" centerPoint3DY="192.1" loop="loop">
                                              <matrix>
@@ -780,7 +1022,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 1" color="#808080" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1 copy 5" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1 copy 5" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -883,7 +1125,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 6" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1 copy 6" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -900,7 +1142,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="48" duration="262" keyMode="9728">
+                              <DOMFrame index="48" duration="362" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="307.3" loop="loop">
                                              <matrix>
@@ -914,7 +1156,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 7" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1 copy 7" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -931,7 +1173,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="47" duration="263" keyMode="9728">
+                              <DOMFrame index="47" duration="363" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="309.8" loop="loop">
                                              <matrix>
@@ -945,7 +1187,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 8" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1 copy 8" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -962,7 +1204,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="46" duration="264" keyMode="9728">
+                              <DOMFrame index="46" duration="364" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="312.3" loop="loop">
                                              <matrix>
@@ -976,7 +1218,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 9" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1 copy 9" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -993,7 +1235,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="45" duration="265" keyMode="9728">
+                              <DOMFrame index="45" duration="365" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="314.8" loop="loop">
                                              <matrix>
@@ -1007,7 +1249,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 4" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1 copy 4" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="36" keyMode="9728">
                                    <elements/>
@@ -1024,7 +1266,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="44" duration="266" keyMode="9728">
+                              <DOMFrame index="44" duration="366" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="317.3" loop="loop">
                                              <matrix>
@@ -1038,7 +1280,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 3" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1 copy 3" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
@@ -1055,7 +1297,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="43" duration="267" keyMode="9728">
+                              <DOMFrame index="43" duration="367" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="319.8" loop="loop">
                                              <matrix>
@@ -1069,7 +1311,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 2" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1 copy 2" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements/>
@@ -1086,7 +1328,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="42" duration="268" keyMode="9728">
+                              <DOMFrame index="42" duration="368" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="322.3" loop="loop">
                                              <matrix>
@@ -1100,7 +1342,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1 copy" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="32" keyMode="9728">
                                    <elements/>
@@ -1117,7 +1359,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="40" duration="270" keyMode="9728">
+                              <DOMFrame index="40" duration="370" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="324.8" loop="loop">
                                              <matrix>
@@ -1131,7 +1373,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1" color="#669900" parentLayerIndex="20" autoNamed="false">
+                    <DOMLayer name="d1" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="31" keyMode="9728">
                                    <elements/>
@@ -1148,7 +1390,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="39" duration="271" keyMode="9728">
+                              <DOMFrame index="39" duration="371" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="118.2" centerPoint3DY="327.3" loop="loop">
                                              <matrix>
@@ -1232,7 +1474,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                               <DOMFrame index="264" duration="35" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="201.95" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="201.95" loop="loop">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="439.1" ty="186.25"/>
                                              </matrix>
@@ -1244,9 +1486,9 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                               <DOMFrame index="299" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="201.95" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="202" loop="loop">
                                              <matrix>
-                                                  <Matrix a="0.870346069335938" d="0.870346069335938" tx="439.1" ty="186.25"/>
+                                                  <Matrix tx="435.1" ty="183.95"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point x="30.8" y="17.75"/>
@@ -1254,17 +1496,77 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="309" keyMode="9728">
+                              <DOMFrame index="309" duration="5" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="201.95" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="524.2" centerPoint3DY="238.8" loop="loop">
                                              <matrix>
-                                                  <Matrix a="0.870346069335938" d="0.870346069335938" tx="439.1" ty="186.25"/>
+                                                  <Matrix a="0.870346069335938" d="0.870346069335938" tx="497.55" ty="223.1"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point x="30.8" y="17.75"/>
                                              </transformationPoint>
                                              <color>
-                                                  <Color alphaMultiplier="0"/>
+                                                  <Color/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="314" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="524.2" centerPoint3DY="238.8" loop="loop">
+                                             <matrix>
+                                                  <Matrix a="0.870346069335938" d="0.870346069335938" tx="497.55" ty="223.1"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="30.8" y="17.75"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="324" duration="5" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="226.2" centerPoint3DY="376.8" loop="loop">
+                                             <matrix>
+                                                  <Matrix a="0.870346069335938" d="0.870346069335938" tx="199.55" ty="361.1"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="30.8" y="17.75"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="329" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="226.2" centerPoint3DY="376.8" loop="loop">
+                                             <matrix>
+                                                  <Matrix a="0.870346069335938" d="0.870346069335938" tx="199.55" ty="361.1"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="30.8" y="17.75"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="339" duration="71" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="164" centerPoint3DY="337.3" loop="loop">
+                                             <matrix>
+                                                  <Matrix a="0.870346069335938" d="0.870346069335938" tx="137.35" ty="321.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="30.8" y="17.75"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color/>
                                              </color>
                                         </DOMSymbolInstance>
                                    </elements>
@@ -1288,7 +1590,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="42" duration="268" keyMode="9728">
+                              <DOMFrame index="42" duration="368" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="444.5" centerPoint3DY="158" loop="loop">
                                              <matrix>
@@ -1319,7 +1621,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="39" duration="271" keyMode="9728">
+                              <DOMFrame index="39" duration="371" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="137.6" centerPoint3DY="293.55" loop="loop">
                                              <matrix>
@@ -1353,7 +1655,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="14" duration="296" keyMode="9728">
+                              <DOMFrame index="14" duration="396" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="conveyor" centerPoint3DX="318.6" centerPoint3DY="275.95">
                                              <matrix>
@@ -1384,7 +1686,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="9" duration="301" keyMode="9728">
+                              <DOMFrame index="9" duration="401" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="factory" centerPoint3DX="300" centerPoint3DY="240">
                                              <matrix>
@@ -1400,7 +1702,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                     </DOMLayer>
                     <DOMLayer name="floor" color="#4F80FF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="310" keyMode="9728">
+                              <DOMFrame index="0" duration="410" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="floor" symbolType="graphic" loop="loop">
                                              <matrix>
