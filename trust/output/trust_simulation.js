@@ -1169,6 +1169,84 @@ p.nominalBounds = new cjs.Rectangle(0,0,76.7,83.8);
 p.nominalBounds = new cjs.Rectangle(0,0,76.7,83.8);
 
 
+(lib.dollarStackOrange = function(mode,startPosition,loop) {
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{"10":0,"9":1,"8":2,"7":3,"6":4,"5":5,"4":6,"3":7,"2":8,"1":9,"0":10});
+
+	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
+	this.frame_1 = function() {
+		this.stop();
+	}
+	this.frame_2 = function() {
+		this.stop();
+	}
+	this.frame_3 = function() {
+		this.stop();
+	}
+	this.frame_4 = function() {
+		this.stop();
+	}
+	this.frame_5 = function() {
+		this.stop();
+	}
+	this.frame_6 = function() {
+		this.stop();
+	}
+	this.frame_7 = function() {
+		this.stop();
+	}
+	this.frame_8 = function() {
+		this.stop();
+	}
+	this.frame_9 = function() {
+		this.stop();
+	}
+	this.frame_10 = function() {
+		this.stop();
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1).call(this.frame_3).wait(1).call(this.frame_4).wait(1).call(this.frame_5).wait(1).call(this.frame_6).wait(1).call(this.frame_7).wait(1).call(this.frame_8).wait(1).call(this.frame_9).wait(1).call(this.frame_10).wait(1));
+
+	// Calque 1
+	this.instance = new lib.dollarOrange("synched",0);
+	this.instance.setTransform(12.1,6.2,1,1,0,0,0,12.1,6.2);
+
+	this.instance_1 = new lib.dollarOrange("synched",0);
+	this.instance_1.setTransform(12.1,8.7,1,1,0,0,0,12.1,6.2);
+
+	this.instance_2 = new lib.dollarOrange("synched",0);
+	this.instance_2.setTransform(12.1,11.2,1,1,0,0,0,12.1,6.2);
+
+	this.instance_3 = new lib.dollarOrange("synched",0);
+	this.instance_3.setTransform(12.1,13.7,1,1,0,0,0,12.1,6.2);
+
+	this.instance_4 = new lib.dollarOrange("synched",0);
+	this.instance_4.setTransform(12.1,16.2,1,1,0,0,0,12.1,6.2);
+
+	this.instance_5 = new lib.dollarOrange("synched",0);
+	this.instance_5.setTransform(12.1,18.7,1,1,0,0,0,12.1,6.2);
+
+	this.instance_6 = new lib.dollarOrange("synched",0);
+	this.instance_6.setTransform(12.1,21.2,1,1,0,0,0,12.1,6.2);
+
+	this.instance_7 = new lib.dollarOrange("synched",0);
+	this.instance_7.setTransform(12.1,23.7,1,1,0,0,0,12.1,6.2);
+
+	this.instance_8 = new lib.dollarOrange("synched",0);
+	this.instance_8.setTransform(12.1,26.2,1,1,0,0,0,12.1,6.2);
+
+	this.instance_9 = new lib.dollarOrange("synched",0);
+	this.instance_9.setTransform(12.1,28.7,1,1,0,0,0,12.1,6.2);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_9},{t:this.instance_8,p:{y:26.2}},{t:this.instance_7,p:{y:23.7}},{t:this.instance_6,p:{y:21.2}},{t:this.instance_5,p:{y:18.7}},{t:this.instance_4,p:{y:16.2}},{t:this.instance_3,p:{y:13.7}},{t:this.instance_2,p:{y:11.2}},{t:this.instance_1,p:{y:8.7}},{t:this.instance,p:{y:6.2}}]}).to({state:[{t:this.instance_8,p:{y:28.7}},{t:this.instance_7,p:{y:26.2}},{t:this.instance_6,p:{y:23.7}},{t:this.instance_5,p:{y:21.2}},{t:this.instance_4,p:{y:18.7}},{t:this.instance_3,p:{y:16.2}},{t:this.instance_2,p:{y:13.7}},{t:this.instance_1,p:{y:11.2}},{t:this.instance,p:{y:8.7}}]},1).to({state:[{t:this.instance_7,p:{y:28.7}},{t:this.instance_6,p:{y:26.2}},{t:this.instance_5,p:{y:23.7}},{t:this.instance_4,p:{y:21.2}},{t:this.instance_3,p:{y:18.7}},{t:this.instance_2,p:{y:16.2}},{t:this.instance_1,p:{y:13.7}},{t:this.instance,p:{y:11.2}}]},1).to({state:[{t:this.instance_6,p:{y:28.7}},{t:this.instance_5,p:{y:26.2}},{t:this.instance_4,p:{y:23.7}},{t:this.instance_3,p:{y:21.2}},{t:this.instance_2,p:{y:18.7}},{t:this.instance_1,p:{y:16.2}},{t:this.instance,p:{y:13.7}}]},1).to({state:[{t:this.instance_5,p:{y:28.7}},{t:this.instance_4,p:{y:26.2}},{t:this.instance_3,p:{y:23.7}},{t:this.instance_2,p:{y:21.2}},{t:this.instance_1,p:{y:18.7}},{t:this.instance,p:{y:16.2}}]},1).to({state:[{t:this.instance_4,p:{y:28.7}},{t:this.instance_3,p:{y:26.2}},{t:this.instance_2,p:{y:23.7}},{t:this.instance_1,p:{y:21.2}},{t:this.instance,p:{y:18.7}}]},1).to({state:[{t:this.instance_3,p:{y:28.7}},{t:this.instance_2,p:{y:26.2}},{t:this.instance_1,p:{y:23.7}},{t:this.instance,p:{y:21.2}}]},1).to({state:[{t:this.instance_2,p:{y:28.7}},{t:this.instance_1,p:{y:26.2}},{t:this.instance,p:{y:23.7}}]},1).to({state:[{t:this.instance_1,p:{y:28.7}},{t:this.instance,p:{y:26.2}}]},1).to({state:[{t:this.instance,p:{y:28.7}}]},1).to({state:[]},1).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,24.1,34.8);
+
+
 (lib.dollarStackGreen = function(mode,startPosition,loop) {
 if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{"10":0,"9":1,"8":2,"7":3,"6":4,"5":5,"4":6,"3":7,"2":8,"1":9,"0":10});
 
@@ -1328,7 +1406,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					stack: self.stack1
 				}, {
 					money: startAmount,
-					stack: null
+					stack: self.stack2
 				}];
 		
 				return {
@@ -1336,7 +1414,8 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 						var p = players[i];
 						if (p.money + 1 <= startAmount) {
 							p.money++;
-							self.bubble1.label.text = p.money.toString() + currency;
+							var bubble = i === 0 ? self.bubble1 : self.bubble2;
+							bubble.label.text = p.money.toString() + currency;
 							p.stack.gotoAndStop(p.stack.currentFrame - 1);
 						}
 						return p.money;
@@ -1345,7 +1424,8 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 						var p = players[i];
 						if (p.money - 1 >= 0) {
 							p.money--;
-							self.bubble1.label.text = p.money.toString() + currency;
+							var bubble = i === 0 ? self.bubble1 : self.bubble2;
+							bubble.label.text = p.money.toString() + currency;
 							p.stack.gotoAndStop(p.stack.currentFrame + 1);
 						}
 						return p.money;
@@ -1517,6 +1597,13 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 	this.instance_13._off = true;
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_13).wait(37).to({_off:false},0).to({y:192.2},8,cjs.Ease.get(1)).to({_off:true},38).wait(327));
+
+	// dollar stack (orange)
+	this.stack2 = new lib.dollarStackOrange();
+	this.stack2.setTransform(422.7,180.9,1,1,0,0,0,12.1,17.4);
+	this.stack2._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.stack2).wait(83).to({_off:false},0).wait(327));
 
 	// dollar stack (green)
 	this.stack1 = new lib.dollarStackGreen();
