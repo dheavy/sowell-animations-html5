@@ -9,8 +9,8 @@
           <Include href="dollarGrey.xml" loadImmediate="false" itemID="56cf0e3a-0000053e" lastModified="1457705149"/>
           <Include href="dollarOrange.xml" loadImmediate="false" itemID="56cf0f1a-00000547" lastModified="1457710095"/>
           <Include href="dollarsGreyStack2.xml" itemIcon="1" loadImmediate="false" itemID="56e149d3-00000185" lastModified="1457605075"/>
-          <Include href="dollarStackGreen.xml" loadImmediate="false" itemID="56e19670-000001f9" lastModified="1457686524"/>
-          <Include href="dollarStackOrange.xml" loadImmediate="false" itemID="56e29d57-000004b2" lastModified="1457692078"/>
+          <Include href="dollarStackGreen.xml" loadImmediate="false" itemID="56e19670-000001f9" lastModified="1457711835"/>
+          <Include href="dollarStackOrange.xml" loadImmediate="false" itemID="56e29d57-000004b2" lastModified="1457713934"/>
           <Include href="factory.xml" loadImmediate="false" itemID="56cf10f8-0000059c" lastModified="1456410872"/>
           <Include href="floor.xml" itemIcon="1" loadImmediate="false" itemID="56c33808-000001c0" lastModified="1455636937"/>
           <Include href="multiplier.xml" loadImmediate="false" itemID="56cf2218-000006c2" lastModified="1456503557"/>
@@ -84,6 +84,21 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 		startAmount = canvas.dataset.startAmount || startAmount;
 		currency = canvas.dataset.currency || currency;
 	}
+	
+	function createDollar(color) {
+		switch (color) {
+			case 'green': 
+				dollar = new lib.dollarGreen;
+				break;
+			case 'orange':
+				dollar = new lib.dollarOrange;
+				break;
+			case 'grey':
+				dollar = new lib.dollarGrey;
+				break;
+		}
+		return dollar;
+	}
 
 	/**
 	 * Operations on carts.
@@ -107,19 +122,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 
 		var increment = function (cartIndex, color) {
 			var cart = carts[cartIndex];
-			var dollar = null;
-
-			switch (color) {
-				case 'green': 
-					dollar = new lib.dollarGreen;
-					break;
-				case 'orange':
-					dollar = new lib.dollarOrange;
-					break;
-				case 'grey':
-					dollar = new lib.dollarGrey;
-					break;
-			}
+			var dollar = createDollar(color);
 			
 			dollar.x = X_OFFSET;
 			dollar.y = Y_OFFSET - Z_OFFSET * cart.stack.length;
@@ -149,21 +152,34 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 	 * Operations on players.
 	 */
 	var players = function () {
+		var X_OFFSET = 0;
+		var Y_OFFSET = 22.5;
+		var Z_OFFSET = 2.5;
+		
 		var players = [{
-			money: startAmount,
-			stack: this.stack1
+			money: 0,
+			instance: this.stack1,
+			stack: []
 		}, {
-			money: startAmount,
-			stack: this.stack2
+			money: 0,
+			instance: this.stack2,
+			stack: []
 		}];
 
-		var increment = function (i, force) {
+		var increment = function (i, moneyColor, force) {
 			var p = players[i];
 			if (force || (p.money + 1 <= startAmount)) {
 				p.money++;
+
 				var bubble = i === 0 ? this.bubble1 : this.bubble2;
 				bubble.label.text = p.money.toString() + currency;
-				p.stack.gotoAndStop(p.stack.currentFrame - 1);
+					
+				var dollar = createDollar(moneyColor);
+				dollar.x = X_OFFSET;
+				dollar.y = Y_OFFSET - Z_OFFSET * p.stack.length;
+				
+				p.instance.addChild(dollar);
+				p.stack.push(dollar);
 			}
 			return this;
 		}.bind(this);
@@ -174,10 +190,23 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 				p.money--;
 				var bubble = i === 0 ? this.bubble1 : this.bubble2;
 				bubble.label.text = p.money.toString() + currency;
-				p.stack.gotoAndStop(p.stack.currentFrame + 1);
+				
+				var removable = p.stack.pop();
+				p.instance.removeChild(removable);
 			}
 			return this;
 		}.bind(this);
+		
+		// Initialize money stacl for each player.
+		for (var i = 0; i < 2; i++) {
+			for (var j = 0; j < startAmount; j++) {
+				if (i === 0) {
+					increment(i, 'green');
+				} else {
+					increment(i, 'orange');
+				}
+			}
+		}
 
 		return {
 			increment: increment,
@@ -1067,10 +1096,10 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                     </DOMLayer>
                     <DOMLayer name="dollar stack (orange)" color="#FF800A" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="83" keyMode="9728">
+                              <DOMFrame index="0" duration="82" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="83" duration="327" keyMode="9728">
+                              <DOMFrame index="82" duration="328" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarStackOrange" name="stack2">
                                              <matrix>
@@ -1086,10 +1115,10 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                     </DOMLayer>
                     <DOMLayer name="dollar stack (green)" color="#FF800A" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="83" keyMode="9728">
+                              <DOMFrame index="0" duration="82" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="83" duration="327" keyMode="9728">
+                              <DOMFrame index="82" duration="328" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarStackGreen" name="stack1">
                                              <matrix>
