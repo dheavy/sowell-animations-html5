@@ -1,0 +1,602 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="dollarStackGreen" itemID="56e19670-000001f9" lastModified="1457686524">
+  <persistentData>
+    <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;false"/>
+  </persistentData>
+  <timeline>
+    <DOMTimeline name="dollarStackGreen" currentFrame="10">
+      <layers>
+        <DOMLayer name="Calque 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" name="10" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="9" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="8" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="7" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="6" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" name="5" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" name="4" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" name="3" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" name="2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" name="1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" name="0" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Calque 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Calque 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="26.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="20"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="23.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="21.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="18.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="12.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="16.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="10"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="13.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="7.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="11.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="8.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="2.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="6.15" loop="loop">
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="26.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="20"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="23.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="21.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="18.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="12.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="16.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="10"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="13.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="7.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="11.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="8.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="2.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="26.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="20"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="23.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="21.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="18.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="12.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="16.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="10"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="13.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="7.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="11.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="26.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="20"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="23.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="21.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="18.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="12.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="16.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="10"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="13.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="7.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="26.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="20"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="23.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="21.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="18.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="12.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="16.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="10"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="26.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="20"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="23.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="21.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="18.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="12.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="26.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="20"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="23.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="21.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="26.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="20"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="23.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="26.15" loop="loop">
+                  <matrix>
+                    <Matrix ty="20"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="12.05" centerPoint3DY="28.65" loop="loop">
+                  <matrix>
+                    <Matrix ty="22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.05" y="6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
