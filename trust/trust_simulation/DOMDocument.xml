@@ -2,12 +2,12 @@
      <symbols>
           <Include href="bubbleGreen.xml" loadImmediate="false" itemID="56cf14da-000005cb" lastModified="1456415541"/>
           <Include href="bubbleOrange.xml" loadImmediate="false" itemID="56cf14e5-000005cf" lastModified="1456415527"/>
+          <Include href="cart.xml" loadImmediate="false" itemID="56e2d0fc-000005ae" lastModified="1457707515"/>
           <Include href="character.xml" itemIcon="1" loadImmediate="false" itemID="56c33d7f-00000262" lastModified="1455635899"/>
-          <Include href="chariot.xml" itemIcon="1" loadImmediate="false" itemID="56c33b2a-00000220" lastModified="1455635242"/>
           <Include href="conveyor.xml" loadImmediate="false" itemID="56d06d00-00000362" lastModified="1457605260"/>
-          <Include href="dollarGreen.xml" itemIcon="1" loadImmediate="false" itemID="56cf0e35-0000053d" lastModified="1456410165"/>
-          <Include href="dollarGrey.xml" itemIcon="1" loadImmediate="false" itemID="56cf0e3a-0000053e" lastModified="1456410170"/>
-          <Include href="dollarOrange.xml" itemIcon="1" loadImmediate="false" itemID="56cf0f1a-00000547" lastModified="1456410720"/>
+          <Include href="dollarGreen.xml" loadImmediate="false" itemID="56cf0e35-0000053d" lastModified="1457707301"/>
+          <Include href="dollarGrey.xml" loadImmediate="false" itemID="56cf0e3a-0000053e" lastModified="1457705149"/>
+          <Include href="dollarOrange.xml" loadImmediate="false" itemID="56cf0f1a-00000547" lastModified="1457710095"/>
           <Include href="dollarsGreyStack2.xml" itemIcon="1" loadImmediate="false" itemID="56e149d3-00000185" lastModified="1457605075"/>
           <Include href="dollarStackGreen.xml" loadImmediate="false" itemID="56e19670-000001f9" lastModified="1457686524"/>
           <Include href="dollarStackOrange.xml" loadImmediate="false" itemID="56e29d57-000004b2" lastModified="1457692078"/>
@@ -73,6 +73,9 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               <DOMFrame index="84" keyMode="9728">
                                    <Framescript language="JavaScript">
                                         <script><![CDATA[if (window) {
+	/**
+	 * Define/get default values.
+	 */
 	var startAmount = 10;
 	var currency = '€';
 
@@ -81,41 +84,139 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 		startAmount = canvas.dataset.startAmount || startAmount;
 		currency = canvas.dataset.currency || currency;
 	}
-	
-	var self = this;
 
-	window.TRUST = window.TRUST || (function () {
-		var players = [{
-			money: startAmount,
-			stack: self.stack1
+	/**
+	 * Operations on carts.
+	 */
+	var carts = function () {
+		var X_OFFSET = 18;
+		var Y_OFFSET = 9;
+		var Z_OFFSET = 3;
+
+		var carts = [{
+			money: 0,
+			color: '',
+			instance: this.cart1,
+			stack: []
 		}, {
-			money: startAmount,
-			stack: self.stack2
+			money: 0,
+			color: '',
+			instance: this.cart2,
+			stack: []
 		}];
 
-		return {
-			increment: function (i) {
-				var p = players[i];
-				if (p.money + 1 <= startAmount) {
-					p.money++;
-					var bubble = i === 0 ? self.bubble1 : self.bubble2;
-					bubble.label.text = p.money.toString() + currency;
-					p.stack.gotoAndStop(p.stack.currentFrame - 1);
-				}
-				return p.money;
-			},
-			decrement: function (i) {
-				var p = players[i];
-				if (p.money - 1 >= 0) {
-					p.money--;
-					var bubble = i === 0 ? self.bubble1 : self.bubble2;
-					bubble.label.text = p.money.toString() + currency;
-					p.stack.gotoAndStop(p.stack.currentFrame + 1);
-				}
-				return p.money;
+		var increment = function (cartIndex, color) {
+			var cart = carts[cartIndex];
+			var dollar = null;
+
+			switch (color) {
+				case 'green': 
+					dollar = new lib.dollarGreen;
+					break;
+				case 'orange':
+					dollar = new lib.dollarOrange;
+					break;
+				case 'grey':
+					dollar = new lib.dollarGrey;
+					break;
 			}
+			
+			dollar.x = X_OFFSET;
+			dollar.y = Y_OFFSET - Z_OFFSET * cart.stack.length;
+			
+			cart.instance.addChild(dollar);
+			cart.stack.push(dollar);
+
+			return this;
 		}
-	})();
+		
+		var decrement = function (cartIndex) {
+			var cart = carts[cartIndex];
+			if (cart.stack.length > 0) {
+				var removable = cart.stack.pop();
+				cart.instance.removeChild(removable);
+			}
+			return this;
+		}
+
+		return {
+			increment: increment,
+			decrement: decrement
+		}
+	}.bind(this);
+
+	/**
+	 * Operations on players.
+	 */
+	var players = function () {
+		var players = [{
+			money: startAmount,
+			stack: this.stack1
+		}, {
+			money: startAmount,
+			stack: this.stack2
+		}];
+
+		var increment = function (i, force) {
+			var p = players[i];
+			if (force || (p.money + 1 <= startAmount)) {
+				p.money++;
+				var bubble = i === 0 ? this.bubble1 : this.bubble2;
+				bubble.label.text = p.money.toString() + currency;
+				p.stack.gotoAndStop(p.stack.currentFrame - 1);
+			}
+			return this;
+		}.bind(this);
+
+		var decrement = function (i) {
+			var p = players[i];
+			if (p.money - 1 >= 0) {
+				p.money--;
+				var bubble = i === 0 ? this.bubble1 : this.bubble2;
+				bubble.label.text = p.money.toString() + currency;
+				p.stack.gotoAndStop(p.stack.currentFrame + 1);
+			}
+			return this;
+		}.bind(this);
+
+		return {
+			increment: increment,
+			decrement: decrement
+		}
+	}.bind(this);
+	
+	/**
+	 * API mixing operations.
+	 */
+	var operate = function (p, c) {
+		var players = p();
+		var carts = c();
+		
+		var playerPutsOwnMoney = function (playerIndex, cartIndex, moneyColor) {
+			players.decrement(playerIndex);
+			
+			var color = moneyColor ? moneyColor : (playerIndex === 0 ? 'green' : 'orange')
+			carts.increment(cartIndex, color);
+		}
+		
+		var playerTakesMoney = function (playerIndex, cartIndex, moneyColor) {
+			players.increment(playerIndex, moneyColor);
+			carts.decrement(cartIndex);
+		}
+		
+		return {
+			playerPutsOwnMoney: playerPutsOwnMoney,
+			playerTakesMoney: playerTakesMoney
+		}
+	}.bind(this);
+
+	var init = function () {
+		return {
+			operate: operate(players, carts)
+		}
+	}.bind(this)
+
+	window.TRUST = window.TRUST || init();
 }
 
 
@@ -1313,14 +1414,48 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="chariot" color="#FF4F4F" autoNamed="false">
+                    <DOMLayer name="Calque 5" color="#009999">
                          <frames>
                               <DOMFrame index="0" duration="74" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
                               <DOMFrame index="74" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart2" selected="true">
+                                             <matrix>
+                                                  <Matrix a="0.870346069335938" d="0.870346069335938" tx="468.4" ty="206.5"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="30.75" y="17.75"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="79" duration="331" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart2" centerPoint3DX="495.25" centerPoint3DY="221.95">
+                                             <matrix>
+                                                  <Matrix a="0.870346069335938" d="0.870346069335938" tx="468.4" ty="206.5"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="30.75" y="17.75"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="chariot 1" color="#FF4F4F" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="74" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="74" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart1">
                                              <matrix>
                                                   <Matrix a="0.774642944335938" d="0.774642944335938" tx="139.05" ty="324.95"/>
                                              </matrix>
@@ -1335,31 +1470,31 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="79" duration="85" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="162.75" centerPoint3DY="338.95" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart1">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="136.1" ty="323.25"/>
                                              </matrix>
                                              <transformationPoint>
-                                                  <Point x="30.8" y="17.75"/>
+                                                  <Point x="30.75" y="17.75"/>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
                               <DOMFrame index="164" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="162.75" centerPoint3DY="338.95" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart1">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="136.1" ty="323.25"/>
                                              </matrix>
                                              <transformationPoint>
-                                                  <Point x="30.8" y="17.75"/>
+                                                  <Point x="30.75" y="17.75"/>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
                               <DOMFrame index="194" duration="35" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="286.75" centerPoint3DY="282.95" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart1" selected="true">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="260.1" ty="267.25"/>
                                              </matrix>
@@ -1371,7 +1506,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="229" duration="35" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="286.75" centerPoint3DY="282.95" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" symbolType="graphic" centerPoint3DX="286.75" centerPoint3DY="282.95" loop="loop">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="260.1" ty="267.25"/>
                                              </matrix>
@@ -1383,7 +1518,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="264" duration="35" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="201.95" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="201.95" loop="loop">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="439.1" ty="186.25"/>
                                              </matrix>
@@ -1395,7 +1530,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="299" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="202" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" selected="true" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="202" loop="loop">
                                              <matrix>
                                                   <Matrix tx="435.1" ty="183.95"/>
                                              </matrix>
@@ -1407,7 +1542,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="309" duration="5" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="524.2" centerPoint3DY="238.8" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" symbolType="graphic" centerPoint3DX="524.2" centerPoint3DY="238.8" loop="loop">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="497.55" ty="223.1"/>
                                              </matrix>
@@ -1422,7 +1557,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="314" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="524.2" centerPoint3DY="238.8" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" selected="true" symbolType="graphic" centerPoint3DX="524.2" centerPoint3DY="238.8" loop="loop">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="497.55" ty="223.1"/>
                                              </matrix>
@@ -1437,7 +1572,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="324" duration="5" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="226.2" centerPoint3DY="376.8" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" symbolType="graphic" centerPoint3DX="226.2" centerPoint3DY="376.8" loop="loop">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="199.55" ty="361.1"/>
                                              </matrix>
@@ -1452,7 +1587,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="329" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="226.2" centerPoint3DY="376.8" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" selected="true" symbolType="graphic" centerPoint3DX="226.2" centerPoint3DY="376.8" loop="loop">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="199.55" ty="361.1"/>
                                              </matrix>
@@ -1467,7 +1602,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="339" duration="71" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="164" centerPoint3DY="337.3" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" symbolType="graphic" centerPoint3DX="164" centerPoint3DY="337.3" loop="loop">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="137.35" ty="321.6"/>
                                              </matrix>
@@ -1892,6 +2027,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
           </swatchList>
      </swatchLists>
      <persistentData>
+          <PD n="Ajouter une occurrence depuis la bibliothèque" t="i" v="3"/>
           <PD n="Obtenir le numéro de l’image actuelle" t="i" v="2"/>
           <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;false"/>
      </persistentData>

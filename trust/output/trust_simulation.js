@@ -1051,40 +1051,6 @@ p.nominalBounds = new cjs.Rectangle(0,0,24.1,12.3);
 p.nominalBounds = new cjs.Rectangle(-247.3,-119.8,494.7,239.7);
 
 
-(lib.chariot = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// Calque 1
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#000000").s().p("AkzAaIGVizIDSCBImXCygAkoAaIDFB7IGMiuIjHh7g");
-	this.shape.setTransform(30.9,15.5);
-
-	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("#FFFFFF").s().p("AkzAaIGWi0IDRCCImXCyg");
-	this.shape_1.setTransform(30.9,15.5);
-
-	this.shape_2 = new cjs.Shape();
-	this.shape_2.graphics.f("#000000").s().p("AjLBDIGXiyIAAAtImXCygAjGBGIAAAiIGNitIAAgig");
-	this.shape_2.setTransform(41.2,24.3);
-
-	this.shape_3 = new cjs.Shape();
-	this.shape_3.graphics.f("#A3A3A3").s().p("AjLBDIGXiyIAAAtImXCyg");
-	this.shape_3.setTransform(41.2,24.3);
-
-	this.shape_4 = new cjs.Shape();
-	this.shape_4.graphics.f("#000000").s().p("AhmgqIAAgrIDNB+IAAAtgAhhgsIDDB5IAAghIjDh4g");
-	this.shape_4.setTransform(10.4,26.8);
-
-	this.shape_5 = new cjs.Shape();
-	this.shape_5.graphics.f("#FFFFFF").s().p("AhmgqIAAgrIDNB+IAAAtg");
-	this.shape_5.setTransform(10.4,26.8);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,61.7,35.5);
-
-
 (lib.character = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -1121,6 +1087,40 @@ p.nominalBounds = new cjs.Rectangle(0,0,61.7,35.5);
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(0,0,10.4,54.9);
+
+
+(lib.cart = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Calque 1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#000000").s().p("AkzAaIGVizIDSCBImXCygAkoAaIDFB7IGMiuIjHh7g");
+	this.shape.setTransform(30.9,15.5);
+
+	this.shape_1 = new cjs.Shape();
+	this.shape_1.graphics.f("#FFFFFF").s().p("AkzAaIGWi0IDRCCImXCyg");
+	this.shape_1.setTransform(30.9,15.5);
+
+	this.shape_2 = new cjs.Shape();
+	this.shape_2.graphics.f("#000000").s().p("AjLBDIGXiyIAAAtImXCygAjGBGIAAAiIGNitIAAgig");
+	this.shape_2.setTransform(41.2,24.3);
+
+	this.shape_3 = new cjs.Shape();
+	this.shape_3.graphics.f("#A3A3A3").s().p("AjLBDIGXiyIAAAtImXCyg");
+	this.shape_3.setTransform(41.2,24.3);
+
+	this.shape_4 = new cjs.Shape();
+	this.shape_4.graphics.f("#000000").s().p("AhmgqIAAgrIDNB+IAAAtgAhhgsIDDB5IAAghIjDh4g");
+	this.shape_4.setTransform(10.4,26.8);
+
+	this.shape_5 = new cjs.Shape();
+	this.shape_5.graphics.f("#FFFFFF").s().p("AhmgqIAAgrIDNB+IAAAtg");
+	this.shape_5.setTransform(10.4,26.8);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,61.7,35.5);
 
 
 (lib.bubbleOrange = function(mode,startPosition,loop) {
@@ -1389,6 +1389,9 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 	}
 	this.frame_84 = function() {
 		if (window) {
+			/**
+			 * Define/get default values.
+			 */
 			var startAmount = 10;
 			var currency = '€';
 		
@@ -1397,41 +1400,139 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 				startAmount = canvas.dataset.startAmount || startAmount;
 				currency = canvas.dataset.currency || currency;
 			}
-			
-			var self = this;
 		
-			window.TRUST = window.TRUST || (function () {
-				var players = [{
-					money: startAmount,
-					stack: self.stack1
+			/**
+			 * Operations on carts.
+			 */
+			var carts = function () {
+				var X_OFFSET = 18;
+				var Y_OFFSET = 9;
+				var Z_OFFSET = 3;
+		
+				var carts = [{
+					money: 0,
+					color: '',
+					instance: this.cart1,
+					stack: []
 				}, {
-					money: startAmount,
-					stack: self.stack2
+					money: 0,
+					color: '',
+					instance: this.cart2,
+					stack: []
 				}];
 		
-				return {
-					increment: function (i) {
-						var p = players[i];
-						if (p.money + 1 <= startAmount) {
-							p.money++;
-							var bubble = i === 0 ? self.bubble1 : self.bubble2;
-							bubble.label.text = p.money.toString() + currency;
-							p.stack.gotoAndStop(p.stack.currentFrame - 1);
-						}
-						return p.money;
-					},
-					decrement: function (i) {
-						var p = players[i];
-						if (p.money - 1 >= 0) {
-							p.money--;
-							var bubble = i === 0 ? self.bubble1 : self.bubble2;
-							bubble.label.text = p.money.toString() + currency;
-							p.stack.gotoAndStop(p.stack.currentFrame + 1);
-						}
-						return p.money;
+				var increment = function (cartIndex, color) {
+					var cart = carts[cartIndex];
+					var dollar = null;
+		
+					switch (color) {
+						case 'green': 
+							dollar = new lib.dollarGreen;
+							break;
+						case 'orange':
+							dollar = new lib.dollarOrange;
+							break;
+						case 'grey':
+							dollar = new lib.dollarGrey;
+							break;
 					}
+					
+					dollar.x = X_OFFSET;
+					dollar.y = Y_OFFSET - Z_OFFSET * cart.stack.length;
+					
+					cart.instance.addChild(dollar);
+					cart.stack.push(dollar);
+		
+					return this;
 				}
-			})();
+				
+				var decrement = function (cartIndex) {
+					var cart = carts[cartIndex];
+					if (cart.stack.length > 0) {
+						var removable = cart.stack.pop();
+						cart.instance.removeChild(removable);
+					}
+					return this;
+				}
+		
+				return {
+					increment: increment,
+					decrement: decrement
+				}
+			}.bind(this);
+		
+			/**
+			 * Operations on players.
+			 */
+			var players = function () {
+				var players = [{
+					money: startAmount,
+					stack: this.stack1
+				}, {
+					money: startAmount,
+					stack: this.stack2
+				}];
+		
+				var increment = function (i, force) {
+					var p = players[i];
+					if (force || (p.money + 1 <= startAmount)) {
+						p.money++;
+						var bubble = i === 0 ? this.bubble1 : this.bubble2;
+						bubble.label.text = p.money.toString() + currency;
+						p.stack.gotoAndStop(p.stack.currentFrame - 1);
+					}
+					return this;
+				}.bind(this);
+		
+				var decrement = function (i) {
+					var p = players[i];
+					if (p.money - 1 >= 0) {
+						p.money--;
+						var bubble = i === 0 ? this.bubble1 : this.bubble2;
+						bubble.label.text = p.money.toString() + currency;
+						p.stack.gotoAndStop(p.stack.currentFrame + 1);
+					}
+					return this;
+				}.bind(this);
+		
+				return {
+					increment: increment,
+					decrement: decrement
+				}
+			}.bind(this);
+			
+			/**
+			 * API mixing operations.
+			 */
+			var operate = function (p, c) {
+				var players = p();
+				var carts = c();
+				
+				var playerPutsOwnMoney = function (playerIndex, cartIndex, moneyColor) {
+					players.decrement(playerIndex);
+					
+					var color = moneyColor ? moneyColor : (playerIndex === 0 ? 'green' : 'orange')
+					carts.increment(cartIndex, color);
+				}
+				
+				var playerTakesMoney = function (playerIndex, cartIndex, moneyColor) {
+					players.increment(playerIndex, moneyColor);
+					carts.decrement(cartIndex);
+				}
+				
+				return {
+					playerPutsOwnMoney: playerPutsOwnMoney,
+					playerTakesMoney: playerTakesMoney
+				}
+			}.bind(this);
+		
+			var init = function () {
+				return {
+					operate: operate(players, carts)
+				}
+			}.bind(this)
+		
+			window.TRUST = window.TRUST || init();
 		}
 		
 		
@@ -1682,48 +1783,56 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_23).wait(31).to({_off:false},0).to({y:327.4},8,cjs.Ease.get(1)).to({_off:true},44).wait(327));
 
-	// chariot
-	this.instance_24 = new lib.chariot("synched",0);
-	this.instance_24.setTransform(163,338.8,0.775,0.775,0,0,0,30.9,17.8);
-	this.instance_24.alpha = 0;
-	this.instance_24._off = true;
+	// Calque 5
+	this.cart2 = new lib.cart();
+	this.cart2.setTransform(495.2,222,0.87,0.87,0,0,0,30.8,17.8);
+	this.cart2.alpha = 0;
+	this.cart2._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_24).wait(74).to({_off:false},0).to({regX:30.8,scaleX:0.87,scaleY:0.87,x:162.9,alpha:1},5,cjs.Ease.get(1)).wait(85).to({startPosition:0},0).to({x:286.9,y:282.8},30,cjs.Ease.get(1)).wait(35).to({startPosition:0},0).to({x:465.9,y:201.8},35,cjs.Ease.get(1)).wait(35).to({scaleX:1,scaleY:1},0).to({scaleX:0.87,scaleY:0.87,x:524.4,y:238.6},10,cjs.Ease.get(1)).wait(5).to({startPosition:0},0).to({x:226.4,y:376.6},10,cjs.Ease.get(1)).wait(5).to({startPosition:0},0).to({x:164.2,y:337.1},10,cjs.Ease.get(1)).wait(71));
+	this.timeline.addTween(cjs.Tween.get(this.cart2).wait(74).to({_off:false},0).to({alpha:1},5,cjs.Ease.get(1)).wait(331));
+
+	// chariot 1
+	this.cart1 = new lib.cart();
+	this.cart1.setTransform(163,338.8,0.775,0.775,0,0,0,30.9,17.8);
+	this.cart1.alpha = 0;
+	this.cart1._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.cart1).wait(74).to({_off:false},0).to({regX:30.8,scaleX:0.87,scaleY:0.87,x:162.9,alpha:1},5,cjs.Ease.get(1)).wait(85).to({x:286.9,y:282.8},30,cjs.Ease.get(1)).wait(35).to({mode:"synched",startPosition:0},0).to({x:465.9,y:201.8},35,cjs.Ease.get(1)).wait(35).to({scaleX:1,scaleY:1},0).to({scaleX:0.87,scaleY:0.87,x:524.4,y:238.6},10,cjs.Ease.get(1)).wait(5).to({startPosition:0},0).to({x:226.4,y:376.6},10,cjs.Ease.get(1)).wait(5).to({startPosition:0},0).to({x:164.2,y:337.1},10,cjs.Ease.get(1)).wait(71));
 
 	// char 2
-	this.instance_25 = new lib.character("synched",0);
-	this.instance_25.setTransform(444.6,-182,1,1,0,0,0,5.2,27.4);
-	this.instance_25._off = true;
+	this.instance_24 = new lib.character("synched",0);
+	this.instance_24.setTransform(444.6,-182,1,1,0,0,0,5.2,27.4);
+	this.instance_24._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_25).wait(32).to({_off:false},0).to({y:158},10,cjs.Ease.get(1)).wait(368));
+	this.timeline.addTween(cjs.Tween.get(this.instance_24).wait(32).to({_off:false},0).to({y:158},10,cjs.Ease.get(1)).wait(368));
 
 	// char 1
-	this.instance_26 = new lib.character("synched",0);
-	this.instance_26.setTransform(137.7,-36.4,1,1,0,0,0,5.2,27.4);
-	this.instance_26._off = true;
+	this.instance_25 = new lib.character("synched",0);
+	this.instance_25.setTransform(137.7,-36.4,1,1,0,0,0,5.2,27.4);
+	this.instance_25._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_26).wait(29).to({_off:false},0).to({y:293.6},10,cjs.Ease.get(1)).wait(371));
+	this.timeline.addTween(cjs.Tween.get(this.instance_25).wait(29).to({_off:false},0).to({y:293.6},10,cjs.Ease.get(1)).wait(371));
 
 	// conveyor belt
-	this.instance_27 = new lib.conveyor();
-	this.instance_27.setTransform(318.6,276);
-	this.instance_27.alpha = 0;
-	this.instance_27._off = true;
+	this.instance_26 = new lib.conveyor();
+	this.instance_26.setTransform(318.6,276);
+	this.instance_26.alpha = 0;
+	this.instance_26._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_27).wait(9).to({_off:false},0).to({alpha:1},5,cjs.Ease.get(1)).wait(396));
+	this.timeline.addTween(cjs.Tween.get(this.instance_26).wait(9).to({_off:false},0).to({alpha:1},5,cjs.Ease.get(1)).wait(396));
 
 	// factory back
-	this.instance_28 = new lib.factory();
-	this.instance_28.setTransform(300,-80,1,1,0,0,0,3.4,6.8);
-	this.instance_28._off = true;
+	this.instance_27 = new lib.factory();
+	this.instance_27.setTransform(300,-80,1,1,0,0,0,3.4,6.8);
+	this.instance_27._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_28).wait(4).to({_off:false},0).to({y:240},5,cjs.Ease.get(1)).wait(401));
+	this.timeline.addTween(cjs.Tween.get(this.instance_27).wait(4).to({_off:false},0).to({y:240},5,cjs.Ease.get(1)).wait(401));
 
 	// floor
-	this.instance_29 = new lib.floor("synched",0);
-	this.instance_29.setTransform(280.1,239.5,1,1,0,0,0,4.4,40);
+	this.instance_28 = new lib.floor("synched",0);
+	this.instance_28.setTransform(280.1,239.5,1,1,0,0,0,4.4,40);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_29).wait(410));
+	this.timeline.addTween(cjs.Tween.get(this.instance_28).wait(410));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(300.6,239.4,600,480);
