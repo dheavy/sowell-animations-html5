@@ -21,6 +21,40 @@
      <timelines>
           <DOMTimeline name="Séquence 1" currentFrame="84">
                <layers>
+                    <DOMLayer name="stop()" color="#4F80FF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="84" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="84" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[this.stop();]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="85" duration="38" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="123" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[window.TRUST.operate.passInFactory();]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="124" duration="67" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="191" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[this.stop();]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="192" duration="218" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
                     <DOMLayer name="scripts" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
@@ -70,7 +104,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="84" keyMode="9728">
+                              <DOMFrame index="84" duration="325" keyMode="9728">
                                    <Framescript language="JavaScript">
                                         <script><![CDATA[if (window) {
 	/**
@@ -78,11 +112,13 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 	 */
 	var startAmount = 10;
 	var currency = '€';
+	var multiplier = 3;
 
 	var canvas = window.document.getElementsByTagName('canvas')[0];
 	if (canvas) {
 		startAmount = canvas.dataset.startAmount || startAmount;
 		currency = canvas.dataset.currency || currency;
+		multiplier = canvas.dataset.currency || multiplier;
 	}
 	
 	function createDollar(color) {
@@ -129,7 +165,8 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			
 			cart.instance.addChild(dollar);
 			cart.stack.push(dollar);
-
+			cart.money++;
+			
 			return this;
 		}
 		
@@ -138,13 +175,45 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			if (cart.stack.length > 0) {
 				var removable = cart.stack.pop();
 				cart.instance.removeChild(removable);
+				cart.money--;
+				return true;
+			}
+			
+			return false;
+		}
+		
+		var batchRemove = function (cartIndex) {
+			var iterate = true;
+			while (iterate) {
+				var dec = decrement(cartIndex);
+				iterate = dec;
+			}
+		}
+		
+		var batchAdd = function (cartIndex, amount, color) {
+			for (var i = 0; i < amount; i++) {
+				increment(cartIndex, color);
+			}
+		}
+		
+		var move = function (cartIndex) {
+			if (cartIndex === 0) {
+				this.gotoAndPlay(this.currentFrame + 1);
 			}
 			return this;
+		}.bind(this);
+		
+		var multiplyMoney = function (cartIndex, multiplier) {
+			var newAmount = carts[cartIndex].money * multiplier;
+			batchRemove(cartIndex);
+			batchAdd(cartIndex, newAmount, 'grey');
 		}
 
 		return {
 			increment: increment,
-			decrement: decrement
+			decrement: decrement,
+			move: move,
+			multiply: multiplyMoney
 		}
 	}.bind(this);
 
@@ -217,9 +286,12 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 	/**
 	 * API mixing operations.
 	 */
+	var playersControls = players();
+	var cartsControls = carts();
+	
 	var operate = function (p, c) {
-		var players = p();
-		var carts = c();
+		var players = p;
+		var carts = c;
 		
 		var playerPutsOwnMoney = function (playerIndex, cartIndex, moneyColor) {
 			players.decrement(playerIndex);
@@ -233,58 +305,30 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			carts.decrement(cartIndex);
 		}
 		
+		var moveCart1 = function () {
+			carts.move(0);
+		}
+		
+		var passInFactory = function () {
+			carts.multiply(0, multiplier);
+		}
+		
 		return {
 			playerPutsOwnMoney: playerPutsOwnMoney,
-			playerTakesMoney: playerTakesMoney
+			playerTakesMoney: playerTakesMoney,
+			moveCart1: moveCart1,
+			passInFactory: passInFactory
 		}
 	}.bind(this);
 
 	var init = function () {
 		return {
-			operate: operate(players, carts)
+			operate: operate(playersControls, cartsControls)
 		}
 	}.bind(this)
 
 	window.TRUST = window.TRUST || init();
-}
-
-
-this.stop();]]></script>
-                                   </Framescript>
-                                   <elements/>
-                              </DOMFrame>
-                              <DOMFrame index="85" duration="64" keyMode="9728">
-                                   <elements/>
-                              </DOMFrame>
-                              <DOMFrame index="149" duration="55" keyMode="9728">
-                                   <Framescript language="JavaScript">
-                                        <script><![CDATA[var currency = '€';
-var amount1 = 10;
-
-if (document) {
-	var canvas = document.getElementsByTagName('canvas')[0];
-	if (canvas) {
-		amount1 = canvas.dataset.amount1 || amount1;
-		currency = canvas.dataset.currency || currency;
-	}
-}
-
-this.bubble1.label.text = (parseInt(this.bubble1.label.text) - 1).toString() + currency;]]></script>
-                                   </Framescript>
-                                   <elements/>
-                              </DOMFrame>
-                              <DOMFrame index="204" duration="205" keyMode="9728">
-                                   <Framescript language="JavaScript">
-                                        <script><![CDATA[var currency = '€';
-
-if (document) {
-	var canvas = document.getElementsByTagName('canvas')[0];
-	if (canvas) {
-		currency = canvas.dataset.currency || currency;
-	}
-}
-
-this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + currency;]]></script>
+}]]></script>
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
@@ -311,7 +355,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                     </DOMLayer>
                     <DOMLayer name="multiplier" color="#9933CC" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="194" keyMode="9728">
+                              <DOMFrame index="0" duration="119" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier">
                                              <matrix>
@@ -326,7 +370,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="194" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="119" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier">
                                              <matrix>
@@ -341,7 +385,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="198" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+                              <DOMFrame index="123" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier" centerPoint3DX="274.1" centerPoint3DY="163.35">
                                              <matrix>
@@ -353,7 +397,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="226" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+                              <DOMFrame index="151" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier" centerPoint3DX="274.1" centerPoint3DY="141.7">
                                              <matrix>
@@ -365,7 +409,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="229" duration="71" keyMode="9728">
+                              <DOMFrame index="154" duration="146" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier" centerPoint3DX="274.1" centerPoint3DY="139">
                                              <matrix>
@@ -442,7 +486,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="84" duration="30" keyMode="9728">
+                              <DOMFrame index="84" duration="170" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="413.75" centerPoint3DY="100.3">
                                              <matrix>
@@ -454,7 +498,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="114" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="254" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="413.75" centerPoint3DY="100.3">
                                              <matrix>
@@ -466,9 +510,9 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="119" keyMode="9728">
+                              <DOMFrame index="259" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="428.75" centerPoint3DY="123.55">
+                                        <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" selected="true" centerPoint3DX="428.75" centerPoint3DY="123.55">
                                              <matrix>
                                                   <Matrix a="0.0726470947265625" b="0.04541015625" d="0.0726470947265625" tx="429.95" ty="112.45"/>
                                              </matrix>
@@ -582,7 +626,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                               <DOMFrame index="199" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" selected="true" centerPoint3DX="131.1" centerPoint3DY="259.15">
+                                        <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="131.1" centerPoint3DY="259.15">
                                              <matrix>
                                                   <Matrix a="0.070404052734375" b="0.04400634765625" d="0.070404052734375" tx="128.4" ty="254.75"/>
                                              </matrix>
@@ -784,7 +828,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 2" color="#808080" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1 copy 10" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 10" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="46" keyMode="9728">
                                    <elements/>
@@ -815,7 +859,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 11" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 11" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="45" keyMode="9728">
                                    <elements/>
@@ -846,7 +890,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 12" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 12" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="44" keyMode="9728">
                                    <elements/>
@@ -877,7 +921,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 13" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 13" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="43" keyMode="9728">
                                    <elements/>
@@ -908,7 +952,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 14" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 14" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="42" keyMode="9728">
                                    <elements/>
@@ -939,7 +983,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 15" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 15" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -970,7 +1014,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 16" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 16" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -1001,7 +1045,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 17" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 17" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -1032,7 +1076,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 18" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 18" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -1063,7 +1107,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 19" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 19" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -1133,7 +1177,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 1" color="#808080" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1 copy 5" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1 copy 5" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -1164,7 +1208,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 6" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1 copy 6" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -1195,7 +1239,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 7" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1 copy 7" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -1226,7 +1270,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 8" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1 copy 8" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -1257,7 +1301,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 9" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1 copy 9" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -1288,7 +1332,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 4" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1 copy 4" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="36" keyMode="9728">
                                    <elements/>
@@ -1319,7 +1363,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 3" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1 copy 3" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
@@ -1350,7 +1394,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 2" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1 copy 2" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements/>
@@ -1381,7 +1425,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1 copy" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="32" keyMode="9728">
                                    <elements/>
@@ -1412,7 +1456,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1" color="#669900" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1" color="#669900" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="31" keyMode="9728">
                                    <elements/>
@@ -1497,7 +1541,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="79" duration="85" keyMode="9728">
+                              <DOMFrame index="79" duration="10" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" name="cart1">
                                              <matrix>
@@ -1509,7 +1553,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="164" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="89" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" name="cart1">
                                              <matrix>
@@ -1521,9 +1565,9 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="194" duration="35" keyMode="9728">
+                              <DOMFrame index="119" duration="35" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="cart" name="cart1" selected="true">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart1">
                                              <matrix>
                                                   <Matrix a="0.870346069335938" d="0.870346069335938" tx="260.1" ty="267.25"/>
                                              </matrix>
@@ -1533,7 +1577,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="229" duration="35" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="154" duration="35" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" symbolType="graphic" centerPoint3DX="286.75" centerPoint3DY="282.95" loop="loop">
                                              <matrix>
@@ -1545,7 +1589,7 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="264" duration="35" keyMode="9728">
+                              <DOMFrame index="189" duration="110" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" symbolType="graphic" centerPoint3DX="465.75" centerPoint3DY="201.95" loop="loop">
                                              <matrix>
@@ -1578,9 +1622,6 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                              <transformationPoint>
                                                   <Point x="30.8" y="17.75"/>
                                              </transformationPoint>
-                                             <color>
-                                                  <Color/>
-                                             </color>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
@@ -1593,9 +1634,6 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                              <transformationPoint>
                                                   <Point x="30.8" y="17.75"/>
                                              </transformationPoint>
-                                             <color>
-                                                  <Color/>
-                                             </color>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
@@ -1608,9 +1646,6 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                              <transformationPoint>
                                                   <Point x="30.8" y="17.75"/>
                                              </transformationPoint>
-                                             <color>
-                                                  <Color/>
-                                             </color>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
@@ -1623,9 +1658,6 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                              <transformationPoint>
                                                   <Point x="30.8" y="17.75"/>
                                              </transformationPoint>
-                                             <color>
-                                                  <Color/>
-                                             </color>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
@@ -1638,9 +1670,6 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
                                              <transformationPoint>
                                                   <Point x="30.8" y="17.75"/>
                                              </transformationPoint>
-                                             <color>
-                                                  <Color/>
-                                             </color>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
@@ -2056,8 +2085,8 @@ this.bubble1.label.text = (parseInt(this.bubble1.label.text) + 1).toString() + c
           </swatchList>
      </swatchLists>
      <persistentData>
-          <PD n="Ajouter une occurrence depuis la bibliothèque" t="i" v="3"/>
           <PD n="Obtenir le numéro de l’image actuelle" t="i" v="2"/>
+          <PD n="Ajouter une occurrence depuis la bibliothèque" t="i" v="3"/>
           <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;false"/>
      </persistentData>
      <PrinterSettings platform="macintosh"/>
