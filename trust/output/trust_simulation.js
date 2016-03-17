@@ -1360,7 +1360,6 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 						p.instance.addChild(dollar);
 						p.stack.push(dollar);
 					}
-					debugger;
 					return this;
 				}.bind(this);
 		
@@ -1463,10 +1462,15 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					dispatchFinalGains: dispatchFinalGains
 				}
 			}.bind(this);
+			
+			var reset = function () {
+				this.gotoAndPlay(1);
+			}.bind(this);
 		
 			var init = function () {
 				return {
-					operate: operate(playersControls, cartsControls)
+					operate: operate(playersControls, cartsControls),
+					reset: reset
 				}
 			}.bind(this)
 		

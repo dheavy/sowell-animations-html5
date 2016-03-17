@@ -377,10 +377,15 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			dispatchFinalGains: dispatchFinalGains
 		}
 	}.bind(this);
+	
+	var reset = function () {
+		this.gotoAndPlay(1);
+	}.bind(this);
 
 	var init = function () {
 		return {
-			operate: operate(playersControls, cartsControls)
+			operate: operate(playersControls, cartsControls),
+			reset: reset
 		}
 	}.bind(this)
 
