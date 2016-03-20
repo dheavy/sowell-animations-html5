@@ -19,7 +19,7 @@
           <Include href="threeDollarsGrey.xml" itemIcon="1" loadImmediate="false" itemID="56d07828-0000044b" lastModified="1456502824"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="190">
+          <DOMTimeline name="Séquence 1" currentFrame="54">
                <layers>
                     <DOMLayer name="stop()" color="#4F80FF" autoNamed="false">
                          <frames>
@@ -80,7 +80,7 @@ window.TRUST.operate.dispatchFinalGains();]]></script>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="34" duration="50" keyMode="9728">
+                              <DOMFrame index="34" duration="20" keyMode="9728">
                                    <Framescript language="JavaScript">
                                         <script><![CDATA[/*
  Process
@@ -124,7 +124,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="84" duration="325" keyMode="9728">
+                              <DOMFrame index="54" duration="355" keyMode="9728">
                                    <Framescript language="JavaScript">
                                         <script><![CDATA[if (window) {
 	/**
@@ -291,20 +291,27 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			return this;
 		}.bind(this);
 		
-		// Initialize money stack for each player.
-		for (var i = 0; i < 2; i++) {
-			for (var j = 0; j < startAmount; j++) {
-				if (i === 0) {
-					increment(i, 'green');
-				} else {
-					increment(i, 'orange');
+		var reset = function () {
+			for (var i = 0; i < players.length; i++) {
+				while (players[i].stack.length > 0) {
+					decrement(i);
 				}
 			}
-		}
+			
+			for (var i = 0; i < players.length; i++) {
+				var colors = ['green', 'orange'];
+				while (players[i].stack.length < startAmount) {
+					increment(i, colors[i]);
+				}
+			}
+		}.bind(this);
+		
+		reset();
 
 		return {
 			increment: increment,
-			decrement: decrement
+			decrement: decrement,
+			reset: reset
 		}
 	}.bind(this);
 	
@@ -379,7 +386,8 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 	}.bind(this);
 	
 	var reset = function () {
-		this.gotoAndPlay(1);
+		this.gotoAndPlay('start');
+		playersControls.reset();
 	}.bind(this);
 
 	var init = function () {
@@ -2016,8 +2024,8 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
           </swatchList>
      </swatchLists>
      <persistentData>
-          <PD n="Obtenir le numéro de l’image actuelle" t="i" v="2"/>
           <PD n="Ajouter une occurrence depuis la bibliothèque" t="i" v="3"/>
+          <PD n="Obtenir le numéro de l’image actuelle" t="i" v="2"/>
           <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;false"/>
      </persistentData>
      <PrinterSettings platform="macintosh"/>
