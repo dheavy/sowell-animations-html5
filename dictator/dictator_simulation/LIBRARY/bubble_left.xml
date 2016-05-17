@@ -1,35 +1,23 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="bubbleBlue" itemID="56cf154e-000005e9" lastModified="1459418600">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="bubble_left" itemID="56cdc520-000001bf" lastModified="1459764824">
   <persistentData>
     <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
   </persistentData>
   <timeline>
-    <DOMTimeline name="bubbleBlue">
+    <DOMTimeline name="bubble_left">
       <layers>
         <DOMLayer name="Calque 2" color="#9933CC" current="true" isSelected="true">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMDynamicText name="label" fontRenderingMode="standard" left="10.7" width="35.7" height="45.95" autoExpand="true" isSelectable="false" lineType="multiline no wrap">
+                <DOMDynamicText name="estimation" fontRenderingMode="standard" left="25.45" width="6.2" height="45.95" autoExpand="true" isSelectable="false" lineType="multiline no wrap">
                   <matrix>
                     <Matrix tx="10" ty="31.8"/>
                   </matrix>
                   <textRuns>
                     <DOMTextRun>
-                      <characters>10</characters>
-                      <textAttrs>
-                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="17.8" size="20" bitmapSize="400" face="GothamMedium" fillColor="#FFFFFF"/>
-                      </textAttrs>
-                    </DOMTextRun>
-                    <DOMTextRun>
-                      <characters>€</characters>
-                      <textAttrs>
-                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="23.55" size="20" bitmapSize="400" face="GothamMedium" fillColor="#FFFFFF"/>
-                      </textAttrs>
-                    </DOMTextRun>
-                    <DOMTextRun>
                       <characters></characters>
                       <textAttrs>
-                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="17.8" size="20" bitmapSize="400" face="GothamMedium" fillColor="#FFFFFF"/>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="28.45" size="32" bitmapSize="640" face="GothamMedium" fillColor="#FFFFFF"/>
                       </textAttrs>
                     </DOMTextRun>
                   </textRuns>
@@ -45,7 +33,7 @@
                 <DOMShape>
                   <fills>
                     <FillStyle index="1">
-                      <SolidColor color="#0099FF"/>
+                      <SolidColor color="#93AD40"/>
                     </FillStyle>
                   </fills>
                   <edges>

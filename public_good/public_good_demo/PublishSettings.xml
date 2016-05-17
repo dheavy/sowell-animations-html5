@@ -48,7 +48,7 @@
     <Property name="exportImages">true</Property>
     <Property name="exportLibs">true</Property>
     <Property name="exportSounds">true</Property>
-    <Property name="filename">./output/public_good_demo.js</Property>
+    <Property name="filename">./output/public_goods_demo.js</Property>
     <Property name="frameBounds">false</Property>
     <Property name="hostedLibs">true</Property>
     <Property name="imageFormat">0</Property>

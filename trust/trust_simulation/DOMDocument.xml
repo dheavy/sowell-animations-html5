@@ -1,8 +1,9 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 210" majorVersion="15" minorVersion="1" buildNumber="210" viewAngle3D="59.1837342884091" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" viewAngle3D="59.1837342884091" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
      <symbols>
+          <Include href="bubbleBlue.xml" loadImmediate="false" itemID="5735d693-000001b4" lastModified="1463146138"/>
           <Include href="bubbleGreen.xml" loadImmediate="false" itemID="56cf14da-000005cb" lastModified="1456415541"/>
           <Include href="bubbleOrange.xml" loadImmediate="false" itemID="56cf14e5-000005cf" lastModified="1456415527"/>
-          <Include href="cart.xml" loadImmediate="false" itemID="56e2d0fc-000005ae" lastModified="1457707515"/>
+          <Include href="cart.xml" loadImmediate="false" itemID="56e2d0fc-000005ae" lastModified="1463146065"/>
           <Include href="character.xml" itemIcon="1" loadImmediate="false" itemID="56c33d7f-00000262" lastModified="1455635899"/>
           <Include href="conveyor.xml" loadImmediate="false" itemID="56d06d00-00000362" lastModified="1457605260"/>
           <Include href="dollarGreen.xml" loadImmediate="false" itemID="56cf0e35-0000053d" lastModified="1457707301"/>
@@ -19,7 +20,7 @@
           <Include href="threeDollarsGrey.xml" itemIcon="1" loadImmediate="false" itemID="56d07828-0000044b" lastModified="1456502824"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="54">
+          <DOMTimeline name="Séquence 1" currentFrame="195">
                <layers>
                     <DOMLayer name="stop()" color="#4F80FF" autoNamed="false">
                          <frames>
@@ -111,8 +112,8 @@ if (document) {
 		labelA = canvas.dataset.participantsLabelA || labelA;
 		labelB = canvas.dataset.participantsLabelB || labelB;
 		multiplier = canvas.dataset.multiplier || multiplier;
-		amount1 = canvas.dataset.amount1 || amount1;
-		amount2 = canvas.dataset.amount2 || amount2;
+		amount1 = +canvas.dataset.amount1 || amount1;
+		amount2 = +canvas.dataset.amount2 || amount2;
 		currency = canvas.dataset.currency || currency;
 	}
 }
@@ -133,12 +134,22 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 	var startAmount = 10;
 	var currency = '€';
 	var multiplier = 3;
+	var labelA = 'participant A';
+	var labelB = 'participant B';
+	var multiplier = 3;
+	var amount1 = amount2 = 10;
+	var currency = '€';
 
-	var canvas = window.document.getElementsByTagName('canvas')[0];
-	if (canvas) {
-		startAmount = canvas.dataset.startAmount || startAmount;
-		currency = canvas.dataset.currency || currency;
-		multiplier = canvas.dataset.currency || multiplier;
+	if (document) {
+		var canvas = document.getElementsByTagName('canvas')[0];
+		if (canvas) {
+			labelA = canvas.dataset.participantsLabelA || labelA;
+			labelB = canvas.dataset.participantsLabelB || labelB;
+			multiplier = canvas.dataset.multiplier || multiplier;
+			amount1 = +canvas.dataset.amount1 || amount1;
+			amount2 = +canvas.dataset.amount2 || amount2;
+			currency = canvas.dataset.currency || currency;
+		}
 	}
 	
 	function createDollar(color) {
@@ -163,6 +174,9 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 		var X_OFFSET = 18;
 		var Y_OFFSET = 9;
 		var Z_OFFSET = 3;
+		
+		this.cart1.bubble.alpha = 0;
+		this.cart2.bubble.alpha = 0;
 
 		var carts = [{
 			money: 0,
@@ -187,6 +201,9 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			cart.stack.push(dollar);
 			cart.money++;
 			
+			cart.instance.bubble.alpha = 1;
+			cart.instance.bubble.label.text = currency + cart.money.toString();
+			
 			return this;
 		}
 		
@@ -196,6 +213,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 				var removable = cart.stack.pop();
 				cart.instance.removeChild(removable);
 				cart.money--;
+				cart.instance.bubble.label.text = currency + cart.money.toString();
 				return true;
 			}
 			
@@ -223,22 +241,39 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 				this.gotoAndPlay('first_move');
 			} else {
 				this.gotoAndPlay('second_move');
+				var self = this;
+				setTimeout(function () {
+					self.cart1.bubble.alpha = 0;
+					self.cart2.bubble.alpha = 0;
+				}, 2000);
 			}
 			return this;
 		}.bind(this);
 		
 		var multiplyMoney = function (cartIndex, multiplier) {
-			var newAmount = carts[cartIndex].money * multiplier;
+			window.TRUST.multipliedMoney = carts[cartIndex].money * multiplier;
 			batchRemove(cartIndex);
-			batchAdd(cartIndex, newAmount, 'grey');
+			batchAdd(cartIndex, window.TRUST.multipliedMoney, 'grey');
 		}
+		
+		var reset = function () {
+			this.cart1.bubble.alpha = 0;
+			this.cart2.bubble.alpha = 0;
+			carts[0].money = 0;
+			carts[0].color = '';
+			carts[0].stack = [];
+			carts[1].money = 0;
+			carts[0].color = '';
+			carts[0].stack = [];
+		}.bind(this);
 
 		return {
 			increment: increment,
 			decrement: decrement,
 			move: move,
 			multiply: multiplyMoney,
-			removeAll: batchRemove
+			removeAll: batchRemove,
+			reset: reset
 		}
 	}.bind(this);
 
@@ -262,19 +297,17 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 
 		var increment = function (i, moneyColor, force) {
 			var p = players[i];
-			if (force || (p.money + 1 <= startAmount)) {
-				p.money++;
+			p.money++;
 
-				var bubble = i === 0 ? this.bubble1 : this.bubble2;
-				bubble.label.text = p.money.toString() + currency;
-					
-				var dollar = createDollar(moneyColor);
-				dollar.x = X_OFFSET;
-				dollar.y = Y_OFFSET - Z_OFFSET * p.stack.length;
+			var bubble = i === 0 ? this.bubble1 : this.bubble2;
+			bubble.label.text = currency + p.money.toString();
 				
-				p.instance.addChild(dollar);
-				p.stack.push(dollar);
-			}
+			var dollar = createDollar(moneyColor);
+			dollar.x = X_OFFSET;
+			dollar.y = Y_OFFSET - Z_OFFSET * p.stack.length;
+			
+			p.instance.addChild(dollar);
+			p.stack.push(dollar);
 			return this;
 		}.bind(this);
 
@@ -283,7 +316,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			if (p.money - 1 >= 0) {
 				p.money--;
 				var bubble = i === 0 ? this.bubble1 : this.bubble2;
-				bubble.label.text = p.money.toString() + currency;
+				bubble.label.text = currency + p.money.toString();
 				
 				var removable = p.stack.pop();
 				p.instance.removeChild(removable);
@@ -388,6 +421,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 	var reset = function () {
 		this.gotoAndPlay('start');
 		playersControls.reset();
+		cartsControls.reset();
 	}.bind(this);
 
 	var init = function () {
@@ -584,7 +618,37 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="factory front" color="#9933CC" autoNamed="false">
+                    <DOMLayer name="Calque 1" color="#4F80FF" locked="true" layerType="mask">
+                         <frames>
+                              <DOMFrame index="0" duration="410" keyMode="9728">
+                                   <elements>
+                                        <DOMShape>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor color="#CC3333"/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <edges>
+                                                  <Edge fillStyle0="1" edges="!4360 3280S1|4360 4720!4360 4720|4611 4800!4611 4800/5480 5320!5480 5320/5480 6120!5480 6120/6140 6800!6140 6800|8180 5900!8180 5900[8408 4391 7691 3096!7691 3096[7660 3040 7594 3022!7594 3022[6914 2835 6179 2863!6179 2863[5743 2879 5320
+ 2920!5320 2920|4360 3280"/>
+                                                  <Edge cubics="!7691 3096(;7670,3059 7638,3034 7594,3022q7691 3096Q7660 3040q7594 3022);"/>
+                                                  <Edge cubics="!8180 5900(;8332,4894 8169,3959 7691,3096q8180 5900Q8408 4391q7691 3096);"/>
+                                                  <Edge cubics="!6179 2863(;5888,2874 5602,2893 5320,2920q6179 2863Q5743 2879q5320 2920);"/>
+                                                  <Edge cubics="!4360 4720(;4360,4720 4611,4800 4611,4800q4360 4720 4611 4800);"/>
+                                                  <Edge cubics="!5480 6120(;5480,6120 6140,6800 6140,6800q5480 6120p6140 6800);"/>
+                                                  <Edge cubics="!5480 5320(;5480,5320 5480,6120 5480,6120p5480 5320 5480 6120);"/>
+                                                  <Edge cubics="!4611 4800(;4611,4800 5480,5320 5480,5320p4611 4800 5480 5320);"/>
+                                                  <Edge cubics="!4360 3280(;4360,3280 4360,4720 4360,4720q4360 3280 4360 4720);"/>
+                                                  <Edge cubics="!6140 6800(;6140,6800 8180,5900 8180,5900q6140 6800 8180 5900);"/>
+                                                  <Edge cubics="!7594 3022(;7141,2897 6669,2844 6179,2863q7594 3022Q6914 2835q6179 2863);"/>
+                                                  <Edge cubics="!4360 3280(;4360,3280 5320,2920 5320,2920p4360 3280q5320 2920);"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="factory front" color="#9933CC" parentLayerIndex="5" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="4" keyMode="9728">
                                    <elements/>
@@ -801,7 +865,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 2" color="#808080" autoNamed="false" open="false" layerType="folder"/>
-                    <DOMLayer name="d1 copy 10" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 10" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="46" keyMode="9728">
                                    <elements/>
@@ -832,7 +896,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 11" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 11" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="45" keyMode="9728">
                                    <elements/>
@@ -863,7 +927,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 12" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 12" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="44" keyMode="9728">
                                    <elements/>
@@ -894,7 +958,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 13" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 13" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="43" keyMode="9728">
                                    <elements/>
@@ -925,7 +989,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 14" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 14" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="42" keyMode="9728">
                                    <elements/>
@@ -956,7 +1020,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 15" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 15" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -987,7 +1051,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 16" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 16" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -1018,7 +1082,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 17" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 17" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -1049,7 +1113,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 18" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 18" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -1080,7 +1144,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 19" color="#669900" parentLayerIndex="10" autoNamed="false">
+                    <DOMLayer name="d1 copy 19" color="#669900" parentLayerIndex="11" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -1131,7 +1195,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 1" color="#808080" autoNamed="false" open="false" layerType="folder"/>
-                    <DOMLayer name="d1 copy 5" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1 copy 5" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -1162,7 +1226,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 6" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1 copy 6" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -1193,7 +1257,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 7" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1 copy 7" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -1224,7 +1288,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 8" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1 copy 8" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -1255,7 +1319,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 9" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1 copy 9" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -1286,7 +1350,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 4" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1 copy 4" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="36" keyMode="9728">
                                    <elements/>
@@ -1317,7 +1381,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 3" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1 copy 3" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
@@ -1348,7 +1412,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy 2" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1 copy 2" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements/>
@@ -1379,7 +1443,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1 copy" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1 copy" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="32" keyMode="9728">
                                    <elements/>
@@ -1410,7 +1474,7 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1" color="#669900" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1" color="#669900" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="31" keyMode="9728">
                                    <elements/>

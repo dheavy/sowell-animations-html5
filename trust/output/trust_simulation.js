@@ -1083,40 +1083,6 @@ p.nominalBounds = new cjs.Rectangle(-247.3,-119.8,494.7,239.7);
 p.nominalBounds = new cjs.Rectangle(0,0,10.4,54.9);
 
 
-(lib.cart = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// Calque 1
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#000000").s().p("AkzAaIGVizIDSCBImXCygAkoAaIDFB7IGMiuIjHh7g");
-	this.shape.setTransform(30.9,15.5);
-
-	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("#FFFFFF").s().p("AkzAaIGWi0IDRCCImXCyg");
-	this.shape_1.setTransform(30.9,15.5);
-
-	this.shape_2 = new cjs.Shape();
-	this.shape_2.graphics.f("#000000").s().p("AjLBDIGXiyIAAAtImXCygAjGBGIAAAiIGNitIAAgig");
-	this.shape_2.setTransform(41.2,24.3);
-
-	this.shape_3 = new cjs.Shape();
-	this.shape_3.graphics.f("#A3A3A3").s().p("AjLBDIGXiyIAAAtImXCyg");
-	this.shape_3.setTransform(41.2,24.3);
-
-	this.shape_4 = new cjs.Shape();
-	this.shape_4.graphics.f("#000000").s().p("AhmgqIAAgrIDNB+IAAAtgAhhgsIDDB5IAAghIjDh4g");
-	this.shape_4.setTransform(10.4,26.8);
-
-	this.shape_5 = new cjs.Shape();
-	this.shape_5.graphics.f("#FFFFFF").s().p("AhmgqIAAgrIDNB+IAAAtg");
-	this.shape_5.setTransform(10.4,26.8);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,61.7,35.5);
-
-
 (lib.bubbleOrange = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -1163,6 +1129,70 @@ p.nominalBounds = new cjs.Rectangle(0,0,76.7,83.8);
 p.nominalBounds = new cjs.Rectangle(0,0,76.7,83.8);
 
 
+(lib.bubbleBlue = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Calque 2
+	this.label = new cjs.Text("10€", "32px 'Gotham Medium'", "#FFFFFF");
+	this.label.name = "label";
+	this.label.textAlign = "center";
+	this.label.lineHeight = 30;
+	this.label.setTransform(36.6,29.8);
+
+	this.timeline.addTween(cjs.Tween.get(this.label).wait(1));
+
+	// Calque 1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#0099FF").s().p("Ai8ErQgsgagmgmQhwhwAAidQAAifBwhwQBwhwCeAAQCeAABxBwQBwBwAACfQAACdhwBwQhxBxieAAQgmAAgkgHIhyBNg");
+	this.shape.setTransform(38.4,41.9);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,76.7,83.8);
+
+
+(lib.cart = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Calque 2
+	this.bubble = new lib.bubbleBlue();
+	this.bubble.setTransform(82.9,-17.5,0.642,0.55,0,0,31,38.4,41.9);
+	this.bubble.alpha = 0;
+
+	this.timeline.addTween(cjs.Tween.get(this.bubble).wait(1));
+
+	// Calque 1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#000000").s().p("AkzAaIGVizIDSCBImXCygAkoAaIDFB7IGMiuIjHh7g");
+	this.shape.setTransform(30.9,15.5);
+
+	this.shape_1 = new cjs.Shape();
+	this.shape_1.graphics.f("#FFFFFF").s().p("AkzAaIGWi0IDRCCImXCyg");
+	this.shape_1.setTransform(30.9,15.5);
+
+	this.shape_2 = new cjs.Shape();
+	this.shape_2.graphics.f("#000000").s().p("AjLBDIGXiyIAAAtImXCygAjGBGIAAAiIGNitIAAgig");
+	this.shape_2.setTransform(41.2,24.3);
+
+	this.shape_3 = new cjs.Shape();
+	this.shape_3.graphics.f("#A3A3A3").s().p("AjLBDIGXiyIAAAtImXCyg");
+	this.shape_3.setTransform(41.2,24.3);
+
+	this.shape_4 = new cjs.Shape();
+	this.shape_4.graphics.f("#000000").s().p("AhmgqIAAgrIDNB+IAAAtgAhhgsIDDB5IAAghIjDh4g");
+	this.shape_4.setTransform(10.4,26.8);
+
+	this.shape_5 = new cjs.Shape();
+	this.shape_5.graphics.f("#FFFFFF").s().p("AhmgqIAAgrIDNB+IAAAtg");
+	this.shape_5.setTransform(10.4,26.8);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
+
+
 // stage content:
 (lib.trust_simulation = function(mode,startPosition,loop) {
 if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{init:4,start:54,first_move:85,second_move:192});
@@ -1198,8 +1228,8 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 				labelA = canvas.dataset.participantsLabelA || labelA;
 				labelB = canvas.dataset.participantsLabelB || labelB;
 				multiplier = canvas.dataset.multiplier || multiplier;
-				amount1 = canvas.dataset.amount1 || amount1;
-				amount2 = canvas.dataset.amount2 || amount2;
+				amount1 = +canvas.dataset.amount1 || amount1;
+				amount2 = +canvas.dataset.amount2 || amount2;
 				currency = canvas.dataset.currency || currency;
 			}
 		}
@@ -1217,12 +1247,22 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 			var startAmount = 10;
 			var currency = '€';
 			var multiplier = 3;
+			var labelA = 'participant A';
+			var labelB = 'participant B';
+			var multiplier = 3;
+			var amount1 = amount2 = 10;
+			var currency = '€';
 		
-			var canvas = window.document.getElementsByTagName('canvas')[0];
-			if (canvas) {
-				startAmount = canvas.dataset.startAmount || startAmount;
-				currency = canvas.dataset.currency || currency;
-				multiplier = canvas.dataset.currency || multiplier;
+			if (document) {
+				var canvas = document.getElementsByTagName('canvas')[0];
+				if (canvas) {
+					labelA = canvas.dataset.participantsLabelA || labelA;
+					labelB = canvas.dataset.participantsLabelB || labelB;
+					multiplier = canvas.dataset.multiplier || multiplier;
+					amount1 = +canvas.dataset.amount1 || amount1;
+					amount2 = +canvas.dataset.amount2 || amount2;
+					currency = canvas.dataset.currency || currency;
+				}
 			}
 			
 			function createDollar(color) {
@@ -1247,6 +1287,9 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 				var X_OFFSET = 18;
 				var Y_OFFSET = 9;
 				var Z_OFFSET = 3;
+				
+				this.cart1.bubble.alpha = 0;
+				this.cart2.bubble.alpha = 0;
 		
 				var carts = [{
 					money: 0,
@@ -1271,6 +1314,9 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					cart.stack.push(dollar);
 					cart.money++;
 					
+					cart.instance.bubble.alpha = 1;
+					cart.instance.bubble.label.text = currency + cart.money.toString();
+					
 					return this;
 				}
 				
@@ -1280,6 +1326,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 						var removable = cart.stack.pop();
 						cart.instance.removeChild(removable);
 						cart.money--;
+						cart.instance.bubble.label.text = currency + cart.money.toString();
 						return true;
 					}
 					
@@ -1307,22 +1354,39 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 						this.gotoAndPlay('first_move');
 					} else {
 						this.gotoAndPlay('second_move');
+						var self = this;
+						setTimeout(function () {
+							self.cart1.bubble.alpha = 0;
+							self.cart2.bubble.alpha = 0;
+						}, 2000);
 					}
 					return this;
 				}.bind(this);
 				
 				var multiplyMoney = function (cartIndex, multiplier) {
-					var newAmount = carts[cartIndex].money * multiplier;
+					window.TRUST.multipliedMoney = carts[cartIndex].money * multiplier;
 					batchRemove(cartIndex);
-					batchAdd(cartIndex, newAmount, 'grey');
+					batchAdd(cartIndex, window.TRUST.multipliedMoney, 'grey');
 				}
+				
+				var reset = function () {
+					this.cart1.bubble.alpha = 0;
+					this.cart2.bubble.alpha = 0;
+					carts[0].money = 0;
+					carts[0].color = '';
+					carts[0].stack = [];
+					carts[1].money = 0;
+					carts[0].color = '';
+					carts[0].stack = [];
+				}.bind(this);
 		
 				return {
 					increment: increment,
 					decrement: decrement,
 					move: move,
 					multiply: multiplyMoney,
-					removeAll: batchRemove
+					removeAll: batchRemove,
+					reset: reset
 				}
 			}.bind(this);
 		
@@ -1346,19 +1410,17 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 		
 				var increment = function (i, moneyColor, force) {
 					var p = players[i];
-					if (force || (p.money + 1 <= startAmount)) {
-						p.money++;
+					p.money++;
 		
-						var bubble = i === 0 ? this.bubble1 : this.bubble2;
-						bubble.label.text = p.money.toString() + currency;
-							
-						var dollar = createDollar(moneyColor);
-						dollar.x = X_OFFSET;
-						dollar.y = Y_OFFSET - Z_OFFSET * p.stack.length;
+					var bubble = i === 0 ? this.bubble1 : this.bubble2;
+					bubble.label.text = currency + p.money.toString();
 						
-						p.instance.addChild(dollar);
-						p.stack.push(dollar);
-					}
+					var dollar = createDollar(moneyColor);
+					dollar.x = X_OFFSET;
+					dollar.y = Y_OFFSET - Z_OFFSET * p.stack.length;
+					
+					p.instance.addChild(dollar);
+					p.stack.push(dollar);
 					return this;
 				}.bind(this);
 		
@@ -1367,7 +1429,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					if (p.money - 1 >= 0) {
 						p.money--;
 						var bubble = i === 0 ? this.bubble1 : this.bubble2;
-						bubble.label.text = p.money.toString() + currency;
+						bubble.label.text = currency + p.money.toString();
 						
 						var removable = p.stack.pop();
 						p.instance.removeChild(removable);
@@ -1472,6 +1534,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 			var reset = function () {
 				this.gotoAndPlay('start');
 				playersControls.reset();
+				cartsControls.reset();
 			}.bind(this);
 		
 			var init = function () {
@@ -1523,10 +1586,18 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 
 	this.timeline.addTween(cjs.Tween.get(this.cart2).wait(74).to({_off:false},0).to({alpha:1},5,cjs.Ease.get(1)).wait(113).to({x:522.6,y:241.9},5,cjs.Ease.get(1)).to({x:223.6,y:375.9},32,cjs.Ease.get(1)).to({x:162.3,y:338.5},5).wait(176));
 
+	// Calque 1 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	mask.graphics.p("AmXKFIAAmQImzkCIh9goIAArQIHgi0QDTgVDagIQFugOFUBeQAhAJAPAcQFnKHhyLxIv6HCg");
+	mask.setTransform(314.9,241.5);
+
 	// factory front
 	this.instance = new lib.factory();
 	this.instance.setTransform(300,-80,1,1,0,0,0,3.4,6.8);
 	this.instance._off = true;
+
+	this.instance.mask = mask;
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(4).to({_off:false},0).to({y:240},5,cjs.Ease.get(1)).wait(401));
 

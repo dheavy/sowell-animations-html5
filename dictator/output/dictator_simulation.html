@@ -9,19 +9,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>public_good_demo</title>
+<title>dictator_simulation</title>
 <!-- write your code here -->
 
 
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="public_good_demo.js?1456484858728"></script>
+<script src="dictator_simulation.js?1459782571516"></script>
 <script>
 var canvas, stage, exportRoot;
 function init() {
 	// --- write your JS code here ---
 	
 	canvas = document.getElementById("canvas");
-	exportRoot = new lib.public_good_simulation();
+	exportRoot = new lib.dictator_simulation();
 
 	stage = new createjs.Stage(canvas);
 	stage.addChild(exportRoot);

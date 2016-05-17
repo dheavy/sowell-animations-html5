@@ -1,18 +1,22 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 210" majorVersion="15" minorVersion="1" buildNumber="210" guidesVisible="false" timelineLabelWidth="240" viewAngle3D="59.1837342884091" previewFrame="46" templateFilename="/Users/davy.braun/Library/Application Support/Adobe/Animate CC 2015/fr_FR/Configuration/Templates/HTML5 Canvas/sowell_animations/sowell_animations.xfl" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" guidesVisible="false" timelineLabelWidth="240" viewAngle3D="59.1837342884091" previewFrame="46" templateFilename="/Users/davy.braun/Library/Application Support/Adobe/Animate CC 2015/fr_FR/Configuration/Templates/HTML5 Canvas/sowell_animations/sowell_animations.xfl" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
      <brushdefinitions>
           <Include href="PaintBrushDefinitions.xml"/>
      </brushdefinitions>
+     <folders>
+          <DOMFolderItem name="Dossier des éléments dupliqués" itemID="5735dfb7-00000234" isExpanded="true"/>
+     </folders>
      <symbols>
           <Include href="arrowBlue.xml" itemIcon="1" loadImmediate="false" itemID="56cf13f6-000005ba" lastModified="1456411638"/>
           <Include href="arrowGreen.xml" itemIcon="1" loadImmediate="false" itemID="56cf140f-000005c2" lastModified="1456411663"/>
           <Include href="arrowOrange.xml" itemIcon="1" loadImmediate="false" itemID="56cf1409-000005be" lastModified="1456411657"/>
           <Include href="arrowRed.xml" itemIcon="1" loadImmediate="false" itemID="56cf13ee-000005b5" lastModified="1456411630"/>
-          <Include href="bubbleBlue.xml" loadImmediate="false" itemID="56cf154e-000005e9" lastModified="1456415509"/>
-          <Include href="bubbleGreen.xml" loadImmediate="false" itemID="56cf14da-000005cb" lastModified="1456415541"/>
-          <Include href="bubbleOrange.xml" loadImmediate="false" itemID="56cf14e5-000005cf" lastModified="1456415527"/>
-          <Include href="bubbleRed.xml" loadImmediate="false" itemID="56cf1576-00000604" lastModified="1456415502"/>
+          <Include href="bubbleBlue.xml" loadImmediate="false" itemID="5735d693-000001b4" lastModified="1463146138"/>
+          <Include href="bubbleGreen.xml" loadImmediate="false" itemID="56cf14da-000005cb" lastModified="1459418581"/>
+          <Include href="bubbleOrange.xml" loadImmediate="false" itemID="56cf14e5-000005cf" lastModified="1459418594"/>
+          <Include href="bubbleRed.xml" loadImmediate="false" itemID="56cf1576-00000604" lastModified="1459418606"/>
+          <Include href="cart.xml" loadImmediate="false" itemID="56e2d0fc-000005ae" lastModified="1463149131"/>
           <Include href="character.xml" itemIcon="1" loadImmediate="false" itemID="56c33d7f-00000262" lastModified="1455635899"/>
-          <Include href="chariot.xml" itemIcon="1" loadImmediate="false" itemID="56c33b2a-00000220" lastModified="1455635242"/>
+          <Include href="chariot.xml" itemIcon="1" loadImmediate="false" itemID="56c33b2a-00000220" lastModified="1463148439"/>
           <Include href="conveyor.xml" itemIcon="1" loadImmediate="false" itemID="56c33b06-00000219" lastModified="1456409111"/>
           <Include href="dollarBlue.xml" itemIcon="1" loadImmediate="false" itemID="56cf0e30-0000053c" lastModified="1456410274"/>
           <Include href="dollarGreen.xml" itemIcon="1" loadImmediate="false" itemID="56cf0e35-0000053d" lastModified="1456410165"/>
@@ -21,6 +25,7 @@
           <Include href="dollarRed.xml" itemIcon="1" loadImmediate="false" itemID="56cf0f01-00000543" lastModified="1456410369"/>
           <Include href="dollarsColorsInChariot.xml" itemIcon="1" loadImmediate="false" itemID="56cf2174-0000062f" lastModified="1456415145"/>
           <Include href="dollarsGreyInChariot.xml" itemIcon="1" loadImmediate="false" itemID="56cf1cdf-00000627" lastModified="1456413919"/>
+          <Include href="Dossier des éléments dupliqués/bubbleBlack.xml" loadImmediate="false" itemID="5735dfc8-00000237" lastModified="1463148495"/>
           <Include href="factory.xml" loadImmediate="false" itemID="56cf10f8-0000059c" lastModified="1456410872"/>
           <Include href="floor.xml" itemIcon="1" loadImmediate="false" itemID="56c33808-000001c0" lastModified="1455636937"/>
           <Include href="gain.xml" loadImmediate="false" itemID="56cf2b69-00000812" lastModified="1456417641"/>
@@ -29,22 +34,22 @@
           <Include href="startScreen.xml" loadImmediate="false" itemID="56cc8937-0000007c" lastModified="1456245551"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="35">
+          <DOMTimeline name="Séquence 1" currentFrame="362">
                <layers>
                     <DOMLayer name="labels" color="#669900" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="35" keyMode="9728">
+                              <DOMFrame index="0" duration="35" name="init" labelType="name" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="35" name="init" labelType="name" keyMode="9728">
+                              <DOMFrame index="35" duration="20" name="start" labelType="name" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="36" duration="339" name="start" labelType="name" keyMode="9728">
+                              <DOMFrame index="55" duration="320" name="send" labelType="name" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="scripts" color="#808080" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="global scripts" color="#808080" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
@@ -54,123 +59,128 @@
                                         <script><![CDATA[/*
  Process
  -------
- Module pattern opening an API accessible via window.publicGood namespace to interact
- withe current animation from outside of it.
+ Find if canvas in HTML shell page has the following data-attributes:
+ - `data-estimation-min`
+ - `data-estimation-max`
+ - `data-estimation-currency`
+ - `data-multipler`
  
- `min`, `max`, `currency` and `multiplier` variables can be set via data-attributes, respectively
- `data-min`, `'data-max`, `data-currency` and `data-multiplier`. They revert to defaults if not set.
+ Use them as attributes in the animation if found.
+ Use default attributes if not.
+ 
+ Assumes there is only on canvas in the page.
  */
-
-this.stop()
-
-var min = 0;
-var max = 0;
+ 
+var self = this;
+var min = 5;
+var max = 10;
 var currency = '€';
 var multiplier = 1.6;
+var resultMoney = 0;
+var NUM_PLAYERS = 4;
 
 if (document) {
 	var canvas = document.getElementsByTagName('canvas')[0];
 	if (canvas) {
-		min = canvas.dataset.min || min;
-		max = canvas.dataset.max || max;
-		currency = canvas.dataset.currency || currency;
-		multiplier = canvas.dataset.multiplier|| multiplier;
+		min = +canvas.dataset.estimationMin || min;
+		max = +canvas.dataset.estimationMax || max;
+		currency = canvas.dataset.estimationCurrency || currency;
+		multiplier = +canvas.dataset.multiplier|| multiplier;
 	}
+}
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function Player(startAmount, bubbleRef) {
+	this.startAmount = startAmount;
+	this.currentAmount = startAmount;
+	this.givingAmount = 0;
+	this.bubble = bubbleRef;
+	this.bubble.label.text = currency + max;
+};
+
+Player.prototype.giveMoney = function (amount) {
+	if (amount <= max) {
+		this.currentAmount = max - amount;
+		
+		var displayedAmount = (this.currentAmount % 1 === 0 ? this.currentAmount.toString() : this.currentAmount.toFixed(2).toString());
+		
+		this.speak(currency + displayedAmount);
+		this.givingAmount = amount;
+	}
+};
+
+Player.prototype.receiveMoney = function (amount) {
+	this.currentAmount += amount;
+	this.speak(currency + this.currentAmount.toFixed(2).toString());
+};
+
+Player.prototype.speak = function (text) {
+	this.bubble.label.text = text;
+};
+
+var p1 = new Player(max, this.bubble1);
+var p2 = new Player(max, this.bubble2);
+var p3 = new Player(max, this.bubble3);
+var p4 = new Player(max, this.bubble4);
+
+var moneyFromGroup = function() {
+	return p1.givingAmount + p2.givingAmount + p3.givingAmount + p4.givingAmount;
 }
 
 this.bubbleMultiplier.label.text = '×' + multiplier;
 
-var self = this; // Store reference to 'lib.public_good_simulation' -> the current animation object.
+window.PG = (function () {
+	var players = [p1, p2, p3, p4];
+	
+	var giveMoney = function (playerIndex, amount) {
+		players[playerIndex].giveMoney(+amount);
+		self.cart.bubble.alpha = 1;
+		self.cart.bubble.label.text = currency + moneyFromGroup().toString();
+	};
 
-window.publicGood = (function() {
-	var playersAmount = [0, 0, 0, 0];
-	
-	function getPlayerBubble(index) {
-		return self['bubble' + index];
-	}
-	
-	function incrementAmount(player) {
-		if (playersAmount[player] < max) {
-			playersAmount[player]++;
-			getPlayerBubble(player+1).label.text = playersAmount[player].toString() + currency;
-		}
-	}
-	
-	function decrementAmount(player) {
-		if (playersAmount[player] > min) {
-			playersAmount[player]--;
-			getPlayerBubble(player+1).label.text = playersAmount[player].toString() + currency;
-		}
-	}
-
-	function incrementAmountPlayer1() {
-		incrementAmount(0);
-	}
-	
-	function incrementAmountPlayer2() {
-		incrementAmount(1);
-	}
-	
-	function incrementAmountPlayer3() {
-		incrementAmount(2);
-	}
-	
-	function incrementAmountPlayer4() {
-		incrementAmount(3);
-	}
-	
-	function decrementAmountPlayer1() {
-		decrementAmount(0);
-	}
-	
-	function decrementAmountPlayer2() {
-		decrementAmount(1);
-	}
-	
-	function decrementAmountPlayer3() {
-		decrementAmount(2);
-	}
-	
-	function decrementAmountPlayer4() {
-		decrementAmount(3);
-	}
-	
-	function start() {
-		self.gotoAndPlay('start');
-	}
-	
-	function reset() {
-		playersAmount = [0, 0, 0, 0];
-		for (var i = 0, len = playersAmount.length; i < len; i++) {
-			getPlayerBubble(i+1).label.text = playersAmount[i].toString() + currency;
-		}
-	}
-	
-	reset();
+	var send = function () {
+		resultMoney = (+moneyFromGroup() * +multiplier) / +NUM_PLAYERS;
+		
+		setTimeout(function () {
+			self.cart.bubble.alpha = 1;
+			self.cart.bubble.label.text = currency + moneyFromGroup().toString();
+		}, 2000);
+		
+		setTimeout(function () {
+			var multipliedAmount = moneyFromGroup() * multiplier;
+			self.cart.bubble.label.text = currency + multipliedAmount.toString();
+		}, 6000);
+		
+		setTimeout(function () {
+			p1.receiveMoney(+resultMoney);
+			p2.receiveMoney(+resultMoney);
+			p3.receiveMoney(+resultMoney);
+			p4.receiveMoney(+resultMoney);
+			self.cart.bubble.label.text = currency + '0';
+			
+			setTimeout(function () {
+				self.cart.bubble.alpha = 0;
+			}, 1000);
+		}, 10000);
+		
+		
+		self.gotoAndPlay('send');
+	};
 	
 	return {
-		incrementAmountPlayer1: incrementAmountPlayer1,
-		incrementAmountPlayer2: incrementAmountPlayer2,
-		incrementAmountPlayer3: incrementAmountPlayer3,
-		incrementAmountPlayer4: incrementAmountPlayer4,
-		
-		decrementAmountPlayer1: decrementAmountPlayer1,
-		decrementAmountPlayer2: decrementAmountPlayer2,
-		decrementAmountPlayer3: decrementAmountPlayer3,
-		decrementAmountPlayer4: decrementAmountPlayer4,
-		
-		start: start,
-		reset: reset
+		giveMoney: giveMoney,
+		send: send
 	}
-	
-}());
-]]></script>
+})();]]></script>
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
                               <DOMFrame index="414" keyMode="9728">
                                    <Framescript language="JavaScript">
-                                        <script><![CDATA[this.gotoAndPlay('init');]]></script>
+                                        <script><![CDATA[this.gotoAndPlay('start');]]></script>
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
@@ -252,6 +262,22 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
+                    <DOMLayer name="Calque 1" color="#4F80FF">
+                         <frames>
+                              <DOMFrame index="0" duration="54" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="54" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[this.stop();]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="55" duration="360" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
                     <DOMLayer name="gain 4" color="#009999" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="335" keyMode="9728">
@@ -274,7 +300,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="344" duration="65" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="gain" selected="true" symbolType="graphic" centerPoint3DX="560.45" centerPoint3DY="385" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="560.45" centerPoint3DY="385" loop="loop">
                                              <matrix>
                                                   <Matrix tx="548.4" ty="378.85"/>
                                              </matrix>
@@ -335,7 +361,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="344" duration="65" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="gain" selected="true" symbolType="graphic" centerPoint3DX="483.15" centerPoint3DY="337.35" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="483.15" centerPoint3DY="337.35" loop="loop">
                                              <matrix>
                                                   <Matrix tx="471.1" ty="331.2"/>
                                              </matrix>
@@ -396,7 +422,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="344" duration="65" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="gain" selected="true" symbolType="graphic" centerPoint3DX="401.75" centerPoint3DY="289.65" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="401.75" centerPoint3DY="289.65" loop="loop">
                                              <matrix>
                                                   <Matrix tx="389.7" ty="283.5"/>
                                              </matrix>
@@ -457,7 +483,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="344" duration="65" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="gain" selected="true" centerPoint3DX="181.7" centerPoint3DY="149.5">
+                                        <DOMSymbolInstance libraryItemName="gain" centerPoint3DX="181.7" centerPoint3DY="149.5">
                                              <matrix>
                                                   <Matrix tx="181.7" ty="149.5"/>
                                              </matrix>
@@ -498,23 +524,8 @@ window.publicGood = (function() {
                     </DOMLayer>
                     <DOMLayer name="bubble 4" color="#4F80FF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="35" keyMode="9728">
+                              <DOMFrame index="0" duration="50" keyMode="9728">
                                    <elements/>
-                              </DOMFrame>
-                              <DOMFrame index="35" duration="15" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="539.55" centerPoint3DY="305.75">
-                                             <matrix>
-                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="514" ty="261.85"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="38.3" y="41.8"/>
-                                             </transformationPoint>
-                                             <color>
-                                                  <Color alphaMultiplier="0"/>
-                                             </color>
-                                        </DOMSymbolInstance>
-                                   </elements>
                               </DOMFrame>
                               <DOMFrame index="50" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
@@ -552,9 +563,63 @@ window.publicGood = (function() {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="99" keyMode="9728">
+                              <DOMFrame index="99" duration="236" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4">
+                                             <matrix>
+                                                  <Matrix a="0.0835418701171875" b="0.052215576171875" d="0.0835418701171875" tx="544.35" ty="316.2"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.9"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="335" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="547.55" centerPoint3DY="321.7">
+                                             <matrix>
+                                                  <Matrix a="0.0835418701171875" b="0.052215576171875" d="0.0835418701171875" tx="544.35" ty="316.2"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.9"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="338" duration="71" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="539.55" centerPoint3DY="305.75">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="514" ty="261.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="539.55" centerPoint3DY="305.75">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="514" ty="261.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="414" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="547.55" centerPoint3DY="321.7">
                                              <matrix>
                                                   <Matrix a="0.0835418701171875" b="0.052215576171875" d="0.0835418701171875" tx="544.35" ty="316.2"/>
                                              </matrix>
@@ -568,23 +633,8 @@ window.publicGood = (function() {
                     </DOMLayer>
                     <DOMLayer name="bubble 3" color="#4F80FF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="35" keyMode="9728">
+                              <DOMFrame index="0" duration="50" keyMode="9728">
                                    <elements/>
-                              </DOMFrame>
-                              <DOMFrame index="35" duration="15" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="460.55" centerPoint3DY="254.6">
-                                             <matrix>
-                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="435" ty="210.7"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="38.3" y="41.8"/>
-                                             </transformationPoint>
-                                             <color>
-                                                  <Color alphaMultiplier="0"/>
-                                             </color>
-                                        </DOMSymbolInstance>
-                                   </elements>
                               </DOMFrame>
                               <DOMFrame index="50" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
@@ -622,9 +672,63 @@ window.publicGood = (function() {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="99" keyMode="9728">
+                              <DOMFrame index="99" duration="236" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3">
+                                             <matrix>
+                                                  <Matrix a="0.141311645507812" b="0.08831787109375" d="0.141311645507812" tx="471.15" ty="269.25"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.2" y="41.95"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="335" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="476.55" centerPoint3DY="278.55">
+                                             <matrix>
+                                                  <Matrix a="0.141311645507812" b="0.08831787109375" d="0.141311645507812" tx="471.15" ty="269.25"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.2" y="41.95"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="338" duration="71" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="460.55" centerPoint3DY="254.6">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="435" ty="210.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="460.55" centerPoint3DY="254.6">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="435" ty="210.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="414" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="476.55" centerPoint3DY="278.55">
                                              <matrix>
                                                   <Matrix a="0.141311645507812" b="0.08831787109375" d="0.141311645507812" tx="471.15" ty="269.25"/>
                                              </matrix>
@@ -638,23 +742,8 @@ window.publicGood = (function() {
                     </DOMLayer>
                     <DOMLayer name="bubble 2" color="#4F80FF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="35" keyMode="9728">
+                              <DOMFrame index="0" duration="50" keyMode="9728">
                                    <elements/>
-                              </DOMFrame>
-                              <DOMFrame index="35" duration="15" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="376.15" centerPoint3DY="199.85">
-                                             <matrix>
-                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="350.6" ty="155.95"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="38.3" y="41.8"/>
-                                             </transformationPoint>
-                                             <color>
-                                                  <Color alphaMultiplier="0"/>
-                                             </color>
-                                        </DOMSymbolInstance>
-                                   </elements>
                               </DOMFrame>
                               <DOMFrame index="50" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
@@ -692,9 +781,63 @@ window.publicGood = (function() {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="99" keyMode="9728">
+                              <DOMFrame index="99" duration="236" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2">
+                                             <matrix>
+                                                  <Matrix a="0.124252319335938" b="0.077667236328125" d="0.124252319335938" tx="395.35" ty="223.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.25" y="42.1"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="335" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="400.1" centerPoint3DY="231.8">
+                                             <matrix>
+                                                  <Matrix a="0.124252319335938" b="0.077667236328125" d="0.124252319335938" tx="395.35" ty="223.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.25" y="42.1"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="338" duration="71" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="376.15" centerPoint3DY="199.85">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="350.6" ty="155.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="376.15" centerPoint3DY="199.85">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="350.6" ty="155.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="414" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="400.1" centerPoint3DY="231.8">
                                              <matrix>
                                                   <Matrix a="0.124252319335938" b="0.077667236328125" d="0.124252319335938" tx="395.35" ty="223.65"/>
                                              </matrix>
@@ -708,23 +851,8 @@ window.publicGood = (function() {
                     </DOMLayer>
                     <DOMLayer name="bubble 1" color="#4F80FF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="35" keyMode="9728">
+                              <DOMFrame index="0" duration="50" keyMode="9728">
                                    <elements/>
-                              </DOMFrame>
-                              <DOMFrame index="35" duration="15" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="169.4" centerPoint3DY="80.25">
-                                             <matrix>
-                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="143.85" ty="36.35"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="38.3" y="41.8"/>
-                                             </transformationPoint>
-                                             <color>
-                                                  <Color alphaMultiplier="0"/>
-                                             </color>
-                                        </DOMSymbolInstance>
-                                   </elements>
                               </DOMFrame>
                               <DOMFrame index="50" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
@@ -762,9 +890,63 @@ window.publicGood = (function() {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="99" keyMode="9728">
+                              <DOMFrame index="99" duration="236" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1">
+                                             <matrix>
+                                                  <Matrix a="0.11773681640625" b="0.0735931396484375" d="0.11773681640625" tx="188.9" ty="96.5"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.2" y="41.95"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="335" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="193.4" centerPoint3DY="104.25">
+                                             <matrix>
+                                                  <Matrix a="0.11773681640625" b="0.0735931396484375" d="0.11773681640625" tx="188.9" ty="96.5"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.2" y="41.95"/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="338" duration="71" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="169.4" centerPoint3DY="80.25">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="143.85" ty="36.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="169.4" centerPoint3DY="80.25">
+                                             <matrix>
+                                                  <Matrix a="0.666671752929688" b="0.416671752929688" d="0.666671752929688" tx="143.85" ty="36.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.3" y="41.8"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="414" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="193.4" centerPoint3DY="104.25">
                                              <matrix>
                                                   <Matrix a="0.11773681640625" b="0.0735931396484375" d="0.11773681640625" tx="188.9" ty="96.5"/>
                                              </matrix>
@@ -811,7 +993,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="269" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" selected="true" symbolType="graphic" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" loop="loop">
                                              <matrix>
                                                   <Matrix tx="287.75" ty="256.15"/>
                                              </matrix>
@@ -1070,7 +1252,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="174" duration="50" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="dollarsColorsInChariot" selected="true" symbolType="graphic" centerPoint3DX="112.55" centerPoint3DY="340.15" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="dollarsColorsInChariot" symbolType="graphic" centerPoint3DX="112.55" centerPoint3DY="340.15" loop="loop">
                                              <matrix>
                                                   <Matrix tx="112.55" ty="340.15"/>
                                              </matrix>
@@ -1345,7 +1527,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="35" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
                                                   <Matrix a="0.81683349609375" d="0.81683349609375" tx="87.75" ty="327.75"/>
                                              </matrix>
@@ -1360,7 +1542,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="39" duration="135" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="112.95" centerPoint3DY="342.25" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
                                                   <Matrix a="0.81683349609375" d="0.81683349609375" tx="87.75" ty="327.75"/>
                                              </matrix>
@@ -1372,7 +1554,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="174" duration="50" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="112.95" centerPoint3DY="342.25" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart" selected="true">
                                              <matrix>
                                                   <Matrix a="0.81683349609375" d="0.81683349609375" tx="87.75" ty="327.75"/>
                                              </matrix>
@@ -1384,7 +1566,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="224" duration="45" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="288.95" centerPoint3DY="263.85" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
                                                   <Matrix a="0.81683349609375" d="0.81683349609375" tx="263.75" ty="249.35"/>
                                              </matrix>
@@ -1396,7 +1578,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="269" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="288.95" centerPoint3DY="263.85" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
                                                   <Matrix a="0.81683349609375" d="0.81683349609375" tx="263.75" ty="249.35"/>
                                              </matrix>
@@ -1408,7 +1590,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="314" duration="95" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="488.15" centerPoint3DY="175.05" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
                                                   <Matrix a="0.81683349609375" d="0.81683349609375" tx="462.95" ty="160.55"/>
                                              </matrix>
@@ -1420,7 +1602,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" centerPoint3DX="488.15" centerPoint3DY="175.05" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
                                                   <Matrix a="0.81683349609375" d="0.81683349609375" tx="462.95" ty="160.55"/>
                                              </matrix>
@@ -1432,7 +1614,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                               <DOMFrame index="414" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="488.15" centerPoint3DY="175.05" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
                                                   <Matrix a="0.81683349609375" d="0.81683349609375" tx="462.95" ty="160.55"/>
                                              </matrix>
@@ -1448,7 +1630,7 @@ window.publicGood = (function() {
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 4" color="#009999" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1-10 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-10 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="32" keyMode="9728">
                                    <elements/>
@@ -1479,7 +1661,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-9 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-9 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="31" keyMode="9728">
                                    <elements/>
@@ -1510,7 +1692,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-8 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-8 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="30" keyMode="9728">
                                    <elements/>
@@ -1541,7 +1723,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-7 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-7 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="29" keyMode="9728">
                                    <elements/>
@@ -1572,7 +1754,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-6 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-6 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="28" keyMode="9728">
                                    <elements/>
@@ -1603,7 +1785,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-5 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-5 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="27" keyMode="9728">
                                    <elements/>
@@ -1634,7 +1816,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-4 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-4 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="26" keyMode="9728">
                                    <elements/>
@@ -1665,7 +1847,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-3 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-3 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="25" keyMode="9728">
                                    <elements/>
@@ -1696,7 +1878,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-2 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-2 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="24" keyMode="9728">
                                    <elements/>
@@ -1727,7 +1909,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-1 copy 3" color="#808080" parentLayerIndex="22" autoNamed="false">
+                    <DOMLayer name="d1-1 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="23" keyMode="9728">
                                    <elements/>
@@ -1759,7 +1941,7 @@ window.publicGood = (function() {
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 3" color="#009999" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1-10 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-10 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="30" keyMode="9728">
                                    <elements/>
@@ -1790,7 +1972,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-9 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-9 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="29" keyMode="9728">
                                    <elements/>
@@ -1821,7 +2003,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-8 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-8 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="28" keyMode="9728">
                                    <elements/>
@@ -1852,7 +2034,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-7 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-7 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="27" keyMode="9728">
                                    <elements/>
@@ -1883,7 +2065,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-6 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-6 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="26" keyMode="9728">
                                    <elements/>
@@ -1914,7 +2096,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-5 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-5 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="25" keyMode="9728">
                                    <elements/>
@@ -1945,7 +2127,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-4 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-4 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="24" keyMode="9728">
                                    <elements/>
@@ -1976,7 +2158,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-3 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-3 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="23" keyMode="9728">
                                    <elements/>
@@ -2007,7 +2189,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-2 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-2 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="22" keyMode="9728">
                                    <elements/>
@@ -2038,7 +2220,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-1 copy 2" color="#808080" parentLayerIndex="33" autoNamed="false">
+                    <DOMLayer name="d1-1 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="21" keyMode="9728">
                                    <elements/>
@@ -2070,7 +2252,7 @@ window.publicGood = (function() {
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 2" color="#009999" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1-10 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-10 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="28" keyMode="9728">
                                    <elements/>
@@ -2104,7 +2286,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-9 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-9 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="27" keyMode="9728">
                                    <elements/>
@@ -2138,7 +2320,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-8 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-8 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="26" keyMode="9728">
                                    <elements/>
@@ -2172,7 +2354,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-7 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-7 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="25" keyMode="9728">
                                    <elements/>
@@ -2206,7 +2388,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-6 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-6 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="24" keyMode="9728">
                                    <elements/>
@@ -2240,7 +2422,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-5 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-5 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="23" keyMode="9728">
                                    <elements/>
@@ -2274,7 +2456,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-4 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-4 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="22" keyMode="9728">
                                    <elements/>
@@ -2308,7 +2490,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-3 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-3 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="21" keyMode="9728">
                                    <elements/>
@@ -2342,7 +2524,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-2 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-2 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="20" keyMode="9728">
                                    <elements/>
@@ -2376,7 +2558,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-1 copy" color="#808080" parentLayerIndex="44" autoNamed="false">
+                    <DOMLayer name="d1-1 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="19" keyMode="9728">
                                    <elements/>
@@ -2411,7 +2593,7 @@ window.publicGood = (function() {
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 1" color="#009999" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1-10" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-10" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="26" keyMode="9728">
                                    <elements/>
@@ -2442,7 +2624,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-9" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-9" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="25" keyMode="9728">
                                    <elements/>
@@ -2473,7 +2655,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-8" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-8" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="24" keyMode="9728">
                                    <elements/>
@@ -2504,7 +2686,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-7" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-7" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="23" keyMode="9728">
                                    <elements/>
@@ -2535,7 +2717,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-6" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-6" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="22" keyMode="9728">
                                    <elements/>
@@ -2566,7 +2748,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-5" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-5" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="21" keyMode="9728">
                                    <elements/>
@@ -2597,7 +2779,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-4" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-4" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="20" keyMode="9728">
                                    <elements/>
@@ -2628,7 +2810,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-3" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-3" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="19" keyMode="9728">
                                    <elements/>
@@ -2659,7 +2841,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-2" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-2" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="18" keyMode="9728">
                                    <elements/>
@@ -2690,7 +2872,7 @@ window.publicGood = (function() {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-1" color="#808080" parentLayerIndex="55" autoNamed="false">
+                    <DOMLayer name="d1-1" color="#808080" parentLayerIndex="56" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="17" keyMode="9728">
                                    <elements/>
