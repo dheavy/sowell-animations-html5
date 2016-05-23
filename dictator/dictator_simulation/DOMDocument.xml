@@ -1,8 +1,10 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 210" majorVersion="15" minorVersion="1" buildNumber="210" timelineLabelWidth="240" viewAngle3D="59.1837342884091" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" timelineLabelWidth="240" viewAngle3D="59.1837342884091" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
      <symbols>
           <Include href="bubble_left.xml" loadImmediate="false" itemID="56cdc520-000001bf" lastModified="1459764824"/>
+          <Include href="bubble_right.xml" loadImmediate="false" itemID="5742fb9f-000000ab" lastModified="1464007593"/>
+          <Include href="bubbleBlue.xml" loadImmediate="false" itemID="5735d693-000001b4" lastModified="1464006354"/>
           <Include href="character.xml" itemIcon="1" loadImmediate="false" itemID="56c33d7f-00000262" lastModified="1455635899"/>
-          <Include href="chariot.xml" itemIcon="1" loadImmediate="false" itemID="56c33b2a-00000220" lastModified="1455635242"/>
+          <Include href="chariot.xml" loadImmediate="false" itemID="56c33b2a-00000220" lastModified="1464006357"/>
           <Include href="conveyor.xml" itemIcon="1" loadImmediate="false" itemID="56c33b06-00000219" lastModified="1455635206"/>
           <Include href="dollarsGreen.xml" itemIcon="1" loadImmediate="false" itemID="56cc893e-0000007d" lastModified="1456245054"/>
           <Include href="dollarsGrey.xml" itemIcon="1" loadImmediate="false" itemID="56cc9234-00000172" lastModified="1456247414"/>
@@ -13,7 +15,7 @@
           <Include href="startScreen.xml" loadImmediate="false" itemID="56cc8937-0000007c" lastModified="1456245551"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="78">
+          <DOMTimeline name="Séquence 1" currentFrame="220">
                <layers>
                     <DOMLayer name="scripts" color="#808080" current="true" isSelected="true" autoNamed="false">
                          <frames>
@@ -81,18 +83,30 @@ if (document) {
 	}
 }
 
-this.bubbleLeft.estimation.text = currency + '0';
+this.bubbleLeft.estimation.text = currency + max.toString();
+this.bubbleRight.estimation.text = currency + '0';
+
+this.cart.bubble.alpha = 1;
+this.cart.bubble.label.text = currency + '0';
+
+var givenAmount = 0;
 
 window.DICTATOR = (function () {
 	
 	var putMoney = function (amount) {
 		if (amount >= min && amount <= max) {
-			self.bubbleLeft.estimation.text = currency + amount.toString();
+			self.bubbleLeft.estimation.text = currency + (max - amount).toString();
+			self.cart.bubble.label.text = currency + amount.toString();
+			
+			givenAmount = max - amount;
 		}
 	};
 	
 	var send = function () {
 		self.gotoAndPlay('send');
+		setTimeout(function () {
+			self.bubbleRight.estimation.text = currency + givenAmount.toString();
+		}, 4500);
 	};
 	
 	return {
@@ -111,7 +125,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="Calque 1" color="#4F80FF">
+                    <DOMLayer name="stop()" color="#4F80FF" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="74" keyMode="9728">
                                    <elements/>
@@ -146,7 +160,40 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="portal (front)" color="#808080" autoNamed="false">
+                    <DOMLayer name="mask" color="#9933CC" locked="true" autoNamed="false" layerType="mask">
+                         <frames>
+                              <DOMFrame index="0" duration="13" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="13" duration="414" keyMode="9728">
+                                   <elements>
+                                        <DOMShape selected="true" isFloating="true">
+                                             <matrix>
+                                                  <Matrix tx="31"/>
+                                             </matrix>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <strokes>
+                                                  <StrokeStyle index="1">
+                                                       <SolidStroke scaleMode="normal">
+                                                            <fill>
+                                                                 <SolidColor/>
+                                                            </fill>
+                                                       </SolidStroke>
+                                                  </StrokeStyle>
+                                             </strokes>
+                                             <edges>
+                                                  <Edge fillStyle1="1" strokeStyle="1" edges="!3971 2241S6|5882 2241!5882 2241|5882 6702!5882 6702|3971 6702!3971 6702|3971 2241"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="portal (front)" color="#808080" parentLayerIndex="3" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="13" keyMode="9728">
                                    <elements/>
@@ -177,6 +224,61 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
+                    <DOMLayer name="bubble right" color="#4F80FF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="73" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="73" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubble_right" name="bubbleRight" centerPoint3DX="447" centerPoint3DY="226.35">
+                                             <matrix>
+                                                  <Matrix a="0.0821380615234375" b="0.050018310546875" d="0.10150146484375" tx="443.25" ty="216.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.35" y="38.25"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="78" duration="344" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubble_right" name="bubbleRight" centerPoint3DX="488.45" centerPoint3DY="231.75">
+                                             <matrix>
+                                                  <Matrix b="0.608871459960938" d="1.23568725585938" tx="450.1" ty="156.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.35" y="38.35"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="422" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubble_right" name="bubbleRight" centerPoint3DX="488.45" centerPoint3DY="231.75">
+                                             <matrix>
+                                                  <Matrix b="0.608871459960938" d="1.23568725585938" tx="450.1" ty="156.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.35" y="38.35"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="426" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="bubble_right" name="bubbleRight" selected="true" centerPoint3DX="447" centerPoint3DY="226.35">
+                                             <matrix>
+                                                  <Matrix a="0.0821380615234375" b="0.050018310546875" d="0.10150146484375" tx="443.25" ty="216.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="38.35" y="38.25"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
                     <DOMLayer name="bubble left" color="#4F80FF" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="73" keyMode="9728">
@@ -194,7 +296,7 @@ window.DICTATOR = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="78" duration="96" keyMode="9728">
+                              <DOMFrame index="78" duration="344" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubble_left" name="bubbleLeft" centerPoint3DX="116.9" centerPoint3DY="124.6">
                                              <matrix>
@@ -206,7 +308,7 @@ window.DICTATOR = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="174" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="422" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubble_left" name="bubbleLeft" centerPoint3DX="116.9" centerPoint3DY="124.6">
                                              <matrix>
@@ -218,9 +320,9 @@ window.DICTATOR = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="178" keyMode="9728">
+                              <DOMFrame index="426" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="bubble_left" name="bubbleLeft" centerPoint3DX="137" centerPoint3DY="176.35">
+                                        <DOMSymbolInstance libraryItemName="bubble_left" name="bubbleLeft" selected="true" centerPoint3DX="137" centerPoint3DY="176.35">
                                              <matrix>
                                                   <Matrix a="0.0821380615234375" b="0.050018310546875" d="0.10150146484375" tx="133.25" ty="166.45"/>
                                              </matrix>
@@ -330,8 +432,8 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dollars_grey" color="#FF4FFF" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="mask copy" color="#FF4FFF" parentLayerIndex="7" locked="true" autoNamed="false" layerType="mask">
+                    <DOMLayer name="dollars_grey" color="#FF4FFF" autoNamed="false" open="false" layerType="folder"/>
+                    <DOMLayer name="mask copy" color="#FF4FFF" parentLayerIndex="9" locked="true" autoNamed="false" layerType="mask">
                          <frames>
                               <DOMFrame index="0" duration="393" keyMode="9728">
                                    <elements>
@@ -349,7 +451,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 11" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 11" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="42" keyMode="9728">
                                    <elements/>
@@ -533,7 +635,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 12" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 12" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -723,7 +825,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 13" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 13" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -913,7 +1015,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 14" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 14" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -1103,7 +1205,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 15" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 15" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -1293,7 +1395,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 16" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 16" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -1363,7 +1465,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 17" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 17" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="36" keyMode="9728">
                                    <elements/>
@@ -1433,7 +1535,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 18" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 18" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
@@ -1503,7 +1605,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 19" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 19" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements/>
@@ -1573,7 +1675,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 20" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 20" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="33" keyMode="9728">
                                    <elements/>
@@ -1643,7 +1745,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 21" color="#FF800A" parentLayerIndex="8" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 21" color="#FF800A" parentLayerIndex="10" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="32" keyMode="9728">
                                    <elements/>
@@ -1777,8 +1879,8 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dollars_green" color="#FF4FFF" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="mask" color="#FF4FFF" parentLayerIndex="21" locked="true" autoNamed="false" layerType="mask">
+                    <DOMLayer name="dollars_green" color="#FF4FFF" autoNamed="false" open="false" layerType="folder"/>
+                    <DOMLayer name="mask" color="#FF4FFF" parentLayerIndex="23" locked="true" autoNamed="false" layerType="mask">
                          <frames>
                               <DOMFrame index="0" duration="179" keyMode="9728">
                                    <elements>
@@ -1810,7 +1912,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 10" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 10" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="42" keyMode="9728">
                                    <elements/>
@@ -1985,7 +2087,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 9" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 9" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="41" keyMode="9728">
                                    <elements/>
@@ -2172,7 +2274,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 8" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 8" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="40" keyMode="9728">
                                    <elements/>
@@ -2359,7 +2461,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 7" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 7" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="39" keyMode="9728">
                                    <elements/>
@@ -2546,7 +2648,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 6" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 6" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="38" keyMode="9728">
                                    <elements/>
@@ -2733,7 +2835,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 5" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 5" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="37" keyMode="9728">
                                    <elements/>
@@ -2803,7 +2905,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 4" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 4" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="36" keyMode="9728">
                                    <elements/>
@@ -2873,7 +2975,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 3" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 3" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
@@ -2943,7 +3045,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy 2" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy 2" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements/>
@@ -3013,7 +3115,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green copy" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green copy" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="33" keyMode="9728">
                                    <elements/>
@@ -3083,7 +3185,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="dols_green" color="#FF800A" parentLayerIndex="22" locked="true" autoNamed="false">
+                    <DOMLayer name="dols_green" color="#FF800A" parentLayerIndex="24" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="32" keyMode="9728">
                                    <elements/>
@@ -3163,49 +3265,6 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="char_right" color="#9933CC" autoNamed="false">
-                         <frames>
-                              <DOMFrame index="0" duration="26" keyMode="9728">
-                                   <elements/>
-                              </DOMFrame>
-                              <DOMFrame index="26" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" loop="loop">
-                                             <matrix>
-                                                  <Matrix tx="416.6" ty="-112.05"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="5.15" y="27.4"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                   </elements>
-                              </DOMFrame>
-                              <DOMFrame index="35" duration="144" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="421.75" centerPoint3DY="292" loop="loop">
-                                             <matrix>
-                                                  <Matrix tx="416.6" ty="264.6"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="5.15" y="27.4"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                   </elements>
-                              </DOMFrame>
-                              <DOMFrame index="179" duration="214" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="421.75" centerPoint3DY="292" loop="loop">
-                                             <matrix>
-                                                  <Matrix tx="416.6" ty="264.6"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="5.15" y="27.4"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                   </elements>
-                              </DOMFrame>
-                         </frames>
-                    </DOMLayer>
                     <DOMLayer name="char_left" color="#4F80FF" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="24" keyMode="9728">
@@ -3256,7 +3315,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                               <DOMFrame index="20" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" selected="true" symbolType="graphic" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="chariot" name="cart">
                                              <matrix>
                                                   <Matrix tx="155.25" ty="-53.1"/>
                                              </matrix>
@@ -3268,7 +3327,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                               <DOMFrame index="30" duration="149" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" symbolType="graphic" centerPoint3DX="186.1" centerPoint3DY="210.45" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="chariot" name="cart">
                                              <matrix>
                                                   <Matrix tx="155.25" ty="192.7"/>
                                              </matrix>
@@ -3338,6 +3397,49 @@ window.DICTATOR = (function () {
                                              <color>
                                                   <Color alphaMultiplier="0"/>
                                              </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="char_right" color="#9933CC" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="26" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="26" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="416.6" ty="-112.05"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="35" duration="144" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="421.75" centerPoint3DY="292" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="416.6" ty="264.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="179" duration="214" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="421.75" centerPoint3DY="292" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="416.6" ty="264.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
@@ -3463,8 +3565,8 @@ window.DICTATOR = (function () {
      <persistentData>
           <PD n="Arrêter la lecture à partir de cette image" t="i" v="2"/>
           <PD n="Evénement MouseClick" t="i" v="2"/>
-          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
           <PD n="Lire un clip" t="i" v="2"/>
+          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
      </persistentData>
      <PrinterSettings platform="macintosh"/>
      <publishHistory/>
