@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="bubbleOrange" itemID="56cf14e5-000005cf" lastModified="1459418594">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="bubbleOrange" itemID="56cf14e5-000005cf" lastModified="1464255241">
   <persistentData>
     <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
   </persistentData>
@@ -9,7 +9,7 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMDynamicText name="label" fontRenderingMode="standard" left="10.7" width="35.7" height="45.95" autoExpand="true" isSelectable="false" lineType="multiline no wrap">
+                <DOMDynamicText name="label" selected="true" fontRenderingMode="standard" left="10.7" width="35.7" height="45.95" autoExpand="true" isSelectable="false" lineType="multiline no wrap">
                   <matrix>
                     <Matrix tx="10" ty="31.8"/>
                   </matrix>

@@ -20,7 +20,7 @@
           <Include href="threeDollarsGrey.xml" itemIcon="1" loadImmediate="false" itemID="56d07828-0000044b" lastModified="1456502824"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="195">
+          <DOMTimeline name="Séquence 1" currentFrame="34">
                <layers>
                     <DOMLayer name="stop()" color="#4F80FF" autoNamed="false">
                          <frames>
@@ -109,12 +109,12 @@ var currency = '€';
 if (document) {
 	var canvas = document.getElementsByTagName('canvas')[0];
 	if (canvas) {
-		labelA = canvas.dataset.participantsLabelA || labelA;
-		labelB = canvas.dataset.participantsLabelB || labelB;
-		multiplier = canvas.dataset.multiplier || multiplier;
-		amount1 = +canvas.dataset.amount1 || amount1;
-		amount2 = +canvas.dataset.amount2 || amount2;
-		currency = canvas.dataset.currency || currency;
+		labelA = canvas.getAttribute('data-participants-label-a') || labelA;
+		labelB = canvas.getAttribute('data-participants-label-b') || labelB;
+		multiplier = canvas.getAttribute('data-multiplier') || multiplier;
+		amount1 = +canvas.getAttribute('data-amount1') || amount1;
+		amount2 = +canvas.getAttribute('data-amount2') || amount2;
+		currency = canvas.getAttribute('data-currency') || currency;
 	}
 }
 
@@ -132,7 +132,6 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 	 * Define/get default values.
 	 */
 	var startAmount = 10;
-	var currency = '€';
 	var multiplier = 3;
 	var labelA = 'participant A';
 	var labelB = 'participant B';
@@ -143,12 +142,12 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 	if (document) {
 		var canvas = document.getElementsByTagName('canvas')[0];
 		if (canvas) {
-			labelA = canvas.dataset.participantsLabelA || labelA;
-			labelB = canvas.dataset.participantsLabelB || labelB;
-			multiplier = canvas.dataset.multiplier || multiplier;
-			amount1 = +canvas.dataset.amount1 || amount1;
-			amount2 = +canvas.dataset.amount2 || amount2;
-			currency = canvas.dataset.currency || currency;
+			labelA = canvas.getAttribute('data-participants-label-a') || labelA;
+			labelB = canvas.getAttribute('data-participants-label-b') || labelB;
+			multiplier = canvas.getAttribute('data-multiplier') || multiplier;
+			amount1 = +canvas.getAttribute('data-amount-1') || amount1;
+			amount2 = +canvas.getAttribute('data-amount-2') || amount2;
+			currency = canvas.getAttribute('data-currency') || currency;
 		}
 	}
 	
@@ -273,7 +272,8 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			move: move,
 			multiply: multiplyMoney,
 			removeAll: batchRemove,
-			reset: reset
+			reset: reset,
+			carts: carts
 		}
 	}.bind(this);
 
@@ -339,12 +339,22 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			}
 		}.bind(this);
 		
+		var getMaxPlayer1Money = function () {
+			return players[0].money;
+		}.bind(this);
+		
+		var getMaxPlayer2Money = function () {
+			return players[1].money;
+		}.bind(this);
+		
 		reset();
 
 		return {
 			increment: increment,
 			decrement: decrement,
-			reset: reset
+			reset: reset,
+			getMaxPlayer1Money: getMaxPlayer1Money,
+			getMaxPlayer2Money: getMaxPlayer2Money
 		}
 	}.bind(this);
 	
@@ -406,6 +416,22 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			}
 		}
 		
+		var getMaxCart1Money = function () {
+			return carts.carts[0].money;
+		}
+		
+		var getMaxCart2Money = function () {
+			return carts.carts[1].money;
+		}
+		
+		var getMaxPlayer1Money = function () {
+			return players.getMaxPlayer1Money();
+		}
+		
+		var getMaxPlayer2Money = function () {
+			return players.getMaxPlayer2Money();
+		}
+		
 		return {
 			playerPutsOwnMoney: playerPutsOwnMoney,
 			playerTakesMoney: playerTakesMoney,
@@ -414,7 +440,12 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 			passInFactory: passInFactory,
 			incrementFromCartToCart: incrementFromCartToCart,
 			decrementFromCartToCart: decrementFromCartToCart,
-			dispatchFinalGains: dispatchFinalGains
+			dispatchFinalGains: dispatchFinalGains,
+			
+			getMaxCart1Money: getMaxCart1Money,
+			getMaxCart2Money: getMaxCart2Money,
+			getMaxPlayer1Money: getMaxPlayer1Money,
+			getMaxPlayer2Money: getMaxPlayer2Money
 		}
 	}.bind(this);
 	
@@ -431,7 +462,8 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
 		}
 	}.bind(this)
 
-	window.TRUST = window.TRUST || init();
+	var TRUST = init();
+	window.TRUST = TRUST;
 }]]></script>
                                    </Framescript>
                                    <elements/>
@@ -2088,8 +2120,8 @@ this.bubble2.label.text = amount2.toString() + currency;]]></script>
           </swatchList>
      </swatchLists>
      <persistentData>
-          <PD n="Ajouter une occurrence depuis la bibliothèque" t="i" v="3"/>
           <PD n="Obtenir le numéro de l’image actuelle" t="i" v="2"/>
+          <PD n="Ajouter une occurrence depuis la bibliothèque" t="i" v="3"/>
           <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;false"/>
      </persistentData>
      <PrinterSettings platform="macintosh"/>

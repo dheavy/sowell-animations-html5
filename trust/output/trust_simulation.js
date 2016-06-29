@@ -1225,12 +1225,12 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 		if (document) {
 			var canvas = document.getElementsByTagName('canvas')[0];
 			if (canvas) {
-				labelA = canvas.dataset.participantsLabelA || labelA;
-				labelB = canvas.dataset.participantsLabelB || labelB;
-				multiplier = canvas.dataset.multiplier || multiplier;
-				amount1 = +canvas.dataset.amount1 || amount1;
-				amount2 = +canvas.dataset.amount2 || amount2;
-				currency = canvas.dataset.currency || currency;
+				labelA = canvas.getAttribute('data-participants-label-a') || labelA;
+				labelB = canvas.getAttribute('data-participants-label-b') || labelB;
+				multiplier = canvas.getAttribute('data-multiplier') || multiplier;
+				amount1 = +canvas.getAttribute('data-amount1') || amount1;
+				amount2 = +canvas.getAttribute('data-amount2') || amount2;
+				currency = canvas.getAttribute('data-currency') || currency;
 			}
 		}
 		
@@ -1245,7 +1245,6 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 			 * Define/get default values.
 			 */
 			var startAmount = 10;
-			var currency = '€';
 			var multiplier = 3;
 			var labelA = 'participant A';
 			var labelB = 'participant B';
@@ -1256,12 +1255,12 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 			if (document) {
 				var canvas = document.getElementsByTagName('canvas')[0];
 				if (canvas) {
-					labelA = canvas.dataset.participantsLabelA || labelA;
-					labelB = canvas.dataset.participantsLabelB || labelB;
-					multiplier = canvas.dataset.multiplier || multiplier;
-					amount1 = +canvas.dataset.amount1 || amount1;
-					amount2 = +canvas.dataset.amount2 || amount2;
-					currency = canvas.dataset.currency || currency;
+					labelA = canvas.getAttribute('data-participants-label-a') || labelA;
+					labelB = canvas.getAttribute('data-participants-label-b') || labelB;
+					multiplier = canvas.getAttribute('data-multiplier') || multiplier;
+					amount1 = +canvas.getAttribute('data-amount-1') || amount1;
+					amount2 = +canvas.getAttribute('data-amount-2') || amount2;
+					currency = canvas.getAttribute('data-currency') || currency;
 				}
 			}
 			
@@ -1386,7 +1385,8 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					move: move,
 					multiply: multiplyMoney,
 					removeAll: batchRemove,
-					reset: reset
+					reset: reset,
+					carts: carts
 				}
 			}.bind(this);
 		
@@ -1452,12 +1452,22 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					}
 				}.bind(this);
 				
+				var getMaxPlayer1Money = function () {
+					return players[0].money;
+				}.bind(this);
+				
+				var getMaxPlayer2Money = function () {
+					return players[1].money;
+				}.bind(this);
+				
 				reset();
 		
 				return {
 					increment: increment,
 					decrement: decrement,
-					reset: reset
+					reset: reset,
+					getMaxPlayer1Money: getMaxPlayer1Money,
+					getMaxPlayer2Money: getMaxPlayer2Money
 				}
 			}.bind(this);
 			
@@ -1519,6 +1529,22 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					}
 				}
 				
+				var getMaxCart1Money = function () {
+					return carts.carts[0].money;
+				}
+				
+				var getMaxCart2Money = function () {
+					return carts.carts[1].money;
+				}
+				
+				var getMaxPlayer1Money = function () {
+					return players.getMaxPlayer1Money();
+				}
+				
+				var getMaxPlayer2Money = function () {
+					return players.getMaxPlayer2Money();
+				}
+				
 				return {
 					playerPutsOwnMoney: playerPutsOwnMoney,
 					playerTakesMoney: playerTakesMoney,
@@ -1527,7 +1553,12 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					passInFactory: passInFactory,
 					incrementFromCartToCart: incrementFromCartToCart,
 					decrementFromCartToCart: decrementFromCartToCart,
-					dispatchFinalGains: dispatchFinalGains
+					dispatchFinalGains: dispatchFinalGains,
+					
+					getMaxCart1Money: getMaxCart1Money,
+					getMaxCart2Money: getMaxCart2Money,
+					getMaxPlayer1Money: getMaxPlayer1Money,
+					getMaxPlayer2Money: getMaxPlayer2Money
 				}
 			}.bind(this);
 			
@@ -1544,7 +1575,8 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 				}
 			}.bind(this)
 		
-			window.TRUST = window.TRUST || init();
+			var TRUST = init();
+			window.TRUST = TRUST;
 		}
 	}
 	this.frame_84 = function() {

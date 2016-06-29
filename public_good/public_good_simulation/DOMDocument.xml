@@ -1,4 +1,4 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" guidesVisible="false" timelineLabelWidth="240" viewAngle3D="59.1837342884091" previewFrame="46" templateFilename="/Users/davy.braun/Library/Application Support/Adobe/Animate CC 2015/fr_FR/Configuration/Templates/HTML5 Canvas/sowell_animations/sowell_animations.xfl" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.2 build 66" majorVersion="15" minorVersion="2" buildNumber="66" guidesVisible="false" timelineLabelWidth="240" viewAngle3D="59.1837342884091" previewFrame="46" templateFilename="/Users/davy.braun/Library/Application Support/Adobe/Animate CC 2015/fr_FR/Configuration/Templates/HTML5 Canvas/sowell_animations/sowell_animations.xfl" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
      <brushdefinitions>
           <Include href="PaintBrushDefinitions.xml"/>
      </brushdefinitions>
@@ -10,9 +10,9 @@
           <Include href="arrowGreen.xml" itemIcon="1" loadImmediate="false" itemID="56cf140f-000005c2" lastModified="1456411663"/>
           <Include href="arrowOrange.xml" itemIcon="1" loadImmediate="false" itemID="56cf1409-000005be" lastModified="1456411657"/>
           <Include href="arrowRed.xml" itemIcon="1" loadImmediate="false" itemID="56cf13ee-000005b5" lastModified="1456411630"/>
-          <Include href="bubbleBlue.xml" loadImmediate="false" itemID="5735d693-000001b4" lastModified="1463146138"/>
+          <Include href="bubbleBlue.xml" loadImmediate="false" itemID="5735d693-000001b4" lastModified="1464255246"/>
           <Include href="bubbleGreen.xml" loadImmediate="false" itemID="56cf14da-000005cb" lastModified="1459418581"/>
-          <Include href="bubbleOrange.xml" loadImmediate="false" itemID="56cf14e5-000005cf" lastModified="1459418594"/>
+          <Include href="bubbleOrange.xml" loadImmediate="false" itemID="56cf14e5-000005cf" lastModified="1464255241"/>
           <Include href="bubbleRed.xml" loadImmediate="false" itemID="56cf1576-00000604" lastModified="1459418606"/>
           <Include href="cart.xml" loadImmediate="false" itemID="56e2d0fc-000005ae" lastModified="1463149131"/>
           <Include href="character.xml" itemIcon="1" loadImmediate="false" itemID="56c33d7f-00000262" lastModified="1455635899"/>
@@ -29,12 +29,12 @@
           <Include href="factory.xml" loadImmediate="false" itemID="56cf10f8-0000059c" lastModified="1456410872"/>
           <Include href="floor.xml" itemIcon="1" loadImmediate="false" itemID="56c33808-000001c0" lastModified="1455636937"/>
           <Include href="gain.xml" loadImmediate="false" itemID="56cf2b69-00000812" lastModified="1456417641"/>
-          <Include href="multiplier.xml" loadImmediate="false" itemID="56cf2218-000006c2" lastModified="1456415375"/>
+          <Include href="multiplier.xml" loadImmediate="false" itemID="56cf2218-000006c2" lastModified="1464791323"/>
           <Include href="participantLabel.xml" loadImmediate="false" itemID="56cf13db-000005af" lastModified="1456411611"/>
           <Include href="startScreen.xml" loadImmediate="false" itemID="56cc8937-0000007c" lastModified="1456245551"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="362">
+          <DOMTimeline name="Séquence 1" currentFrame="236">
                <layers>
                     <DOMLayer name="labels" color="#669900" autoNamed="false">
                          <frames>
@@ -44,7 +44,16 @@
                               <DOMFrame index="35" duration="20" name="start" labelType="name" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="55" duration="320" name="send" labelType="name" keyMode="9728">
+                              <DOMFrame index="55" duration="96" name="send" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="151" duration="36" name="multiply" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="187" duration="70" name="finish" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="257" duration="40" name="results" labelType="name" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
                          </frames>
@@ -54,7 +63,7 @@
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="35" duration="379" keyMode="9728">
+                              <DOMFrame index="35" duration="111" keyMode="9728">
                                    <Framescript language="JavaScript">
                                         <script><![CDATA[/*
  Process
@@ -62,7 +71,7 @@
  Find if canvas in HTML shell page has the following data-attributes:
  - `data-estimation-min`
  - `data-estimation-max`
- - `data-estimation-currency`
+ - `data-currency`
  - `data-multipler`
  
  Use them as attributes in the animation if found.
@@ -82,10 +91,10 @@ var NUM_PLAYERS = 4;
 if (document) {
 	var canvas = document.getElementsByTagName('canvas')[0];
 	if (canvas) {
-		min = +canvas.dataset.estimationMin || min;
-		max = +canvas.dataset.estimationMax || max;
-		currency = canvas.dataset.estimationCurrency || currency;
-		multiplier = +canvas.dataset.multiplier|| multiplier;
+		min = +canvas.getAttribute('data-estimation-min') || min;
+		max = +canvas.getAttribute('data-estimation-max') || max;
+		currency = canvas.getAttribute('data-currency')|| currency;
+		multiplier = +canvas.getAttribute('data-multiplier') || multiplier;
 	}
 }
 
@@ -152,7 +161,7 @@ window.PG = (function () {
 		setTimeout(function () {
 			var multipliedAmount = moneyFromGroup() * multiplier;
 			self.cart.bubble.label.text = currency + multipliedAmount.toString();
-		}, 6000);
+		}, 4000);
 		
 		setTimeout(function () {
 			p1.receiveMoney(+resultMoney);
@@ -164,7 +173,7 @@ window.PG = (function () {
 			setTimeout(function () {
 				self.cart.bubble.alpha = 0;
 			}, 1000);
-		}, 10000);
+		}, 7000);
 		
 		
 		self.gotoAndPlay('send');
@@ -178,7 +187,37 @@ window.PG = (function () {
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="414" keyMode="9728">
+                              <DOMFrame index="146" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[this.stop();
+this.gotoAndPlay('multiply');]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="147" duration="39" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="186" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[this.stop();
+this.gotoAndPlay('finish');]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="187" duration="49" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="236" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[this.stop();
+this.gotoAndPlay('results');]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="237" duration="262" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="499" keyMode="9728">
                                    <Framescript language="JavaScript">
                                         <script><![CDATA[this.gotoAndPlay('start');]]></script>
                                    </Framescript>
@@ -191,7 +230,7 @@ window.PG = (function () {
                               <DOMFrame index="0" duration="35" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="35" duration="194" keyMode="9728">
+                              <DOMFrame index="35" duration="116" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier">
                                              <matrix>
@@ -206,7 +245,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="229" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="151" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier">
                                              <matrix>
@@ -221,7 +260,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="233" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+                              <DOMFrame index="155" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier" centerPoint3DX="274.1" centerPoint3DY="113.35">
                                              <matrix>
@@ -233,7 +272,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="261" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+                              <DOMFrame index="183" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier" selected="true" centerPoint3DX="274.1" centerPoint3DY="101.7">
                                              <matrix>
@@ -245,7 +284,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="264" keyMode="9728">
+                              <DOMFrame index="186" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="multiplier" name="bubbleMultiplier" centerPoint3DX="274.1" centerPoint3DY="99">
                                              <matrix>
@@ -273,17 +312,17 @@ window.PG = (function () {
                                    </Framescript>
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="55" duration="360" keyMode="9728">
+                              <DOMFrame index="55" duration="282" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="gain 4" color="#009999" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="335" keyMode="9728">
+                              <DOMFrame index="0" duration="257" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="560.45" centerPoint3DY="385" loop="loop">
                                              <matrix>
@@ -298,7 +337,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="344" duration="65" keyMode="9728">
+                              <DOMFrame index="266" duration="228" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="560.45" centerPoint3DY="385" loop="loop">
                                              <matrix>
@@ -310,7 +349,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="494" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="560.45" centerPoint3DY="385" loop="loop">
                                              <matrix>
@@ -322,7 +361,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="414" keyMode="9728">
+                              <DOMFrame index="499" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="560.45" centerPoint3DY="385" loop="loop">
                                              <matrix>
@@ -341,10 +380,10 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="gain 3" color="#009999" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="335" keyMode="9728">
+                              <DOMFrame index="0" duration="257" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="483.15" centerPoint3DY="337.35" loop="loop">
                                              <matrix>
@@ -359,7 +398,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="344" duration="65" keyMode="9728">
+                              <DOMFrame index="266" duration="228" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="483.15" centerPoint3DY="337.35" loop="loop">
                                              <matrix>
@@ -371,7 +410,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="494" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="483.15" centerPoint3DY="337.35" loop="loop">
                                              <matrix>
@@ -383,7 +422,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="414" keyMode="9728">
+                              <DOMFrame index="499" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="483.15" centerPoint3DY="337.35" loop="loop">
                                              <matrix>
@@ -402,10 +441,10 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="gain 2" color="#009999" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="335" keyMode="9728">
+                              <DOMFrame index="0" duration="257" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="401.75" centerPoint3DY="289.65" loop="loop">
                                              <matrix>
@@ -420,7 +459,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="344" duration="65" keyMode="9728">
+                              <DOMFrame index="266" duration="228" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="401.75" centerPoint3DY="289.65" loop="loop">
                                              <matrix>
@@ -432,7 +471,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="494" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="401.75" centerPoint3DY="289.65" loop="loop">
                                              <matrix>
@@ -444,7 +483,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="414" keyMode="9728">
+                              <DOMFrame index="499" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" symbolType="graphic" centerPoint3DX="401.75" centerPoint3DY="289.65" loop="loop">
                                              <matrix>
@@ -463,10 +502,10 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="gain 1" color="#FF4FFF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="335" keyMode="9728">
+                              <DOMFrame index="0" duration="257" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain">
                                              <matrix>
@@ -481,7 +520,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="344" duration="65" keyMode="9728">
+                              <DOMFrame index="266" duration="228" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" centerPoint3DX="181.7" centerPoint3DY="149.5">
                                              <matrix>
@@ -493,7 +532,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="494" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" centerPoint3DX="181.7" centerPoint3DY="149.5">
                                              <matrix>
@@ -505,7 +544,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="414" keyMode="9728">
+                              <DOMFrame index="499" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="gain" centerPoint3DX="181.7" centerPoint3DY="149.5">
                                              <matrix>
@@ -539,7 +578,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="54" duration="42" keyMode="9728">
+                              <DOMFrame index="54" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="539.55" centerPoint3DY="305.75">
                                              <matrix>
@@ -551,7 +590,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="96" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="55" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="539.55" centerPoint3DY="305.75">
                                              <matrix>
@@ -563,7 +602,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="99" duration="236" keyMode="9728">
+                              <DOMFrame index="58" duration="199" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4">
                                              <matrix>
@@ -578,7 +617,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="547.55" centerPoint3DY="321.7">
                                              <matrix>
@@ -593,7 +632,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="338" duration="71" keyMode="9728">
+                              <DOMFrame index="260" duration="234" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="539.55" centerPoint3DY="305.75">
                                              <matrix>
@@ -605,7 +644,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="494" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="539.55" centerPoint3DY="305.75">
                                              <matrix>
@@ -617,7 +656,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="414" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="499" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleRed" name="bubble4" centerPoint3DX="547.55" centerPoint3DY="321.7">
                                              <matrix>
@@ -648,7 +687,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="54" duration="42" keyMode="9728">
+                              <DOMFrame index="54" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="460.55" centerPoint3DY="254.6">
                                              <matrix>
@@ -660,7 +699,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="96" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="55" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="460.55" centerPoint3DY="254.6">
                                              <matrix>
@@ -672,7 +711,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="99" duration="236" keyMode="9728">
+                              <DOMFrame index="58" duration="199" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3">
                                              <matrix>
@@ -687,7 +726,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="476.55" centerPoint3DY="278.55">
                                              <matrix>
@@ -702,7 +741,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="338" duration="71" keyMode="9728">
+                              <DOMFrame index="260" duration="234" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="460.55" centerPoint3DY="254.6">
                                              <matrix>
@@ -714,7 +753,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="494" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="460.55" centerPoint3DY="254.6">
                                              <matrix>
@@ -726,7 +765,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="414" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="499" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleBlue" name="bubble3" centerPoint3DX="476.55" centerPoint3DY="278.55">
                                              <matrix>
@@ -757,7 +796,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="54" duration="42" keyMode="9728">
+                              <DOMFrame index="54" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="376.15" centerPoint3DY="199.85">
                                              <matrix>
@@ -769,7 +808,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="96" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="55" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="376.15" centerPoint3DY="199.85">
                                              <matrix>
@@ -781,7 +820,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="99" duration="236" keyMode="9728">
+                              <DOMFrame index="58" duration="199" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2">
                                              <matrix>
@@ -796,7 +835,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="400.1" centerPoint3DY="231.8">
                                              <matrix>
@@ -811,7 +850,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="338" duration="71" keyMode="9728">
+                              <DOMFrame index="260" duration="234" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="376.15" centerPoint3DY="199.85">
                                              <matrix>
@@ -823,7 +862,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="494" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="376.15" centerPoint3DY="199.85">
                                              <matrix>
@@ -835,7 +874,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="414" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="499" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleOrange" name="bubble2" centerPoint3DX="400.1" centerPoint3DY="231.8">
                                              <matrix>
@@ -866,7 +905,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="54" duration="42" keyMode="9728">
+                              <DOMFrame index="54" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="169.4" centerPoint3DY="80.25">
                                              <matrix>
@@ -878,7 +917,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="96" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="55" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="169.4" centerPoint3DY="80.25">
                                              <matrix>
@@ -890,7 +929,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="99" duration="236" keyMode="9728">
+                              <DOMFrame index="58" duration="199" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1">
                                              <matrix>
@@ -905,7 +944,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="193.4" centerPoint3DY="104.25">
                                              <matrix>
@@ -920,7 +959,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="338" duration="71" keyMode="9728">
+                              <DOMFrame index="260" duration="234" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="169.4" centerPoint3DY="80.25">
                                              <matrix>
@@ -932,7 +971,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="494" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="169.4" centerPoint3DY="80.25">
                                              <matrix>
@@ -944,7 +983,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="414" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="499" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="bubbleGreen" name="bubble1" centerPoint3DX="193.4" centerPoint3DY="104.25">
                                              <matrix>
@@ -958,7 +997,55 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="factory front" color="#4F80FF" autoNamed="false">
+                    <DOMLayer name="mask" color="#9933CC" locked="true" autoNamed="false" layerType="mask">
+                         <frames>
+                              <DOMFrame index="0" duration="494" keyMode="9728">
+                                   <elements>
+                                        <DOMShape>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor color="#FFFFFF"/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <edges>
+                                                  <Edge fillStyle1="1" edges="!7619 -2259|7619 10739!7619 10739|5280 10739!5280 10739|5480 4980!5480 4980|4440 4260!4440 4260|4440 -2339!4440 -2339|6660 -2339!6660 -2339|6660 -2259!6660 -2259|7619 -2259"/>
+                                                  <Edge cubics="!6660 -2259(;6660,-2259 7619,-2259 7619,-2259q6660 -2259 7619 -2259);"/>
+                                                  <Edge cubics="!7619 10739(7619,10739;7619,10739 5460,10739 5460,10739q7619 10739 5460 10739);"/>
+                                                  <Edge cubics="!7619 -2259(;7619,-2259 7619,10739 7619,10739q7619 -2259 7619 10739)7619,10739;"/>
+                                                  <Edge cubics="!6660 -2339(6660,-2339;6660,-2339 6660,-2259 6660,-2259q6660 -2339 6660 -2259);"/>
+                                                  <Edge cubics="!4440 -2339(;4440,-2339 6660,-2339 6660,-2339q4440 -2339 6660 -2339);"/>
+                                                  <Edge cubics="!5480 4980(5480,4980;5480,4980 4440,4260 4440,4260q5480 4980 4440 4260);"/>
+                                                  <Edge cubics="!5460 10739(;5460,10739 5480,4980 5480,4980q5460 10739 5480 4980);"/>
+                                                  <Edge cubics="!4440 4260(;4440,4260 4440,-2339 4440,-2339q4440 4260 4440 -2339);"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
+                                   <elements>
+                                        <DOMShape>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor color="#FFFFFF"/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <edges>
+                                                  <Edge fillStyle1="1" edges="!7619 -2259|7619 10739!7619 10739|5280 10739!5280 10739|5480 4980!5480 4980|4440 4260!4440 4260|4440 -2339!4440 -2339|6660 -2339!6660 -2339|6660 -2259!6660 -2259|7619 -2259"/>
+                                                  <Edge cubics="!6660 -2259(;6660,-2259 7619,-2259 7619,-2259q6660 -2259 7619 -2259);"/>
+                                                  <Edge cubics="!7619 10739(7619,10739;7619,10739 5460,10739 5460,10739q7619 10739 5460 10739);"/>
+                                                  <Edge cubics="!7619 -2259(;7619,-2259 7619,10739 7619,10739q7619 -2259 7619 10739)7619,10739;"/>
+                                                  <Edge cubics="!6660 -2339(6660,-2339;6660,-2339 6660,-2259 6660,-2259q6660 -2339 6660 -2259);"/>
+                                                  <Edge cubics="!4440 -2339(;4440,-2339 6660,-2339 6660,-2339q4440 -2339 6660 -2339);"/>
+                                                  <Edge cubics="!5480 4980(5480,4980;5480,4980 4440,4260 4440,4260q5480 4980 4440 4260);"/>
+                                                  <Edge cubics="!5460 10739(;5460,10739 5480,4980 5480,4980q5460 10739 5480 4980);"/>
+                                                  <Edge cubics="!4440 4260(;4440,4260 4440,-2339 4440,-2339q4440 4260 4440 -2339);"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="factory front" color="#4F80FF" parentLayerIndex="12" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
@@ -972,7 +1059,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="9" duration="406" keyMode="9728">
+                              <DOMFrame index="9" duration="485" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="factory" centerPoint3DX="299.9" centerPoint3DY="221.95">
+                                             <matrix>
+                                                  <Matrix tx="296.5" ty="215.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="-34.8" y="34.6"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="factory" centerPoint3DX="299.9" centerPoint3DY="221.95">
                                              <matrix>
@@ -988,10 +1087,10 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="chariot money grey copy 4" color="#9933CC" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="269" keyMode="9728">
+                              <DOMFrame index="0" duration="191" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="269" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="191" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" loop="loop">
                                              <matrix>
@@ -1003,7 +1102,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="314" duration="21" keyMode="9728">
+                              <DOMFrame index="236" duration="21" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="165.75" loop="loop">
                                              <matrix>
@@ -1015,7 +1114,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="165.75" loop="loop">
                                              <matrix>
@@ -1027,7 +1126,22 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="344" duration="71" keyMode="9728">
+                              <DOMFrame index="266" duration="228" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="165.75" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="487.75" ty="165.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="165.75" loop="loop">
                                              <matrix>
@@ -1046,10 +1160,10 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="chariot money grey copy 3" color="#9933CC" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="269" keyMode="9728">
+                              <DOMFrame index="0" duration="191" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="269" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="191" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" loop="loop">
                                              <matrix>
@@ -1061,7 +1175,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="314" duration="21" keyMode="9728">
+                              <DOMFrame index="236" duration="21" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="168.15" loop="loop">
                                              <matrix>
@@ -1073,7 +1187,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="168.15" loop="loop">
                                              <matrix>
@@ -1085,7 +1199,22 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="344" duration="71" keyMode="9728">
+                              <DOMFrame index="266" duration="228" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="168.15" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="487.75" ty="168.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="168.15" loop="loop">
                                              <matrix>
@@ -1104,10 +1233,10 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="chariot money grey copy 2" color="#9933CC" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="269" keyMode="9728">
+                              <DOMFrame index="0" duration="191" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="269" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="191" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" loop="loop">
                                              <matrix>
@@ -1119,7 +1248,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="314" duration="21" keyMode="9728">
+                              <DOMFrame index="236" duration="21" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="170.55" loop="loop">
                                              <matrix>
@@ -1131,7 +1260,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="170.55" loop="loop">
                                              <matrix>
@@ -1143,7 +1272,22 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="344" duration="71" keyMode="9728">
+                              <DOMFrame index="266" duration="228" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="170.55" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="487.75" ty="170.55"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="170.55" loop="loop">
                                              <matrix>
@@ -1162,10 +1306,10 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="chariot money grey copy" color="#9933CC" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="269" keyMode="9728">
+                              <DOMFrame index="0" duration="191" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="269" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="191" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" loop="loop">
                                              <matrix>
@@ -1177,7 +1321,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="314" duration="21" keyMode="9728">
+                              <DOMFrame index="236" duration="21" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="172.95" loop="loop">
                                              <matrix>
@@ -1189,7 +1333,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="335" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="257" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="172.95" loop="loop">
                                              <matrix>
@@ -1201,7 +1345,22 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="344" duration="71" keyMode="9728">
+                              <DOMFrame index="266" duration="228" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="172.95" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="487.75" ty="172.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsGreyInChariot" symbolType="graphic" centerPoint3DX="487.75" centerPoint3DY="172.95" loop="loop">
                                              <matrix>
@@ -1220,10 +1379,13 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="chariot money colors" color="#9933CC" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="109" keyMode="9728">
+                              <DOMFrame index="0" duration="59" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="109" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="59" duration="13" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="72" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsColorsInChariot" symbolType="graphic" loop="loop">
                                              <matrix>
@@ -1238,7 +1400,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="114" duration="60" keyMode="9728">
+                              <DOMFrame index="77" duration="19" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsColorsInChariot" symbolType="graphic" centerPoint3DX="112.55" centerPoint3DY="340.15" loop="loop">
                                              <matrix>
@@ -1250,7 +1412,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="174" duration="50" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="96" duration="50" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsColorsInChariot" symbolType="graphic" centerPoint3DX="112.55" centerPoint3DY="340.15" loop="loop">
                                              <matrix>
@@ -1262,7 +1424,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="224" duration="46" keyMode="9728">
+                              <DOMFrame index="146" duration="354" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarsColorsInChariot" symbolType="graphic" centerPoint3DX="288.55" centerPoint3DY="261.75" loop="loop">
                                              <matrix>
@@ -1278,12 +1440,12 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="arrow 4" color="#FF4F4F" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="96" keyMode="9728">
+                              <DOMFrame index="0" duration="59" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="96" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="59" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="arrowRed" symbolType="graphic" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="arrowRed" selected="true" symbolType="graphic" loop="loop">
                                              <matrix>
                                                   <Matrix tx="115.25" ty="362.2"/>
                                              </matrix>
@@ -1296,19 +1458,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="105" duration="59" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="arrowRed" selected="true" symbolType="graphic" centerPoint3DX="325.05" centerPoint3DY="409.65" loop="loop">
-                                             <matrix>
-                                                  <Matrix tx="115.25" ty="362.2"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="210.55" y="48.2"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                   </elements>
-                              </DOMFrame>
-                              <DOMFrame index="164" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="68" duration="18" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="arrowRed" symbolType="graphic" centerPoint3DX="325.05" centerPoint3DY="409.65" loop="loop">
                                              <matrix>
@@ -1320,7 +1470,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="169" keyMode="9728">
+                              <DOMFrame index="86" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="arrowRed" symbolType="graphic" centerPoint3DX="325.05" centerPoint3DY="409.65" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="115.25" ty="362.2"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="210.55" y="48.2"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="91" duration="409" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="arrowRed" symbolType="graphic" centerPoint3DX="325.05" centerPoint3DY="409.65" loop="loop">
                                              <matrix>
@@ -1339,12 +1501,12 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="arrow 3" color="#FF4F4F" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="96" keyMode="9728">
+                              <DOMFrame index="0" duration="59" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="96" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="59" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="arrowBlue" symbolType="graphic" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="arrowBlue" selected="true" symbolType="graphic" loop="loop">
                                              <matrix>
                                                   <Matrix tx="129.8" ty="355.95"/>
                                              </matrix>
@@ -1357,19 +1519,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="105" duration="59" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="arrowBlue" selected="true" symbolType="graphic" centerPoint3DX="293.3" centerPoint3DY="383.5" loop="loop">
-                                             <matrix>
-                                                  <Matrix tx="129.8" ty="355.95"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="164.25" y="28.3"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                   </elements>
-                              </DOMFrame>
-                              <DOMFrame index="164" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="68" duration="18" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="arrowBlue" symbolType="graphic" centerPoint3DX="293.3" centerPoint3DY="383.5" loop="loop">
                                              <matrix>
@@ -1381,7 +1531,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="169" keyMode="9728">
+                              <DOMFrame index="86" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="arrowBlue" symbolType="graphic" centerPoint3DX="293.3" centerPoint3DY="383.5" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="129.8" ty="355.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="164.25" y="28.3"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="91" duration="409" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="arrowBlue" symbolType="graphic" centerPoint3DX="293.3" centerPoint3DY="383.5" loop="loop">
                                              <matrix>
@@ -1400,12 +1562,12 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="arrow 2" color="#FF4F4F" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="96" keyMode="9728">
+                              <DOMFrame index="0" duration="59" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="96" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="59" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="arrowOrange" symbolType="graphic" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="arrowOrange" selected="true" symbolType="graphic" loop="loop">
                                              <matrix>
                                                   <Matrix tx="143.85" ty="313.35"/>
                                              </matrix>
@@ -1418,19 +1580,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="105" duration="59" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="arrowOrange" selected="true" symbolType="graphic" centerPoint3DX="259.35" centerPoint3DY="341.65" loop="loop">
-                                             <matrix>
-                                                  <Matrix tx="143.85" ty="313.35"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="116.25" y="28.3"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                   </elements>
-                              </DOMFrame>
-                              <DOMFrame index="164" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="68" duration="18" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="arrowOrange" symbolType="graphic" centerPoint3DX="259.35" centerPoint3DY="341.65" loop="loop">
                                              <matrix>
@@ -1442,7 +1592,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="169" keyMode="9728">
+                              <DOMFrame index="86" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="arrowOrange" symbolType="graphic" centerPoint3DX="259.35" centerPoint3DY="341.65" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="143.85" ty="313.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="116.25" y="28.3"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="91" duration="409" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="arrowOrange" symbolType="graphic" centerPoint3DX="259.35" centerPoint3DY="341.65" loop="loop">
                                              <matrix>
@@ -1461,12 +1623,12 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="arrow 1" color="#FF4F4F" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="96" keyMode="9728">
+                              <DOMFrame index="0" duration="59" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="96" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="59" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="arrowGreen" symbolType="graphic" loop="loop">
+                                        <DOMSymbolInstance libraryItemName="arrowGreen" selected="true" symbolType="graphic" loop="loop">
                                              <matrix>
                                                   <Matrix tx="53.4" ty="177.25"/>
                                              </matrix>
@@ -1479,19 +1641,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="105" duration="59" keyMode="9728">
-                                   <elements>
-                                        <DOMSymbolInstance libraryItemName="arrowGreen" selected="true" symbolType="graphic" centerPoint3DX="109.95" centerPoint3DY="255.1" loop="loop">
-                                             <matrix>
-                                                  <Matrix tx="53.4" ty="177.25"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="56.55" y="77.1"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                   </elements>
-                              </DOMFrame>
-                              <DOMFrame index="164" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="68" duration="18" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="arrowGreen" symbolType="graphic" centerPoint3DX="109.95" centerPoint3DY="255.1" loop="loop">
                                              <matrix>
@@ -1503,7 +1653,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="169" keyMode="9728">
+                              <DOMFrame index="86" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="arrowGreen" symbolType="graphic" centerPoint3DX="109.95" centerPoint3DY="255.1" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="53.4" ty="177.25"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="56.55" y="77.1"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="91" duration="409" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="arrowGreen" symbolType="graphic" centerPoint3DX="109.95" centerPoint3DY="255.1" loop="loop">
                                              <matrix>
@@ -1540,7 +1702,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="39" duration="135" keyMode="9728">
+                              <DOMFrame index="39" duration="57" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
@@ -1552,7 +1714,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="174" duration="50" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="96" duration="50" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" name="cart" selected="true">
                                              <matrix>
@@ -1564,7 +1726,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="224" duration="45" keyMode="9728">
+                              <DOMFrame index="146" duration="45" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
@@ -1576,7 +1738,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="269" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="191" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
@@ -1588,7 +1750,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="314" duration="95" keyMode="9728">
+                              <DOMFrame index="236" duration="258" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
@@ -1600,7 +1762,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="409" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+                              <DOMFrame index="494" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
@@ -1612,7 +1774,7 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="414" keyMode="9728">
+                              <DOMFrame index="499" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="cart" name="cart">
                                              <matrix>
@@ -1630,7 +1792,7 @@ window.PG = (function () {
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 4" color="#009999" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1-10 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-10 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="32" keyMode="9728">
                                    <elements/>
@@ -1647,7 +1809,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="35" duration="380" keyMode="9728">
+                              <DOMFrame index="35" duration="459" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="383.2" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="377.05"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="383.2" loop="loop">
                                              <matrix>
@@ -1661,7 +1835,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-9 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-9 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="31" keyMode="9728">
                                    <elements/>
@@ -1678,7 +1852,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="34" duration="381" keyMode="9728">
+                              <DOMFrame index="34" duration="460" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="385.15" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="379"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="385.15" loop="loop">
                                              <matrix>
@@ -1692,7 +1878,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-8 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-8 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="30" keyMode="9728">
                                    <elements/>
@@ -1709,7 +1895,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="33" duration="382" keyMode="9728">
+                              <DOMFrame index="33" duration="461" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="387.1" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="380.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="387.1" loop="loop">
                                              <matrix>
@@ -1723,7 +1921,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-7 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-7 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="29" keyMode="9728">
                                    <elements/>
@@ -1740,7 +1938,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="32" duration="383" keyMode="9728">
+                              <DOMFrame index="32" duration="462" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="389.05" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="382.9"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="389.05" loop="loop">
                                              <matrix>
@@ -1754,7 +1964,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-6 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-6 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="28" keyMode="9728">
                                    <elements/>
@@ -1771,7 +1981,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="31" duration="384" keyMode="9728">
+                              <DOMFrame index="31" duration="463" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="391" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="384.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="391" loop="loop">
                                              <matrix>
@@ -1785,7 +2007,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-5 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-5 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="27" keyMode="9728">
                                    <elements/>
@@ -1802,7 +2024,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="30" duration="385" keyMode="9728">
+                              <DOMFrame index="30" duration="464" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="392.95" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="386.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="392.95" loop="loop">
                                              <matrix>
@@ -1816,7 +2050,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-4 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-4 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="26" keyMode="9728">
                                    <elements/>
@@ -1833,7 +2067,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="29" duration="386" keyMode="9728">
+                              <DOMFrame index="29" duration="465" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="394.9" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="388.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="394.9" loop="loop">
                                              <matrix>
@@ -1847,7 +2093,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-3 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-3 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="25" keyMode="9728">
                                    <elements/>
@@ -1864,7 +2110,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="28" duration="387" keyMode="9728">
+                              <DOMFrame index="28" duration="466" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="396.85" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="390.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="396.85" loop="loop">
                                              <matrix>
@@ -1878,7 +2136,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-2 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-2 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="24" keyMode="9728">
                                    <elements/>
@@ -1895,7 +2153,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="27" duration="388" keyMode="9728">
+                              <DOMFrame index="27" duration="467" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="398.8" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="392.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="398.8" loop="loop">
                                              <matrix>
@@ -1909,7 +2179,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-1 copy 3" color="#808080" parentLayerIndex="23" autoNamed="false">
+                    <DOMLayer name="d1-1 copy 3" color="#808080" parentLayerIndex="24" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="23" keyMode="9728">
                                    <elements/>
@@ -1926,7 +2196,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="26" duration="389" keyMode="9728">
+                              <DOMFrame index="26" duration="468" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="400.75" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="536.35" ty="394.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarRed" symbolType="graphic" centerPoint3DX="548.4" centerPoint3DY="400.75" loop="loop">
                                              <matrix>
@@ -1941,7 +2223,7 @@ window.PG = (function () {
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 3" color="#009999" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1-10 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-10 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="30" keyMode="9728">
                                    <elements/>
@@ -1958,7 +2240,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="33" duration="382" keyMode="9728">
+                              <DOMFrame index="33" duration="461" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="335.75" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="329.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="335.75" loop="loop">
                                              <matrix>
@@ -1972,7 +2266,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-9 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-9 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="29" keyMode="9728">
                                    <elements/>
@@ -1989,7 +2283,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="32" duration="383" keyMode="9728">
+                              <DOMFrame index="32" duration="462" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="337.7" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="331.55"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="337.7" loop="loop">
                                              <matrix>
@@ -2003,7 +2309,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-8 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-8 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="28" keyMode="9728">
                                    <elements/>
@@ -2020,7 +2326,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="31" duration="384" keyMode="9728">
+                              <DOMFrame index="31" duration="463" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="339.65" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="333.5"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="339.65" loop="loop">
                                              <matrix>
@@ -2034,7 +2352,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-7 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-7 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="27" keyMode="9728">
                                    <elements/>
@@ -2051,7 +2369,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="30" duration="385" keyMode="9728">
+                              <DOMFrame index="30" duration="464" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="341.6" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="335.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="341.6" loop="loop">
                                              <matrix>
@@ -2065,7 +2395,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-6 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-6 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="26" keyMode="9728">
                                    <elements/>
@@ -2082,7 +2412,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="29" duration="386" keyMode="9728">
+                              <DOMFrame index="29" duration="465" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="343.55" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="337.4"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="343.55" loop="loop">
                                              <matrix>
@@ -2096,7 +2438,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-5 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-5 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="25" keyMode="9728">
                                    <elements/>
@@ -2113,7 +2455,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="28" duration="387" keyMode="9728">
+                              <DOMFrame index="28" duration="466" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="345.5" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="339.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="345.5" loop="loop">
                                              <matrix>
@@ -2127,7 +2481,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-4 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-4 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="24" keyMode="9728">
                                    <elements/>
@@ -2144,7 +2498,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="27" duration="388" keyMode="9728">
+                              <DOMFrame index="27" duration="467" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="347.45" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="341.3"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="347.45" loop="loop">
                                              <matrix>
@@ -2158,7 +2524,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-3 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-3 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="23" keyMode="9728">
                                    <elements/>
@@ -2175,7 +2541,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="26" duration="389" keyMode="9728">
+                              <DOMFrame index="26" duration="468" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="349.4" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="343.25"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="349.4" loop="loop">
                                              <matrix>
@@ -2189,7 +2567,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-2 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-2 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="22" keyMode="9728">
                                    <elements/>
@@ -2206,7 +2584,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="25" duration="390" keyMode="9728">
+                              <DOMFrame index="25" duration="469" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="351.35" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="345.2"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="351.35" loop="loop">
                                              <matrix>
@@ -2220,7 +2610,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-1 copy 2" color="#808080" parentLayerIndex="34" autoNamed="false">
+                    <DOMLayer name="d1-1 copy 2" color="#808080" parentLayerIndex="35" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="21" keyMode="9728">
                                    <elements/>
@@ -2237,7 +2627,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="24" duration="391" keyMode="9728">
+                              <DOMFrame index="24" duration="470" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="353.3" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="459.05" ty="347.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarBlue" symbolType="graphic" centerPoint3DX="471.1" centerPoint3DY="353.3" loop="loop">
                                              <matrix>
@@ -2252,7 +2654,7 @@ window.PG = (function () {
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 2" color="#009999" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1-10 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-10 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="28" keyMode="9728">
                                    <elements/>
@@ -2272,7 +2674,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="31" duration="384" keyMode="9728">
+                              <DOMFrame index="31" duration="463" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="288" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="281.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="288" loop="loop">
                                              <matrix>
@@ -2286,7 +2700,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-9 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-9 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="27" keyMode="9728">
                                    <elements/>
@@ -2306,7 +2720,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="30" duration="385" keyMode="9728">
+                              <DOMFrame index="30" duration="464" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="289.95" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="283.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="289.95" loop="loop">
                                              <matrix>
@@ -2320,7 +2746,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-8 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-8 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="26" keyMode="9728">
                                    <elements/>
@@ -2340,7 +2766,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="29" duration="386" keyMode="9728">
+                              <DOMFrame index="29" duration="465" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="291.9" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="285.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="291.9" loop="loop">
                                              <matrix>
@@ -2354,7 +2792,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-7 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-7 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="25" keyMode="9728">
                                    <elements/>
@@ -2374,7 +2812,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="28" duration="387" keyMode="9728">
+                              <DOMFrame index="28" duration="466" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="293.85" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="287.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="293.85" loop="loop">
                                              <matrix>
@@ -2388,7 +2838,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-6 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-6 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="24" keyMode="9728">
                                    <elements/>
@@ -2408,7 +2858,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="27" duration="388" keyMode="9728">
+                              <DOMFrame index="27" duration="467" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="295.8" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="289.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="295.8" loop="loop">
                                              <matrix>
@@ -2422,7 +2884,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-5 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-5 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="23" keyMode="9728">
                                    <elements/>
@@ -2442,7 +2904,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="26" duration="389" keyMode="9728">
+                              <DOMFrame index="26" duration="468" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="297.75" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="291.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="297.75" loop="loop">
                                              <matrix>
@@ -2456,7 +2930,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-4 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-4 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="22" keyMode="9728">
                                    <elements/>
@@ -2476,7 +2950,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="25" duration="390" keyMode="9728">
+                              <DOMFrame index="25" duration="469" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="299.7" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="293.55"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="299.7" loop="loop">
                                              <matrix>
@@ -2490,7 +2976,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-3 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-3 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="21" keyMode="9728">
                                    <elements/>
@@ -2510,7 +2996,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="24" duration="391" keyMode="9728">
+                              <DOMFrame index="24" duration="470" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="301.65" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="295.5"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="301.65" loop="loop">
                                              <matrix>
@@ -2524,7 +3022,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-2 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-2 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="20" keyMode="9728">
                                    <elements/>
@@ -2544,7 +3042,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="23" duration="392" keyMode="9728">
+                              <DOMFrame index="23" duration="471" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="303.6" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="297.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="303.6" loop="loop">
                                              <matrix>
@@ -2558,7 +3068,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-1 copy" color="#808080" parentLayerIndex="45" autoNamed="false">
+                    <DOMLayer name="d1-1 copy" color="#808080" parentLayerIndex="46" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="19" keyMode="9728">
                                    <elements/>
@@ -2578,7 +3088,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="22" duration="393" keyMode="9728">
+                              <DOMFrame index="22" duration="472" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="305.55" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="377.65" ty="299.4"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarOrange" symbolType="graphic" centerPoint3DX="389.7" centerPoint3DY="305.55" loop="loop">
                                              <matrix>
@@ -2593,7 +3115,7 @@ window.PG = (function () {
                          </frames>
                     </DOMLayer>
                     <DOMLayer name="dollars 1" color="#009999" autoNamed="false" layerType="folder"/>
-                    <DOMLayer name="d1-10" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-10" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="26" keyMode="9728">
                                    <elements/>
@@ -2610,7 +3132,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="29" duration="386" keyMode="9728">
+                              <DOMFrame index="29" duration="465" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="154.3" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="148.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="154.3" loop="loop">
                                              <matrix>
@@ -2624,7 +3158,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-9" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-9" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="25" keyMode="9728">
                                    <elements/>
@@ -2641,7 +3175,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="28" duration="387" keyMode="9728">
+                              <DOMFrame index="28" duration="466" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="156.25" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="150.1"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="156.25" loop="loop">
                                              <matrix>
@@ -2655,7 +3201,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-8" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-8" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="24" keyMode="9728">
                                    <elements/>
@@ -2672,7 +3218,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="27" duration="388" keyMode="9728">
+                              <DOMFrame index="27" duration="467" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="158.2" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="152.05"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="158.2" loop="loop">
                                              <matrix>
@@ -2686,7 +3244,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-7" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-7" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="23" keyMode="9728">
                                    <elements/>
@@ -2703,7 +3261,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="26" duration="389" keyMode="9728">
+                              <DOMFrame index="26" duration="468" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="160.15" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="154"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="160.15" loop="loop">
                                              <matrix>
@@ -2717,7 +3287,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-6" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-6" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="22" keyMode="9728">
                                    <elements/>
@@ -2734,7 +3304,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="25" duration="390" keyMode="9728">
+                              <DOMFrame index="25" duration="469" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="162.1" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="155.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="162.1" loop="loop">
                                              <matrix>
@@ -2748,7 +3330,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-5" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-5" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="21" keyMode="9728">
                                    <elements/>
@@ -2765,7 +3347,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="24" duration="391" keyMode="9728">
+                              <DOMFrame index="24" duration="470" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="164.05" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="157.9"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="164.05" loop="loop">
                                              <matrix>
@@ -2779,7 +3373,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-4" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-4" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="20" keyMode="9728">
                                    <elements/>
@@ -2796,7 +3390,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="23" duration="392" keyMode="9728">
+                              <DOMFrame index="23" duration="471" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="166" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="159.85"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="166" loop="loop">
                                              <matrix>
@@ -2810,7 +3416,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-3" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-3" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="19" keyMode="9728">
                                    <elements/>
@@ -2827,7 +3433,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="22" duration="393" keyMode="9728">
+                              <DOMFrame index="22" duration="472" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="167.95" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="161.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="167.95" loop="loop">
                                              <matrix>
@@ -2841,7 +3459,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-2" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-2" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="18" keyMode="9728">
                                    <elements/>
@@ -2858,7 +3476,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="21" duration="394" keyMode="9728">
+                              <DOMFrame index="21" duration="473" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="169.9" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="163.75"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="169.9" loop="loop">
                                              <matrix>
@@ -2872,7 +3502,7 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="d1-1" color="#808080" parentLayerIndex="56" autoNamed="false">
+                    <DOMLayer name="d1-1" color="#808080" parentLayerIndex="57" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="17" keyMode="9728">
                                    <elements/>
@@ -2889,7 +3519,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="20" duration="395" keyMode="9728">
+                              <DOMFrame index="20" duration="474" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="171.85" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="169.65" ty="165.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="12.05" y="6.15"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="dollarGreen" symbolType="graphic" centerPoint3DX="181.7" centerPoint3DY="171.85" loop="loop">
                                              <matrix>
@@ -2920,7 +3562,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="20" duration="395" keyMode="9728">
+                              <DOMFrame index="20" duration="474" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="565.6" centerPoint3DY="367.75" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="560.45" ty="340.35"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="565.6" centerPoint3DY="367.75" loop="loop">
                                              <matrix>
@@ -2951,7 +3605,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="19" duration="396" keyMode="9728">
+                              <DOMFrame index="19" duration="475" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="488.3" centerPoint3DY="320.05" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="483.15" ty="292.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="488.3" centerPoint3DY="320.05" loop="loop">
                                              <matrix>
@@ -2982,7 +3648,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="18" duration="397" keyMode="9728">
+                              <DOMFrame index="18" duration="476" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="409.75" centerPoint3DY="271.05" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="404.6" ty="243.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="409.75" centerPoint3DY="271.05" loop="loop">
                                              <matrix>
@@ -3013,7 +3691,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="17" duration="398" keyMode="9728">
+                              <DOMFrame index="17" duration="477" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="201.1" centerPoint3DY="139.55" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="195.95" ty="112.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="5.15" y="27.4"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="character" symbolType="graphic" centerPoint3DX="201.1" centerPoint3DY="139.55" loop="loop">
                                              <matrix>
@@ -3047,7 +3737,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="14" duration="401" keyMode="9728">
+                              <DOMFrame index="14" duration="480" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="conveyor" symbolType="graphic" centerPoint3DX="293.1" centerPoint3DY="263.7" loop="loop">
+                                             <matrix>
+                                                  <Matrix a="-1" tx="266.95" ty="291.95"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="conveyor" symbolType="graphic" centerPoint3DX="293.1" centerPoint3DY="263.7" loop="loop">
                                              <matrix>
@@ -3061,7 +3763,45 @@ window.PG = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="factory back" color="#4F80FF" autoNamed="false">
+                    <DOMLayer name="mask" color="#FF800A" locked="true" autoNamed="false" layerType="mask">
+                         <frames>
+                              <DOMFrame index="0" duration="494" keyMode="9728">
+                                   <elements>
+                                        <DOMShape isFloating="true">
+                                             <matrix>
+                                                  <Matrix tx="2"/>
+                                             </matrix>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor color="#FFFFFF"/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <edges>
+                                                  <Edge fillStyle1="1" edges="!3868 -5714S2|5440 -5714!5440 -5714|5440 14523!5440 14523|3868 14523!3868 14523|3868 -5714"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
+                                   <elements>
+                                        <DOMShape isFloating="true">
+                                             <matrix>
+                                                  <Matrix tx="2"/>
+                                             </matrix>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor color="#FFFFFF"/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <edges>
+                                                  <Edge fillStyle1="1" edges="!3868 -5714S2|5440 -5714!5440 -5714|5440 14523!5440 14523|3868 14523!3868 14523|3868 -5714"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="factory back" color="#4F80FF" parentLayerIndex="73" locked="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
                                    <elements>
@@ -3075,7 +3815,19 @@ window.PG = (function () {
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                              <DOMFrame index="9" duration="406" keyMode="9728">
+                              <DOMFrame index="9" duration="485" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="factory" centerPoint3DX="299.9" centerPoint3DY="221.95">
+                                             <matrix>
+                                                  <Matrix tx="296.5" ty="215.15"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="-34.8" y="34.6"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="factory" centerPoint3DX="299.9" centerPoint3DY="221.95">
                                              <matrix>
@@ -3091,7 +3843,21 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="yellow floor" color="#FF800A" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="415" keyMode="9728">
+                              <DOMFrame index="0" duration="494" keyMode="9728">
+                                   <elements>
+                                        <DOMShape>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor color="#FFFF00" alpha="0.2"/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <edges>
+                                                  <Edge fillStyle1="1" edges="!3087 2668|10091.5 -429!10091.5 -429|12334 -429!12334 -429|12334 8284!12334 8284|3087 2668"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMShape>
                                              <fills>
@@ -3109,7 +3875,19 @@ window.PG = (function () {
                     </DOMLayer>
                     <DOMLayer name="floor" color="#4F80FF" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="415" keyMode="9728">
+                              <DOMFrame index="0" duration="494" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="floor" symbolType="graphic" loop="loop">
+                                             <matrix>
+                                                  <Matrix tx="275" ty="200"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="494" duration="6" keyMode="9728">
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="floor" symbolType="graphic" loop="loop">
                                              <matrix>
