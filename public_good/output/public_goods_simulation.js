@@ -1394,12 +1394,13 @@ p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
 		 */
 		 
 		var self = this;
-		var min = 5;
-		var max = 10;
+		var min = 1000;
+		var max = 12000;
 		var currency = '€';
 		var multiplier = 1.6;
 		var resultMoney = 0;
 		var NUM_PLAYERS = 4;
+		var locale = 'ko-kr';
 		
 		if (document) {
 			var canvas = document.getElementsByTagName('canvas')[0];
@@ -1408,7 +1409,16 @@ p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
 				max = +canvas.getAttribute('data-estimation-max') || max;
 				currency = canvas.getAttribute('data-currency')|| currency;
 				multiplier = +canvas.getAttribute('data-multiplier') || multiplier;
+				locale = canvas.getAttribute('data-locale') || locale;
 			}
+		}
+		
+		var unit = locale === 'ko-kr' ? 1000 : 1;
+			
+		function setMoneyText(money) {
+			money = locale === 'ko-kr' ? money * 1000 : money;
+			console.log(money);
+			return currency + money.toString();
 		}
 		
 		function getRandomInt(min, max) {
@@ -1423,11 +1433,21 @@ p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
 			this.bubble.label.text = currency + max;
 		};
 		
+		if (locale === 'ko-kr') {
+			this.bubble1.label.font = "18px 'Gotham Medium'";
+			this.bubble2.label.font = "18px 'Gotham Medium'";
+			this.bubble3.label.font = "18px 'Gotham Medium'";
+			this.bubble4.label.font = "18px 'Gotham Medium'";
+			this.cart.bubble.label.font = "18px 'Gotham Medium'";
+		}
+		
 		Player.prototype.giveMoney = function (amount) {
 			if (amount <= max) {
 				this.currentAmount = max - amount;
 				
-				var displayedAmount = (this.currentAmount % 1 === 0 ? this.currentAmount.toString() : this.currentAmount.toFixed(2).toString());
+				var displayedAmount = (
+					this.currentAmount % 1 === 0 ? this.currentAmount.toString() : this.currentAmount.toFixed(2).toString()
+				);
 				
 				this.speak(currency + displayedAmount);
 				this.givingAmount = amount;
@@ -1448,7 +1468,7 @@ p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
 		var p3 = new Player(max, this.bubble3);
 		var p4 = new Player(max, this.bubble4);
 		
-		var moneyFromGroup = function() {
+		var moneyFromGroup = function () {
 			return p1.givingAmount + p2.givingAmount + p3.givingAmount + p4.givingAmount;
 		}
 		
@@ -1460,7 +1480,7 @@ p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
 			var giveMoney = function (playerIndex, amount) {
 				players[playerIndex].giveMoney(+amount);
 				self.cart.bubble.alpha = 1;
-				self.cart.bubble.label.text = currency + moneyFromGroup().toFixed(2).toString();
+				self.cart.bubble.label.text = locale === 'ko-kr' ? currency + moneyFromGroup().toString() : currency + moneyFromGroup().toFixed(2).toString();
 			};
 			
 			var multiply = function () {
