@@ -1,4 +1,4 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" timelineLabelWidth="240" viewAngle3D="59.1837342884091" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCD1DB" width="600" height="480" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.2 build 66" majorVersion="15" minorVersion="2" buildNumber="66" timelineLabelWidth="240" viewAngle3D="59.1837342884091" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
      <symbols>
           <Include href="bubble_left.xml" loadImmediate="false" itemID="56cdc520-000001bf" lastModified="1459764824"/>
           <Include href="bubble_right.xml" loadImmediate="false" itemID="5742fb9f-000000ab" lastModified="1464007593"/>
@@ -72,15 +72,23 @@ this.participantB.label.text = labelB;]]></script>
  
 var self = this;
 var min = 0;
-var max = 10;
+var max = 10000;
 var currency = '€';
+var locale = 'ko';
 if (document) {
 	var canvas = document.getElementsByTagName('canvas')[0];
 	if (canvas) {
 		min = canvas.dataset.estimationMin || min;
 		max = canvas.dataset.estimationMax || max;
 		currency = canvas.dataset.estimationCurrency || currency;
+		locale = canvas.getAttribute('data-locale') || locale;
 	}
+}
+
+if (locale === 'ko') {
+	this.bubbleLeft.estimation.font = "18px 'Gotham Medium'";
+	this.bubbleRight.estimation.font = "18px 'Gotham Medium'";
+	this.cart.bubble.label.font = "18px 'Gotham Medium'";
 }
 
 this.bubbleLeft.estimation.text = currency + max.toString();
@@ -90,21 +98,25 @@ this.cart.bubble.alpha = 1;
 this.cart.bubble.label.text = currency + '0';
 
 var givenAmount = 0;
+var unit = locale === 'ko' ? 1000 : 1;
 
 window.DICTATOR = (function () {
 	
 	var putMoney = function (amount) {
+		console.log('putMoney', amount);
 		if (amount >= min && amount <= max) {
+			console.log(amount);
 			self.bubbleLeft.estimation.text = currency + (max - amount).toString();
 			self.cart.bubble.label.text = currency + amount.toString();
-			
-			givenAmount = max - amount;
+			givenAmount = amount;
+			// givenAmount = max - amount;
 		}
 	};
 	
 	var send = function () {
 		self.gotoAndPlay('send');
 		setTimeout(function () {
+			console.log(givenAmount);
 			self.bubbleRight.estimation.text = currency + givenAmount.toString();
 		}, 4500);
 	};
@@ -167,7 +179,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                               <DOMFrame index="13" duration="414" keyMode="9728">
                                    <elements>
-                                        <DOMShape selected="true" isFloating="true">
+                                        <DOMShape isFloating="true">
                                              <matrix>
                                                   <Matrix tx="31"/>
                                              </matrix>
@@ -3565,8 +3577,8 @@ window.DICTATOR = (function () {
      <persistentData>
           <PD n="Arrêter la lecture à partir de cette image" t="i" v="2"/>
           <PD n="Evénement MouseClick" t="i" v="2"/>
-          <PD n="Lire un clip" t="i" v="2"/>
           <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+          <PD n="Lire un clip" t="i" v="2"/>
      </persistentData>
      <PrinterSettings platform="macintosh"/>
      <publishHistory/>
