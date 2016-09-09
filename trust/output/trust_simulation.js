@@ -1280,10 +1280,10 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 				}
 			}
 			
-			var unit = locale === 'ko-kr' ? 1000 : 1;
+			var unit = locale === 'ko' ? 1000 : 1;
 			
 			function setMoneyText(money) {
-				money = locale === 'ko-kr' ? money * 1000 : money;
+				money = locale === 'ko' ? money * 1000 : money;
 				console.log(money);
 				return currency + money.toString();
 			}
@@ -1315,7 +1315,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 				this.cart1.bubble.alpha = 0;
 				this.cart2.bubble.alpha = 0;
 				
-				if (locale === 'ko-kr') {
+				if (locale === 'ko') {
 					this.cart1.bubble.label.font = "18px 'Gotham Medium'";
 					this.cart2.bubble.label.font = "18px 'Gotham Medium'";
 					console.log(this.cart1.bubble);
@@ -1439,7 +1439,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					stack: []
 				}];
 				
-				if (locale === 'ko-kr') {
+				if (locale === 'ko') {
 					this.bubble1.label.font = "18px 'Gotham Medium'";
 					this.bubble2.label.font = "18px 'Gotham Medium'";
 				}
@@ -1482,7 +1482,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ini
 					
 					for (var i = 0; i < players.length; i++) {
 						var colors = ['green', 'orange'];
-						var max = locale === 'ko-kr' ? startAmount / 1000 : startAmount;
+						var max = locale === 'ko' ? startAmount / 1000 : startAmount;
 						while (players[i].stack.length < max) {
 							increment(i, colors[i]);
 						}

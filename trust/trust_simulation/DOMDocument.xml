@@ -20,7 +20,7 @@
           <Include href="threeDollarsGrey.xml" itemIcon="1" loadImmediate="false" itemID="56d07828-0000044b" lastModified="1456502824"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="36">
+          <DOMTimeline name="Séquence 1" currentFrame="60">
                <layers>
                     <DOMLayer name="stop()" color="#4F80FF" autoNamed="false">
                          <frames>
@@ -154,10 +154,10 @@ this.bubble2.label.text = startAmount.toString() + currency;]]></script>
 		}
 	}
 	
-	var unit = locale === 'ko-kr' ? 1000 : 1;
+	var unit = locale === 'ko' ? 1000 : 1;
 	
 	function setMoneyText(money) {
-		money = locale === 'ko-kr' ? money * 1000 : money;
+		money = locale === 'ko' ? money * 1000 : money;
 		console.log(money);
 		return currency + money.toString();
 	}
@@ -189,7 +189,7 @@ this.bubble2.label.text = startAmount.toString() + currency;]]></script>
 		this.cart1.bubble.alpha = 0;
 		this.cart2.bubble.alpha = 0;
 		
-		if (locale === 'ko-kr') {
+		if (locale === 'ko') {
 			this.cart1.bubble.label.font = "18px 'Gotham Medium'";
 			this.cart2.bubble.label.font = "18px 'Gotham Medium'";
 			console.log(this.cart1.bubble);
@@ -313,7 +313,7 @@ this.bubble2.label.text = startAmount.toString() + currency;]]></script>
 			stack: []
 		}];
 		
-		if (locale === 'ko-kr') {
+		if (locale === 'ko') {
 			this.bubble1.label.font = "18px 'Gotham Medium'";
 			this.bubble2.label.font = "18px 'Gotham Medium'";
 		}
@@ -356,7 +356,7 @@ this.bubble2.label.text = startAmount.toString() + currency;]]></script>
 			
 			for (var i = 0; i < players.length; i++) {
 				var colors = ['green', 'orange'];
-				var max = locale === 'ko-kr' ? startAmount / 1000 : startAmount;
+				var max = locale === 'ko' ? startAmount / 1000 : startAmount;
 				while (players[i].stack.length < max) {
 					increment(i, colors[i]);
 				}
@@ -2144,8 +2144,8 @@ this.bubble2.label.text = startAmount.toString() + currency;]]></script>
           </swatchList>
      </swatchLists>
      <persistentData>
-          <PD n="Obtenir le numéro de l’image actuelle" t="i" v="2"/>
           <PD n="Ajouter une occurrence depuis la bibliothèque" t="i" v="3"/>
+          <PD n="Obtenir le numéro de l’image actuelle" t="i" v="2"/>
           <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;false"/>
      </persistentData>
      <PrinterSettings platform="macintosh"/>

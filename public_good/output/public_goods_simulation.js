@@ -1,6 +1,7 @@
 (function (lib, img, cjs, ss) {
 
 var p; // shortcut to reference prototypes
+lib.webFontTxtFilters = {}; 
 
 // library properties:
 lib.properties = {
@@ -9,6 +10,7 @@ lib.properties = {
 	fps: 30,
 	color: "#CCD1DB",
 	opacity: 1.00,
+	webfonts: {},
 	manifest: []
 };
 
@@ -17,6 +19,13 @@ lib.properties = {
 lib.ssMetadata = [];
 
 
+lib.webfontAvailable = function(family) { 
+	lib.properties.webfonts[family] = true;
+	var txtFilters = lib.webFontTxtFilters && lib.webFontTxtFilters[family] || [];
+	for(var f = 0; f < txtFilters.length; ++f) {
+		txtFilters[f].updateCache();
+	}
+};
 // symbols:
 
 
@@ -1400,7 +1409,7 @@ p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
 		var multiplier = 1.6;
 		var resultMoney = 0;
 		var NUM_PLAYERS = 4;
-		var locale = 'ko-kr';
+		var locale = 'ko';
 		
 		if (document) {
 			var canvas = document.getElementsByTagName('canvas')[0];
@@ -1413,10 +1422,10 @@ p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
 			}
 		}
 		
-		var unit = locale === 'ko-kr' ? 1000 : 1;
+		var unit = locale === 'ko' ? 1000 : 1;
 			
 		function setMoneyText(money) {
-			money = locale === 'ko-kr' ? money * 1000 : money;
+			money = locale === 'ko' ? money * 1000 : money;
 			console.log(money);
 			return currency + money.toString();
 		}
@@ -1433,7 +1442,7 @@ p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
 			this.bubble.label.text = currency + max;
 		};
 		
-		if (locale === 'ko-kr') {
+		if (locale === 'ko') {
 			this.bubble1.label.font = "18px 'Gotham Medium'";
 			this.bubble2.label.font = "18px 'Gotham Medium'";
 			this.bubble3.label.font = "18px 'Gotham Medium'";
@@ -1480,7 +1489,7 @@ p.nominalBounds = new cjs.Rectangle(0,-53.2,103.9,88.8);
 			var giveMoney = function (playerIndex, amount) {
 				players[playerIndex].giveMoney(+amount);
 				self.cart.bubble.alpha = 1;
-				self.cart.bubble.label.text = locale === 'ko-kr' ? currency + moneyFromGroup().toString() : currency + moneyFromGroup().toFixed(2).toString();
+				self.cart.bubble.label.text = locale === 'ko' ? currency + moneyFromGroup().toString() : currency + moneyFromGroup().toFixed(2).toString();
 			};
 			
 			var multiply = function () {

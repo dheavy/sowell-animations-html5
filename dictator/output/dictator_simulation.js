@@ -1173,7 +1173,7 @@ p.nominalBounds = new cjs.Rectangle(0,-77.5,61.7,113.1);
 		var min = 0;
 		var max = 10000;
 		var currency = '€';
-		var locale = 'ko';
+		var locale = 'fr';
 		if (document) {
 			var canvas = document.getElementsByTagName('canvas')[0];
 			if (canvas) {

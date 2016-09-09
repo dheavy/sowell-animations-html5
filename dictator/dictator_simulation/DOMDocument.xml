@@ -74,7 +74,7 @@ var self = this;
 var min = 0;
 var max = 10000;
 var currency = '€';
-var locale = 'ko';
+var locale = 'fr';
 if (document) {
 	var canvas = document.getElementsByTagName('canvas')[0];
 	if (canvas) {
