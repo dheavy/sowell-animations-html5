@@ -1,6 +1,9 @@
 SOWELL - animations
 ===================
 
+> REPO IS DEPRECATED. 
+> Please check out [Trustlab's](https://github.com/medialab/trustlab) versioning [here](https://github.com/medialab/trustlab/tree/master/_animatedsims).
+
 ## Animations used in tests for SOWELL, ported from Flash to HTML5.
 
 #### Setup
