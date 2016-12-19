@@ -2,7 +2,7 @@
      <symbols>
           <Include href="bubble_left.xml" loadImmediate="false" itemID="56cdc520-000001bf" lastModified="1459764824"/>
           <Include href="bubble_right.xml" loadImmediate="false" itemID="5742fb9f-000000ab" lastModified="1464007593"/>
-          <Include href="bubbleBlue.xml" loadImmediate="false" itemID="5735d693-000001b4" lastModified="1464006354"/>
+          <Include href="bubbleBlue.xml" loadImmediate="false" itemID="5735d693-000001b4" lastModified="1478097464"/>
           <Include href="character.xml" itemIcon="1" loadImmediate="false" itemID="56c33d7f-00000262" lastModified="1455635899"/>
           <Include href="chariot.xml" loadImmediate="false" itemID="56c33b2a-00000220" lastModified="1464006357"/>
           <Include href="conveyor.xml" itemIcon="1" loadImmediate="false" itemID="56c33b06-00000219" lastModified="1455635206"/>
@@ -15,9 +15,9 @@
           <Include href="startScreen.xml" loadImmediate="false" itemID="56cc8937-0000007c" lastModified="1456245551"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Séquence 1" currentFrame="220">
+          <DOMTimeline name="Séquence 1">
                <layers>
-                    <DOMLayer name="scripts" color="#808080" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="scripts" color="#808080" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="45" keyMode="9728">
                                    <elements/>
@@ -60,9 +60,10 @@ this.participantB.label.text = labelB;]]></script>
  Process
  -------
  Find if canvas in HTML shell page has the following data-attributes:
- - `data-estimation-min`
- - `data-estimation-max`
- - `data-estimation-currency`
+ - `data-min`
+ - `data-max`
+ - `data-currency`
+ - `data-locale`
  
  Use them as attributes in the animation if found.
  Use default attributes if not.
@@ -72,15 +73,16 @@ this.participantB.label.text = labelB;]]></script>
  
 var self = this;
 var min = 0;
-var max = 10000;
+var max = 12000;
 var currency = '€';
-var locale = 'fr';
+var locale = 'ko';
+
 if (document) {
 	var canvas = document.getElementsByTagName('canvas')[0];
 	if (canvas) {
-		min = canvas.dataset.estimationMin || min;
-		max = canvas.dataset.estimationMax || max;
-		currency = canvas.dataset.estimationCurrency || currency;
+		min = canvas.getAttribute('data-min') || min;
+		max = canvas.getAttribute('data-max') || max;
+		currency = canvas.getAttribute('data-currency') || currency;
 		locale = canvas.getAttribute('data-locale') || locale;
 	}
 }
@@ -103,21 +105,18 @@ var unit = locale === 'ko' ? 1000 : 1;
 window.DICTATOR = (function () {
 	
 	var putMoney = function (amount) {
-		console.log('putMoney', amount);
 		if (amount >= min && amount <= max) {
-			console.log(amount);
 			self.bubbleLeft.estimation.text = currency + (max - amount).toString();
 			self.cart.bubble.label.text = currency + amount.toString();
 			givenAmount = amount;
-			// givenAmount = max - amount;
 		}
 	};
 	
 	var send = function () {
 		self.gotoAndPlay('send');
 		setTimeout(function () {
-			console.log(givenAmount);
 			self.bubbleRight.estimation.text = currency + givenAmount.toString();
+			self.cart.bubble.label.text = currency + '0';
 		}, 4500);
 	};
 	
@@ -3320,7 +3319,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="chariot" color="#009999" autoNamed="false">
+                    <DOMLayer name="chariot" color="#009999" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="20" keyMode="9728">
                                    <elements/>
@@ -3339,7 +3338,7 @@ window.DICTATOR = (function () {
                               </DOMFrame>
                               <DOMFrame index="30" duration="149" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="chariot" name="cart">
+                                        <DOMSymbolInstance libraryItemName="chariot" name="cart" selected="true">
                                              <matrix>
                                                   <Matrix tx="155.25" ty="192.7"/>
                                              </matrix>
@@ -3577,8 +3576,8 @@ window.DICTATOR = (function () {
      <persistentData>
           <PD n="Arrêter la lecture à partir de cette image" t="i" v="2"/>
           <PD n="Evénement MouseClick" t="i" v="2"/>
-          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
           <PD n="Lire un clip" t="i" v="2"/>
+          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
      </persistentData>
      <PrinterSettings platform="macintosh"/>
      <publishHistory/>
